@@ -54,11 +54,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="NumeroDecimalTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnalisadorContabil\AnalisadorContabil.csproj">
+      <Project>{D8EEDD32-E8B9-46BD-8319-D946560BD736}</Project>
+      <Name>AnalisadorContabil</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
