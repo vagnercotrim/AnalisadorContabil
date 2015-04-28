@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DictionaryFonteDeDados.cs" />
     <Compile Include="Formula.cs" />
     <Compile Include="IComponente.cs" />
     <Compile Include="IFonteDeDados.cs" />
