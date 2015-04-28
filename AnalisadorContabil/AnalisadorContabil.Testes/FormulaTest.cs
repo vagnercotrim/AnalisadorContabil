@@ -16,7 +16,7 @@ namespace AnalisadorContabil.Testes
         {
             IComponente componente = new Formula("C14-006", "25 * 3");
 
-            Decimal valor = (Decimal)componente.GetValor();
+            var valor = componente.GetValor();
 
             Assert.That(valor, Is.EqualTo(75));
         }

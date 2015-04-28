@@ -1,4 +1,5 @@
 using System;
+using NCalc;
 
 namespace AnalisadorContabil
 {
@@ -6,6 +7,7 @@ namespace AnalisadorContabil
     {
         private readonly String _id;
         private readonly String _formula;
+        private Expression _expression;
 
         public Formula(String id, String formula)
         {
@@ -25,7 +27,9 @@ namespace AnalisadorContabil
 
         private object Calcular()
         {
-            return 75.00M;
+            _expression = new Expression(_formula);
+
+            return _expression.Evaluate();
         }
     }
 }
