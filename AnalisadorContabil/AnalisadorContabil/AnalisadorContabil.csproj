@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="DictionaryFonteDeDados.cs" />
     <Compile Include="Formula.cs" />
+    <Compile Include="FormulaFactory.cs" />
     <Compile Include="IComponente.cs" />
     <Compile Include="IFonteDeDados.cs" />
     <Compile Include="NumeroDecimal.cs" />
