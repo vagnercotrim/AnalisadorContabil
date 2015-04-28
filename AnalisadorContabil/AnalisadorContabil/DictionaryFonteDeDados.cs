@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace AnalisadorContabil
 {
-    class DictionaryFonteDeDados : IFonteDeDados
+    public class DictionaryFonteDeDados : IFonteDeDados
     {
-        IDictionary<String, object> dados = new Dictionary<String, object>();
-
-        public DictionaryFonteDeDados()
+        private readonly IDictionary<String, object> _dados;
+        
+        public DictionaryFonteDeDados(IDictionary<String, object> dados)
         {
-            dados.Add("C15-0010", "(25 * 3) / 15");
+            _dados = dados;
         }
 
         public object GetDados(String id)
         {
             object valor;
-            dados.TryGetValue(id, out valor);
+            _dados.TryGetValue(id, out valor);
 
             return valor;
         }
