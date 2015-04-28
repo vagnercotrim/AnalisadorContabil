@@ -54,6 +54,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="FormulaFactoryTest.cs" />
     <Compile Include="FormulaTest.cs" />
     <Compile Include="NumeroDecimalTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
