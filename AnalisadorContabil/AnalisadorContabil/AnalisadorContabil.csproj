@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Formula.cs" />
     <Compile Include="IComponente.cs" />
+    <Compile Include="IFonteDeDados.cs" />
     <Compile Include="NumeroDecimal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
