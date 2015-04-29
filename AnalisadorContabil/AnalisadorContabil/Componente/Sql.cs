@@ -8,7 +8,7 @@ namespace AnalisadorContabil.Componente
         private readonly String _id;
         private readonly object _valor;
 
-        public Sql(String id, Decimal valor)
+        public Sql(String id, object valor)
         {
             _id = id;
             _valor = valor;

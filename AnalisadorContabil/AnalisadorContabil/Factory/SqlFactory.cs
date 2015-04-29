@@ -15,7 +15,7 @@ namespace AnalisadorContabil.Factory
 
         public Sql Criar(String id)
         {
-            Decimal valor = (Decimal)_fonte.GetDados(id);
+            object valor = (object)_fonte.GetDados(id);
 
             return new Sql(id, valor);
         }
