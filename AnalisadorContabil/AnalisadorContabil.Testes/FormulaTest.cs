@@ -8,6 +8,14 @@ namespace AnalisadorContabil.Testes
     {
 
         [Test]
+        public void Rerifica_o_ID_do_componente_formula()
+        {
+            IComponente componente = new Formula("C14-006", "25 * 3");
+
+            Assert.That(componente.Id(), Is.EqualTo("C14-006"));
+        }
+
+        [Test]
         public void Deve_criar_um_componente_formula_e_retornar_75()
         {
             IComponente componente = new Formula("C14-006", "25 * 3");
