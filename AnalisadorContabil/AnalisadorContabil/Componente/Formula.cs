@@ -1,7 +1,7 @@
 using System;
 using NCalc;
 
-namespace AnalisadorContabil
+namespace AnalisadorContabil.Componente
 {
     public class Formula : IComponente
     {

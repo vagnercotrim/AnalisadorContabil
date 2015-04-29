@@ -43,14 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Sql.cs" />
-    <Compile Include="SqlFactory.cs" />
-    <Compile Include="DictionaryFonteDeDados.cs" />
-    <Compile Include="Formula.cs" />
-    <Compile Include="FormulaFactory.cs" />
-    <Compile Include="IComponente.cs" />
-    <Compile Include="IFonteDeDados.cs" />
-    <Compile Include="NumeroDecimal.cs" />
+    <Compile Include="Componente\Sql.cs" />
+    <Compile Include="Factory\SqlFactory.cs" />
+    <Compile Include="FonteDeDados\DictionaryFonteDeDados.cs" />
+    <Compile Include="Componente\Formula.cs" />
+    <Compile Include="Factory\FormulaFactory.cs" />
+    <Compile Include="Componente\IComponente.cs" />
+    <Compile Include="FonteDeDados\IFonteDeDados.cs" />
+    <Compile Include="Componente\NumeroDecimal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

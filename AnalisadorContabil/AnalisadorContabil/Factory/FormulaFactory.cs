@@ -1,6 +1,8 @@
 ﻿using System;
+using AnalisadorContabil.Componente;
+using AnalisadorContabil.FonteDeDados;
 
-namespace AnalisadorContabil
+namespace AnalisadorContabil.Factory
 {
     public class FormulaFactory
     {

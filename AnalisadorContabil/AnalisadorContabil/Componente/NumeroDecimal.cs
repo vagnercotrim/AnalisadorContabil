@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AnalisadorContabil
+namespace AnalisadorContabil.Componente
 {
     public class NumeroDecimal : IComponente
     {

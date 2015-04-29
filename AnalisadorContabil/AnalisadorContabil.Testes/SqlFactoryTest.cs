@@ -1,4 +1,7 @@
-﻿using NUnit.Framework;
+﻿using AnalisadorContabil.Componente;
+using AnalisadorContabil.Factory;
+using AnalisadorContabil.FonteDeDados;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 

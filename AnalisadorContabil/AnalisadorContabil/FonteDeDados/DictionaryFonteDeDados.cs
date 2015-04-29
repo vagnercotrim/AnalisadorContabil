@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AnalisadorContabil
+namespace AnalisadorContabil.FonteDeDados
 {
     public class DictionaryFonteDeDados : IFonteDeDados
     {
