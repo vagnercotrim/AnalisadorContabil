@@ -1,4 +1,5 @@
 ﻿using System;
+using AnalisadorContabil.Valor;
 
 namespace AnalisadorContabil.Componente
 {
@@ -6,6 +7,6 @@ namespace AnalisadorContabil.Componente
     {
         String Id();
 
-        object GetValor();
+        IValor GetValor();
     }
 }

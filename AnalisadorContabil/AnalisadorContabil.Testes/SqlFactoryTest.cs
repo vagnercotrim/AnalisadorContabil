@@ -23,7 +23,7 @@ namespace AnalisadorContabil.Testes
             Sql formula = formulaFactory.Criar("C15-0010");
 
             var valor = formula.GetValor();
-            Assert.That(valor, Is.EqualTo(23.23M));
+            Assert.That(valor.Exibir(), Is.EqualTo("23,23"));
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using AnalisadorContabil.Valor;
 
 namespace AnalisadorContabil.Componente
 {
@@ -18,9 +19,9 @@ namespace AnalisadorContabil.Componente
             return _id;
         }
 
-        public object GetValor()
+        public IValor GetValor()
         {
-            return _valor;
+            return new ValorDecimal(_valor);
         }
     }
 }

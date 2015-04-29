@@ -14,7 +14,7 @@ namespace AnalisadorContabil.Testes
 
             var valor = componente.GetValor();
 
-            Assert.That(valor, Is.EqualTo(75));
+            Assert.That(valor.Exibir(), Is.EqualTo("75,00"));
         }
 
         [Test]
@@ -24,7 +24,7 @@ namespace AnalisadorContabil.Testes
 
             var valor = componente.GetValor();
 
-            Assert.That(valor, Is.EqualTo(true));
+            Assert.That(valor.Exibir(), Is.EqualTo("verdadeiro"));
         }
 
         [Test]
@@ -34,7 +34,7 @@ namespace AnalisadorContabil.Testes
 
             var valor = componente.GetValor();
 
-            Assert.That(valor, Is.EqualTo(5));
+            Assert.That(valor.Exibir(), Is.EqualTo("5,00"));
         }
 
     }

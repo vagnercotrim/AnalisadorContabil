@@ -24,7 +24,7 @@ namespace AnalisadorContabil.Testes
             Formula formula = formulaFactory.Criar("C15-0010");
 
             var valor = formula.GetValor();
-            Assert.That(valor, Is.EqualTo(5));
+            Assert.That(valor.Exibir(), Is.EqualTo("5,00"));
         }
 
     }

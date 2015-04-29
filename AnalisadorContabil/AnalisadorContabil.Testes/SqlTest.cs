@@ -1,5 +1,6 @@
 ﻿using System;
 using AnalisadorContabil.Componente;
+using AnalisadorContabil.Valor;
 using NUnit.Framework;
 
 namespace AnalisadorContabil.Testes
@@ -11,10 +12,10 @@ namespace AnalisadorContabil.Testes
         {
             IComponente componente = new Sql("C14-006", 23);
 
-            Decimal valor = (Decimal)componente.GetValor();
+            IValor valor = componente.GetValor();
 
             Assert.That(componente.Id(), Is.EqualTo("C14-006"));
-            Assert.That(valor, Is.EqualTo(23));
+            Assert.That(valor.Exibir(), Is.EqualTo("23,00"));
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using AnalisadorContabil.Valor;
 using NCalc;
 
 namespace AnalisadorContabil.Componente
@@ -20,9 +21,23 @@ namespace AnalisadorContabil.Componente
             return _id;
         }
 
-        public object GetValor()
+        public IValor GetValor()
         {
-            return Calcular();
+            object resultado = Calcular();
+
+            if (resultado is int)
+                return new ValorDecimal(resultado);
+
+            if (resultado is double)
+                return new ValorDecimal(resultado);
+
+            if (resultado is decimal)
+                return new ValorDecimal(resultado);
+
+            if (resultado is bool)
+                return new ValorBooleano(resultado);
+
+            return null;
         }
 
         private object Calcular()
