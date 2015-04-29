@@ -8,20 +8,20 @@ namespace AnalisadorContabil.Valor
 {
     public class ValorDecimal : IValor
     {
-         private Decimal? _valor;
+        private Decimal? _valor;
 
-         public ValorDecimal(object valor)
-         {
-             try
-             {
-                 Decimal valorDecimal = Decimal.Parse(valor.ToString());
-                 _valor = valorDecimal;
-             }
-             catch (Exception)
-             {
-                 _valor = null;
-             }
-         }
+        public ValorDecimal(object valor)
+        {
+            try
+            {
+                Decimal valorDecimal = Decimal.Parse(valor.ToString());
+                _valor = valorDecimal;
+            }
+            catch (Exception)
+            {
+                _valor = null;
+            }
+        }
 
         public ValorDecimal(Decimal valor)
         {
