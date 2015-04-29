@@ -9,6 +9,7 @@ namespace AnalisadorContabil
         public String Codigo { get; set; }
         public String Descricao { get; set; }
         public String Parametros { get; set; }
+        public String TipoRetorno { get; set; }
         public object Valor { get; set; }
 
         public Tabela(String codigo, object valor)
@@ -17,12 +18,10 @@ namespace AnalisadorContabil
             Valor = valor;
         }
 
-        public Tabela(String codigo, String descricao, String parametros, object valor)
+        public Tabela(String codigo, String descricao, String parametros, object valor) : this(codigo, valor)
         {
-            Codigo = codigo;
             Descricao = descricao;
             Parametros = parametros;
-            Valor = valor;
         }
 
         public IDictionary<String, String> ToDictionary()
