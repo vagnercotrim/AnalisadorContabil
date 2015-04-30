@@ -15,9 +15,9 @@ namespace AnalisadorContabil.Factory
 
         public Sql Criar(String id)
         {
-            object valor = (object)_fonte.GetDados(id);
+            Tabela tabela = _fonte.GetDados(id);
 
-            return new Sql(id, valor);
+            return new Sql(id, tabela.Valor);
         }
 
     }

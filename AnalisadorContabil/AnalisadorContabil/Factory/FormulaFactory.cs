@@ -15,9 +15,10 @@ namespace AnalisadorContabil.Factory
 
         public Formula Criar(String id)
         {
-            object valor = _fonte.GetDados(id);
+            Tabela tabela = _fonte.GetDados(id);
+            String formula = tabela.Get("formula").Replace(@"'", "");
 
-            return new Formula(id, (String)valor);
+            return new Formula(id, formula);
         }
 
     }

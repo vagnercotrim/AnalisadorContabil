@@ -15,7 +15,7 @@ namespace AnalisadorContabil.Testes
         public void Deve_cria_um_componente_formula_atravez_de_formulafactory()
         {
             IDictionary<String, Tabela> dados = new Dictionary<String, Tabela>();
-            dados.Add("C15-0010", new Tabela("C15-0010", null, null, "(25 * 3) / 15"));
+            dados.Add("C15-0010", new Tabela("C15-0010", null, "formula", "formula:'(25 * 3) / 15'", null));
 
             IFonteDeDados fonteDeDados = new DictionaryFonteDeDados(dados);
 
