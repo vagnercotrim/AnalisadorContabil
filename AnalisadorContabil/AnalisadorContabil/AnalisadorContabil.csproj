@@ -51,6 +51,7 @@
     <Compile Include="Componente\IComponente.cs" />
     <Compile Include="FonteDeDados\IFonteDeDados.cs" />
     <Compile Include="Componente\NumeroDecimal.cs" />
+    <Compile Include="Parametro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tabela.cs" />
     <Compile Include="Valor\IValor.cs" />
