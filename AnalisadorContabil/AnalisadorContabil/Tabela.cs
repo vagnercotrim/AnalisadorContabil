@@ -10,15 +10,13 @@ namespace AnalisadorContabil
         public String Descricao { get; set; }
         public String Parametros { get; set; }
         public String Tipo { get; set; }
-        public object Valor { get; set; }
         
-        public Tabela(String codigo, String descricao, String tipo, String parametros, object valor = null)
+        public Tabela(String codigo, String descricao, String tipo, String parametros)
         {
             Codigo = codigo;
             Descricao = descricao;
             Tipo = tipo;
             Parametros = parametros;
-            Valor = valor;
         }
 
         public object Get(String key)
