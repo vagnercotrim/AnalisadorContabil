@@ -16,7 +16,7 @@ namespace AnalisadorContabil.Factory
         public Formula Criar(String id)
         {
             Tabela tabela = _fonte.GetDados(id);
-            String formula = tabela.Get("formula").Replace(@"'", "");
+            String formula = tabela.Get("formula").ToString().Replace(@"'", "");
 
             return new Formula(id, formula);
         }

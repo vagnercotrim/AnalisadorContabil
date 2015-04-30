@@ -16,8 +16,16 @@ namespace AnalisadorContabil.Factory
         public Sql Criar(String id)
         {
             Tabela tabela = _fonte.GetDados(id);
+            String tiporetorno = tabela.Get("tiporetorno").ToString().Replace(@"'", "");
 
-            return new Sql(id, tabela.Valor);
+            object valor = null;
+
+            if (tiporetorno == "decimal")
+                valor = Decimal.Parse(tabela.Get("resultado").ToString());
+            else
+                valor = tabela.Get("resultado");
+
+            return new Sql(id, valor);
         }
 
     }

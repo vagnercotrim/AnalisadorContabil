@@ -21,18 +21,18 @@ namespace AnalisadorContabil
             Valor = valor;
         }
 
-        public String Get(String key)
+        public object Get(String key)
         {
-            String value;
+            object value;
             ToDictionary().TryGetValue(key, out value);
 
             return value;
         }
 
-        public IDictionary<String, String> ToDictionary()
+        public IDictionary<String, object> ToDictionary()
         {
             IList<String> strings = Parametros.Split(';').ToList();
-            IDictionary<String, String> dictionary = new Dictionary<String, String>();
+            IDictionary<String, object> dictionary = new Dictionary<String, object>();
 
             foreach (var s in strings)
             {
@@ -42,11 +42,11 @@ namespace AnalisadorContabil
             return dictionary;
         }
 
-        private KeyValuePair<String, String> ToKeyValuePair(String value)
+        private KeyValuePair<String, object> ToKeyValuePair(String value)
         {
             String[] values = value.Split(':');
 
-            return new KeyValuePair<String, String>(values[0], values[1]);
+            return new KeyValuePair<String, object>(values[0], values[1]);
         }
 
     }

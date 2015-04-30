@@ -15,7 +15,7 @@ namespace AnalisadorContabil.Testes
         {
             Tabela tabela1 = new Tabela("C15-0010", "Componente C15-0010", "sql", "tabela:gastos;selecione:valor1;campocondicao:conta;valorcondicao:01.02.03.04", 23.23M);
             
-            IDictionary<String, String> parametros = tabela1.ToDictionary();
+            IDictionary<String, object> parametros = tabela1.ToDictionary();
 
             Assert.AreEqual(parametros.Count, 4);
         }
