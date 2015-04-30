@@ -12,16 +12,12 @@ namespace AnalisadorContabil
         public String TipoRetorno { get; set; }
         public object Valor { get; set; }
 
-        public Tabela(String codigo, object valor)
+        public Tabela(String codigo, String descricao, String parametros, object valor)
         {
             Codigo = codigo;
-            Valor = valor;
-        }
-
-        public Tabela(String codigo, String descricao, String parametros, object valor) : this(codigo, valor)
-        {
             Descricao = descricao;
             Parametros = parametros;
+            Valor = valor;
         }
 
         public IDictionary<String, String> ToDictionary()
