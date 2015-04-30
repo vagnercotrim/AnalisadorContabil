@@ -9,15 +9,24 @@ namespace AnalisadorContabil
         public String Codigo { get; set; }
         public String Descricao { get; set; }
         public String Parametros { get; set; }
-        public String TipoRetorno { get; set; }
+        public String Tipo { get; set; }
         public object Valor { get; set; }
-
-        public Tabela(String codigo, String descricao, String parametros, object valor)
+        
+        public Tabela(String codigo, String descricao, String tipo, String parametros, object valor = null)
         {
             Codigo = codigo;
             Descricao = descricao;
+            Tipo = tipo;
             Parametros = parametros;
             Valor = valor;
+        }
+
+        public String Get(String key)
+        {
+            String value;
+            ToDictionary().TryGetValue(key, out value);
+
+            return value;
         }
 
         public IDictionary<String, String> ToDictionary()
@@ -33,7 +42,7 @@ namespace AnalisadorContabil
             return dictionary;
         }
 
-        public KeyValuePair<String, String> ToKeyValuePair(String value)
+        private KeyValuePair<String, String> ToKeyValuePair(String value)
         {
             String[] values = value.Split(':');
 
