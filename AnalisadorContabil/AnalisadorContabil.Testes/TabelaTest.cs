@@ -13,8 +13,10 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Cria_objeto_da_classe_tabela_com_4_parametros()
         {
-            Tabela tabela1 = new Tabela("C15-0010", "Componente C15-0010", "sql", "tabela:gastos;selecione:valor1;campocondicao:conta;valorcondicao:01.02.03.04");
+            String json = "[{\"Nome\":\"tabela\",\"Valor\":\"gastos\"},{\"Nome\":\"selecione\",\"Valor\":\"valor1\"},{\"Nome\":\"campocondicao\",\"Valor\":\"conta\"},{\"Nome\":\"valorcondicao\",\"Valor\":\"01.02.03.04\"}]";
             
+            Tabela tabela1 = new Tabela("C15-0010", "Componente C15-0010", "sql", json);
+
             IList<Parametro> parametros = tabela1.ParametrosToList();
 
             Assert.AreEqual(parametros.Count, 4);

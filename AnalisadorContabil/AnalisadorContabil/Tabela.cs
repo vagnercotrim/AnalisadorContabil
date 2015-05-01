@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace AnalisadorContabil
 {
@@ -40,16 +41,19 @@ namespace AnalisadorContabil
 
         private IList<Parametro> ParametrosToList(String parametros)
         {
-            IList<String> strings = parametros.Split(';').ToList();
-
-            return strings.Select(ToParametro).ToList();
+            return JsonConvert.DeserializeObject<List<Parametro>>(parametros);
         }
 
         private Parametro ToParametro(String value)
         {
-            String[] values = value.Split(':');
-
-            return new Parametro(values[0], values[1]);
+            try
+            {
+                return ParametrosToList(Parametros).First(p => p.Nome.Equals(value));
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
     }
