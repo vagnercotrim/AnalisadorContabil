@@ -11,13 +11,20 @@ namespace AnalisadorContabil.FonteDeDados
         {
             _dados = dados;
         }
-        
+
         public Tabela GetDados(String id)
         {
-            Tabela valor;
-            _dados.TryGetValue(id, out valor);
+            try
+            {
+                Tabela valor;
+                _dados.TryGetValue(id, out valor);
 
-            return valor;
+                return valor;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
     }
 }
