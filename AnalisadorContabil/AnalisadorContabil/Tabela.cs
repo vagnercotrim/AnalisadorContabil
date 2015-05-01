@@ -59,18 +59,5 @@ namespace AnalisadorContabil
         {
             return JsonConvert.DeserializeObject<List<Parametro>>(parametros);
         }
-
-        private Parametro ToParametro(String value)
-        {
-            try
-            {
-                return ParametrosToList(Parametros).First(p => p.Nome.Equals(value));
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
     }
 }
