@@ -23,7 +23,7 @@ namespace AnalisadorContabil
         {
             try
             {
-                object value = ParametrosToList().First(p => p.Nome.Equals(key)).Valor;
+                object value = ParametrosToList(Parametros).First(p => p.Nome.Equals(key)).Valor;
 
                 return value;
             }
@@ -35,7 +35,12 @@ namespace AnalisadorContabil
 
         public IList<Parametro> ParametrosToList()
         {
-            IList<String> strings = Parametros.Split(';').ToList();
+            return ParametrosToList(Parametros);
+        }
+
+        private IList<Parametro> ParametrosToList(String parametros)
+        {
+            IList<String> strings = parametros.Split(';').ToList();
 
             return strings.Select(ToParametro).ToList();
         }
