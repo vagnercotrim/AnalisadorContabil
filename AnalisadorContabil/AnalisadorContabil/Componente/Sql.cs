@@ -1,5 +1,5 @@
-﻿using System;
-using AnalisadorContabil.Valor;
+﻿using AnalisadorContabil.Valor;
+using System;
 
 namespace AnalisadorContabil.Componente
 {
@@ -21,12 +21,11 @@ namespace AnalisadorContabil.Componente
 
         public IValor GetValor()
         {
-
             if (_valor is int)
                 return new ValorDecimal(_valor);
 
             if (_valor is double)
-                return new ValorDecimal(_valor);
+                return new ValorDouble(_valor);
 
             if (_valor is decimal)
                 return new ValorDecimal(_valor);
