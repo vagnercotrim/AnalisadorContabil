@@ -12,6 +12,22 @@ namespace AnalisadorContabil
         public String Parametros { get; set; }
         public String Tipo { get; set; }
 
+        public Tabela(String codigo, String descricao, String tipo, Parametro parametros)
+        {
+            Codigo = codigo;
+            Descricao = descricao;
+            Tipo = tipo;
+            Parametros = JsonConvert.SerializeObject(new List<Parametro>() { parametros });
+        }
+
+        public Tabela(String codigo, String descricao, String tipo, IList<Parametro> parametros)
+        {
+            Codigo = codigo;
+            Descricao = descricao;
+            Tipo = tipo;
+            Parametros = JsonConvert.SerializeObject(parametros);
+        }
+
         public Tabela(String codigo, String descricao, String tipo, String parametros)
         {
             Codigo = codigo;
