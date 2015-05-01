@@ -52,5 +52,13 @@ namespace AnalisadorContabil.Testes
             Assert.That(valor, Is.EqualTo(new DateTime(2015, 04, 30)));
         }
 
+        [Test]
+        public void Deve_retornar_nulo_quando_recupear_um_parametro_inexistente()
+        {
+            Tabela tabela = new Tabela("C15-0010", null, "formula", new Parametro("numero", 23.23));
+            object valor = tabela.Get("campo");
+
+            Assert.That(valor, Is.Null);
+        }
     }
 }
