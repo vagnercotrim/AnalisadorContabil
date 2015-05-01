@@ -45,5 +45,15 @@ namespace AnalisadorContabil.Testes
             Assert.That(valor.Exibir(), Is.EqualTo("5,00"));
         }
 
+        [Test]
+        public void Deve_criar_um_componente_formula_com_parametro()
+        {
+            IComponente formula = new Formula("C14-007", "[C14-017] * 15.00");
+
+            var valor = formula.GetValor();
+
+            Assert.AreEqual(valor.Exibir(), "75,00");
+        }
+
     }
 }

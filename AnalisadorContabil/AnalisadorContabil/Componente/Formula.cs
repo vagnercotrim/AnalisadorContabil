@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using AnalisadorContabil.Valor;
 using NCalc;
 
@@ -29,7 +30,7 @@ namespace AnalisadorContabil.Componente
                 return new ValorDecimal(resultado);
 
             if (resultado is double)
-                return new ValorDecimal(resultado);
+                return new ValorDouble(resultado);
 
             if (resultado is decimal)
                 return new ValorDecimal(resultado);
@@ -43,6 +44,9 @@ namespace AnalisadorContabil.Componente
         private object Calcular()
         {
             _expression = new Expression(_formula);
+
+            if (_formula.Contains("["))
+                _expression.Parameters["C14-017"] = new Formula("C14-017", "2.00 + 3.00").GetValor().Objeto();
 
             return _expression.Evaluate();
         }

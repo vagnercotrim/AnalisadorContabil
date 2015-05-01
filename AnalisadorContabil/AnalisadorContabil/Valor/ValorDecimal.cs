@@ -28,6 +28,11 @@ namespace AnalisadorContabil.Valor
             _valor = valor;
         }
 
+        public object Objeto()
+        {
+            return _valor;
+        }
+
         public String Exibir()
         {
             return _valor == null ? "" : _valor.Value.ToString("n2");

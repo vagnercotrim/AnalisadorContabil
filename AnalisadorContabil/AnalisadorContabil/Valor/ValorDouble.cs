@@ -1,29 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnalisadorContabil.Valor
 {
-    public class ValorBooleano : IValor
+    public class ValorDouble : IValor
     {
-        private bool _valor;
+      private Double? _valor;
 
-        public ValorBooleano(object valor)
+        public ValorDouble(object valor)
         {
             try
             {
-                Boolean valorDecimal = Boolean.Parse(valor.ToString());
+                Double valorDecimal = Double.Parse(valor.ToString());
                 _valor = valorDecimal;
             }
             catch (Exception)
             {
-                _valor = false;
+                _valor = null;
             }
         }
 
-        public ValorBooleano(bool valor)
+        public ValorDouble(Double valor)
         {
             _valor = valor;
         }
@@ -35,7 +31,7 @@ namespace AnalisadorContabil.Valor
 
         public String Exibir()
         {
-            return _valor ? "verdadeiro" : "falso";
+            return _valor == null ? "" : _valor.Value.ToString("n2");
         }
     }
 }
