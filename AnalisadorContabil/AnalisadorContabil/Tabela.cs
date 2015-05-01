@@ -10,7 +10,7 @@ namespace AnalisadorContabil
         public String Descricao { get; set; }
         public String Parametros { get; set; }
         public String Tipo { get; set; }
-        
+
         public Tabela(String codigo, String descricao, String tipo, String parametros)
         {
             Codigo = codigo;
@@ -21,30 +21,30 @@ namespace AnalisadorContabil
 
         public object Get(String key)
         {
-            object value;
-            ToDictionary().TryGetValue(key, out value);
+            try
+            {
+                object value = ParametrosToList().First(p => p.Nome.Equals(key)).Valor;
 
-            return value;
+                return value;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
-        public IDictionary<String, object> ToDictionary()
+        public IList<Parametro> ParametrosToList()
         {
             IList<String> strings = Parametros.Split(';').ToList();
-            IDictionary<String, object> dictionary = new Dictionary<String, object>();
 
-            foreach (var s in strings)
-            {
-                dictionary.Add(ToKeyValuePair(s));
-            }
-
-            return dictionary;
+            return strings.Select(ToParametro).ToList();
         }
 
-        private KeyValuePair<String, object> ToKeyValuePair(String value)
+        private Parametro ToParametro(String value)
         {
             String[] values = value.Split(':');
 
-            return new KeyValuePair<String, object>(values[0], values[1]);
+            return new Parametro(values[0], values[1]);
         }
 
     }
