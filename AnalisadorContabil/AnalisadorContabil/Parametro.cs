@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AnalisadorContabil
 {
@@ -11,6 +12,11 @@ namespace AnalisadorContabil
         {
             Nome = nome;
             Valor = valor;
+        }
+
+        public static IList<String> FromString(String formula)
+        {
+            return formula.Split('[', ']');
         }
     }
 }

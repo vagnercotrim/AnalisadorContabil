@@ -59,6 +59,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="JsonNETTest.cs" />
+    <Compile Include="ParametroTest.cs" />
     <Compile Include="SqlFactoryTest.cs" />
     <Compile Include="SqlTest.cs" />
     <Compile Include="FormulaFactoryTest.cs" />
