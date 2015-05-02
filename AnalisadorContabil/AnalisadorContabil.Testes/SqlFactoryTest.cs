@@ -14,7 +14,7 @@ namespace AnalisadorContabil.Testes
         public void Deve_cria_um_componente_formula_atravez_de_formulafactory()
         {
             IDictionary<String, Tabela> dados = new Dictionary<String, Tabela>();
-            dados.Add("C15-0010", new Tabela("C15-0010", null, "sql", "[{\"Nome\":\"resultado\",\"Valor\":23.23},{\"Nome\":\"tiporetorno\",\"Valor\":\"decimal\"}]"));
+            dados.Add("C15-0010", new Tabela("C15-0010", null, "sql", "dictionary", "[{\"Nome\":\"resultado\",\"Valor\":23.23},{\"Nome\":\"tiporetorno\",\"Valor\":\"decimal\"}]"));
 
             IFonteDeDados fonteDeDados = new DictionaryFonteDeDados(dados);
 

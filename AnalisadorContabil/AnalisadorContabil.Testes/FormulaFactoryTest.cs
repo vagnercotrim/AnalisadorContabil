@@ -16,7 +16,7 @@ namespace AnalisadorContabil.Testes
         {
             IDictionary<String, Tabela> dados = new Dictionary<String, Tabela>();
 
-            Tabela tabela = new Tabela("C15-0010", null, "formula", new Parametro("formula", "(25 * 3) / 15"));
+            Tabela tabela = new Tabela("C15-0010", null, "formula", "dictionary", new Parametro("formula", "(25 * 3) / 15"));
             dados.Add("C15-0010", tabela);
 
             IFonteDeDados fonteDeDados = new DictionaryFonteDeDados(dados);

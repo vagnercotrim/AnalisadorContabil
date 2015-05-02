@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
 
 namespace AnalisadorContabil
 {
@@ -11,16 +11,17 @@ namespace AnalisadorContabil
         public String Descricao { get; set; }
         public String Parametros { get; set; }
         public String Tipo { get; set; }
+        public String Fonte { get; set; }
 
-        public Tabela(String codigo, String descricao, String tipo, Parametro parametros)
+        public Tabela(String codigo, String descricao, String tipo, String fonte, Parametro parametros)
         {
             Codigo = codigo;
             Descricao = descricao;
             Tipo = tipo;
-            Parametros = JsonConvert.SerializeObject(new List<Parametro>() { parametros });
+            Parametros = JsonConvert.SerializeObject(new List<Parametro> { parametros });
         }
 
-        public Tabela(String codigo, String descricao, String tipo, IList<Parametro> parametros)
+        public Tabela(String codigo, String descricao, String tipo, String fonte, IList<Parametro> parametros)
         {
             Codigo = codigo;
             Descricao = descricao;
@@ -28,7 +29,7 @@ namespace AnalisadorContabil
             Parametros = JsonConvert.SerializeObject(parametros);
         }
 
-        public Tabela(String codigo, String descricao, String tipo, String parametros)
+        public Tabela(String codigo, String descricao, String tipo, String fonte, String parametros)
         {
             Codigo = codigo;
             Descricao = descricao;
