@@ -1,5 +1,6 @@
 ﻿using System;
 using AnalisadorContabil.Componente;
+using AnalisadorContabil.Dominio;
 using AnalisadorContabil.FonteDeDados;
 
 namespace AnalisadorContabil.Factory

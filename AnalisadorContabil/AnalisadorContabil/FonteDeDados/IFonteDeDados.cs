@@ -1,4 +1,5 @@
 ﻿using System;
+using AnalisadorContabil.Dominio;
 
 namespace AnalisadorContabil.FonteDeDados
 {

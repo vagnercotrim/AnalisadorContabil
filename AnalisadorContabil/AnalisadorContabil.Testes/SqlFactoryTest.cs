@@ -1,4 +1,5 @@
 ﻿using AnalisadorContabil.Componente;
+using AnalisadorContabil.Dominio;
 using AnalisadorContabil.Factory;
 using AnalisadorContabil.FonteDeDados;
 using NUnit.Framework;

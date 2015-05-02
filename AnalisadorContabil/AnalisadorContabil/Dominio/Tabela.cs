@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AnalisadorContabil
+namespace AnalisadorContabil.Dominio
 {
     public class Tabela
     {
@@ -18,6 +18,7 @@ namespace AnalisadorContabil
             Codigo = codigo;
             Descricao = descricao;
             Tipo = tipo;
+            Fonte = fonte;
             Parametros = JsonConvert.SerializeObject(new List<Parametro> { parametros });
         }
 
@@ -26,6 +27,7 @@ namespace AnalisadorContabil
             Codigo = codigo;
             Descricao = descricao;
             Tipo = tipo;
+            Fonte = fonte;
             Parametros = JsonConvert.SerializeObject(parametros);
         }
 
@@ -34,6 +36,7 @@ namespace AnalisadorContabil
             Codigo = codigo;
             Descricao = descricao;
             Tipo = tipo;
+            Fonte = fonte;
             Parametros = parametros;
         }
 
