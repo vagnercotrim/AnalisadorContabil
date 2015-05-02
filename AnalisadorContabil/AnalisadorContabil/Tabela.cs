@@ -7,10 +7,10 @@ namespace AnalisadorContabil
 {
     public class Tabela
     {
-        private String Codigo { get; set; }
-        private String Descricao { get; set; }
-        private String Parametros { get; set; }
-        private String Tipo { get; set; }
+        public String Codigo { get; set; }
+        public String Descricao { get; set; }
+        public String Parametros { get; set; }
+        public String Tipo { get; set; }
 
         public Tabela(String codigo, String descricao, String tipo, Parametro parametros)
         {
