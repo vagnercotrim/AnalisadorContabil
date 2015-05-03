@@ -56,6 +56,9 @@ namespace AnalisadorContabil.Factory
             if (tabela.Tipo == "formula")
                 componente = FormulaFactory(tabela, variaveis);
 
+            if (tabela.Tipo == "sql")
+                componente = SqlFactory(tabela, variaveis);
+
             return componente;
         }
 
@@ -64,6 +67,13 @@ namespace AnalisadorContabil.Factory
             String formula = tabela.Get("formula").ToString();
 
             return new Formula(tabela.Codigo, formula, variaveis);
+        }
+
+        private IComponente SqlFactory(Tabela tabela, IDictionary<String, object> variaveis)
+        {
+            String sql = tabela.Get("sql").ToString();
+
+            return new Sql(tabela.Codigo, sql, variaveis);
         }
 
         public Tabela Dados(String codigo)

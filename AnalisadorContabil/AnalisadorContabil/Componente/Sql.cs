@@ -1,4 +1,5 @@
-﻿using AnalisadorContabil.Valor;
+﻿using System.Collections.Generic;
+using AnalisadorContabil.Valor;
 using System;
 
 namespace AnalisadorContabil.Componente
@@ -6,12 +7,14 @@ namespace AnalisadorContabil.Componente
     public class Sql : IComponente
     {
         private readonly String _id;
-        private readonly object _valor;
+        private readonly string _sql;
+        private readonly IDictionary<string, object> _variaveis;
 
-        public Sql(String id, object valor)
+        public Sql(String id, String sql, IDictionary<String, object> variaveis = null)
         {
             _id = id;
-            _valor = valor;
+            _sql = sql;
+            _variaveis = variaveis;
         }
 
         public String Id()
@@ -21,20 +24,26 @@ namespace AnalisadorContabil.Componente
 
         public IValor GetValor()
         {
-            if (_valor is int)
-                return new ValorDecimal(_valor);
+            object resultado = Consulta();
+            
+            if (resultado is int)
+                return new ValorDecimal(resultado);
 
-            if (_valor is double)
-                return new ValorDouble(_valor);
+            if (resultado is double)
+                return new ValorDouble(resultado);
 
-            if (_valor is decimal)
-                return new ValorDecimal(_valor);
+            if (resultado is decimal)
+                return new ValorDecimal(resultado);
 
-            if (_valor is bool)
-                return new ValorBooleano(_valor);
+            if (resultado is bool)
+                return new ValorBooleano(resultado);
 
             return null;
         }
 
+        private object Consulta()
+        {
+            return null;
+        }
     }
 }
