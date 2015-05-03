@@ -61,7 +61,6 @@
     <Compile Include="ComponenteFactoryTest.cs" />
     <Compile Include="JsonNETTest.cs" />
     <Compile Include="ParametroTest.cs" />
-    <Compile Include="SqlFactoryTest.cs" />
     <Compile Include="SqlTest.cs" />
     <Compile Include="FormulaTest.cs" />
     <Compile Include="NumeroDecimalTest.cs" />
