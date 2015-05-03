@@ -5,6 +5,6 @@ namespace AnalisadorContabil.FonteDeDados
 {
     public interface IFonteDeDados
     {
-        Tabela GetDados(String id);
+        object GetDados(String id);
     }
 }

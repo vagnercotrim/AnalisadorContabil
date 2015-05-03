@@ -6,18 +6,18 @@ namespace AnalisadorContabil.FonteDeDados
 {
     public class DictionaryFonteDeDados : IFonteDeDados
     {
-        private readonly IDictionary<String, Tabela> _dados;
+        private readonly IDictionary<String, object> _dados;
 
-        public DictionaryFonteDeDados(IDictionary<String, Tabela> dados)
+        public DictionaryFonteDeDados(IDictionary<String, object> dados)
         {
             _dados = dados;
         }
 
-        public Tabela GetDados(String id)
+        public object GetDados(String id)
         {
             try
             {
-                Tabela valor;
+                object valor;
                 _dados.TryGetValue(id, out valor);
 
                 return valor;

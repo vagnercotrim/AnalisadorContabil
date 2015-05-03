@@ -25,8 +25,6 @@ namespace AnalisadorContabil.Factory
         public IComponente Cria(String codigo)
         {
             Tabela tabela = Dados(codigo);
-            IFonteDeDados fonte;
-            _fontes.TryGetValue(tabela.Fonte, out fonte);
 
             IComponente componente = null;
 
@@ -57,8 +55,12 @@ namespace AnalisadorContabil.Factory
                 componente = FormulaFactory(tabela, variaveis);
 
             if (tabela.Tipo == "sql")
-                componente = SqlFactory(tabela, variaveis);
+            {
+                IFonteDeDados fonte;
+                _fontes.TryGetValue(tabela.Fonte, out fonte);
 
+                componente = SqlFactory(tabela, variaveis).AdicionaFonte(fonte);
+            }
             return componente;
         }
 

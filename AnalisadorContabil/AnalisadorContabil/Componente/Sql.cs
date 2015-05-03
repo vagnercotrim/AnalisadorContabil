@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using AnalisadorContabil.FonteDeDados;
 using AnalisadorContabil.Valor;
 using System;
 
@@ -9,6 +10,7 @@ namespace AnalisadorContabil.Componente
         private readonly String _id;
         private readonly string _sql;
         private readonly IDictionary<string, object> _variaveis;
+        private IFonteDeDados _fonteDeDados;
 
         public Sql(String id, String sql, IDictionary<String, object> variaveis = null)
         {
@@ -41,9 +43,16 @@ namespace AnalisadorContabil.Componente
             return null;
         }
 
+        public IComponente AdicionaFonte(IFonteDeDados fonte)
+        {
+            _fonteDeDados = fonte;
+
+            return this;
+        }
+
         private object Consulta()
         {
-            return null;
+            return _fonteDeDados.GetDados(_id);
         }
     }
 }

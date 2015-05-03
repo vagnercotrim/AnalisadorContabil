@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AnalisadorContabil.FonteDeDados;
 using AnalisadorContabil.Valor;
 using NCalc;
 
@@ -11,6 +12,7 @@ namespace AnalisadorContabil.Componente
         private readonly String _formula;
         private readonly IDictionary<string, object> _variaveis;
         private Expression _expression;
+        private IFonteDeDados _fonteDeDados;
 
         public Formula(String id, String formula, IDictionary<String, object> variaveis = null)
         {
@@ -41,6 +43,13 @@ namespace AnalisadorContabil.Componente
                 return new ValorBooleano(resultado);
 
             return null;
+        }
+
+        public IComponente AdicionaFonte(IFonteDeDados fonte)
+        {
+            _fonteDeDados = fonte;
+
+            return this;
         }
 
         private object Calcular()

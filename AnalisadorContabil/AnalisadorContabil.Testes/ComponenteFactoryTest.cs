@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using AnalisadorContabil.Componente;
 using AnalisadorContabil.Dominio;
 using AnalisadorContabil.Factory;
+using AnalisadorContabil.FonteDeDados;
+using AnalisadorContabil.Valor;
 using NUnit.Framework;
 
 namespace AnalisadorContabil.Testes
@@ -98,11 +100,17 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deve_criar_um_componente_sql()
         {
+            IDictionary<String,object> resultadoDoComponente = new Dictionary<String, object>();
+            resultadoDoComponente.Add("C15N0027", 23456.78);
+
             ComponenteFactory factory = new ComponenteFactory(_dao);
+            factory.AdicionaFonte("dictionary", new DictionaryFonteDeDados(resultadoDoComponente));
 
             IComponente formula = factory.Cria("C15N0027");
 
-            Assert.AreEqual(formula.Id(), "C15N0027");
+            IValor valor = formula.GetValor();
+
+            Assert.AreEqual(valor.Objeto(), 23456.78);
         }
 
     }
