@@ -27,6 +27,15 @@ namespace AnalisadorContabil.Testes
             Tabela tabela2 = new Tabela("C15N0011", null, "formula", "dictionary", new Parametro("formula", "[C15N0010] / 15"));
             _dados.Add("C15N0011", tabela2);
 
+            Tabela tabela3 = new Tabela("C15N0013", null, "formula", "dictionary", new Parametro("formula", "[C15N0011] * 3"));
+            _dados.Add("C15N0013", tabela3);
+
+            Tabela tabela4 = new Tabela("C15N0014", null, "formula", "dictionary", new Parametro("formula", "5 * 5"));
+            _dados.Add("C15N0014", tabela4);
+
+            Tabela tabela5 = new Tabela("C15N0015", null, "formula", "dictionary", new Parametro("formula", "[C15N0010] + [C15N0014]"));
+            _dados.Add("C15N0015", tabela5);
+
             _dao = new TabelaDAO(_dados);
         }
 
@@ -48,6 +57,26 @@ namespace AnalisadorContabil.Testes
             IComponente formula = factory.Cria("C15N0011");
 
             Assert.AreEqual(formula.GetValor().Objeto(), 5.00);
+        }
+
+        [Test]
+        public void Deve_criar_um_componente_com_parametros()
+        {
+            ComponenteFactory factory = new ComponenteFactory(_dao);
+
+            IComponente formula = factory.Cria("C15N0013");
+
+            Assert.AreEqual(formula.GetValor().Objeto(), 15.00);
+        }
+        
+        [Test]
+        public void Deve_criar_um_componente_com_dois_parametros()
+        {
+            ComponenteFactory factory = new ComponenteFactory(_dao);
+
+            IComponente formula = factory.Cria("C15N0015");
+
+            Assert.AreEqual(formula.GetValor().Objeto(), 100.00);
         }
     }
 }
