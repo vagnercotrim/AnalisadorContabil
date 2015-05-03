@@ -51,9 +51,6 @@ namespace AnalisadorContabil.Componente
                 foreach (KeyValuePair<string, object> keyValuePair in _variaveis)
                     _expression.Parameters[keyValuePair.Key] = keyValuePair.Value;
 
-            if (_formula.Contains("["))
-                _expression.Parameters["C14-017"] = new Formula("C14-017", "2.00 + 3.00").GetValor().Objeto();
-
             return _expression.Evaluate();
         }
     }
