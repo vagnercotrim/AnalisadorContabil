@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using AnalisadorContabil.Dominio;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using System;
