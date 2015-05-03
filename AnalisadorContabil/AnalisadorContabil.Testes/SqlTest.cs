@@ -10,11 +10,11 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deve_criar_um_componente_numerodecimal_com_valor_23()
         {
-            IComponente componente = new Sql("C14-006", 23.00M);
+            IComponente componente = new Sql("C14N006", 23.00M);
 
             IValor valor = componente.GetValor();
 
-            Assert.That(componente.Id(), Is.EqualTo("C14-006"));
+            Assert.That(componente.Id(), Is.EqualTo("C14N006"));
             Assert.That(valor.Exibir(), Is.EqualTo("23,00"));
         }
     }

@@ -13,11 +13,11 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deve_retornar_dois_parametros_de_uma_formula()
         {
-            String formula = "[C14-245] * 27 / 100";
+            String formula = "[C14245] * 27 / 100";
 
             IList<String> parametros = Parametro.FromString(formula);
 
-            Assert.That(parametros, Has.Member("C14-245"));
+            Assert.That(parametros, Has.Member("C14245"));
         }
     }
 }

@@ -17,14 +17,14 @@ namespace AnalisadorContabil.Testes
         {
             IDictionary<String, Tabela> dados = new Dictionary<String, Tabela>();
 
-            Tabela tabela = new Tabela("C15-0010", null, "formula", "dictionary", new Parametro("formula", "(25 * 3) / 15"));
-            dados.Add("C15-0010", tabela);
+            Tabela tabela = new Tabela("C15N0010", null, "formula", "dictionary", new Parametro("formula", "(25 * 3) / 15"));
+            dados.Add("C15N0010", tabela);
 
             IFonteDeDados fonteDeDados = new DictionaryFonteDeDados(dados);
 
             FormulaFactory formulaFactory = new FormulaFactory(fonteDeDados);
 
-            Formula formula = formulaFactory.Criar("C15-0010");
+            Formula formula = formulaFactory.Criar("C15N0010");
 
             var valor = formula.GetValor();
             Assert.That(valor.Exibir(), Is.EqualTo("5,00"));
