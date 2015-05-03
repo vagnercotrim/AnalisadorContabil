@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace AnalisadorContabil
 {
@@ -16,7 +18,14 @@ namespace AnalisadorContabil
 
         public static IList<String> FromString(String formula)
         {
-            return formula.Split('[', ']');
+            MatchCollection matchCollection = Regex.Matches(formula, "\\[w+\\]");
+
+            return (from object match in matchCollection select match.ToString()).ToList();
+        }
+
+        public bool ContemParametro()
+        {
+            return FromString(Valor.ToString()).Count > 0;
         }
     }
 }

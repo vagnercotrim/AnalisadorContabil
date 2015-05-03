@@ -22,5 +22,11 @@ namespace AnalisadorContabil.Factory
             return new Formula(id, formula);
         }
 
+        public IComponente Criar(Tabela tabela)
+        {
+            String formula = tabela.Get("formula").ToString();
+
+            return new Formula(tabela.Codigo, formula);
+        }
     }
 }
