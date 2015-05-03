@@ -63,7 +63,6 @@
     <Compile Include="ParametroTest.cs" />
     <Compile Include="SqlTest.cs" />
     <Compile Include="FormulaTest.cs" />
-    <Compile Include="NumeroDecimalTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TabelaTest.cs" />
   </ItemGroup>

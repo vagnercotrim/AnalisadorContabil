@@ -54,7 +54,6 @@
     <Compile Include="Componente\Formula.cs" />
     <Compile Include="Componente\IComponente.cs" />
     <Compile Include="FonteDeDados\IFonteDeDados.cs" />
-    <Compile Include="Componente\NumeroDecimal.cs" />
     <Compile Include="Dominio\Parametro.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dominio\Tabela.cs" />
