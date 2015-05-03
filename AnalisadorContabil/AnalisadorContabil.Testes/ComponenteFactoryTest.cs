@@ -41,7 +41,15 @@ namespace AnalisadorContabil.Testes
             Tabela tabela6 = new Tabela("C15N0016", null, "formula", "dictionary", new Parametro("formula", "[C15N0010] + [C15N0013]"));
             _dados.Add("C15N0016", tabela6);
 
-            Tabela tabela7 = new Tabela("C15N0027", null, "sql", "dictionary", new Parametro("sql", "select valor from tabela where condicao = '02.01.03'"));
+            Tabela tabela7 = new Tabela("C15N0027", null, "sql", "dictionary",
+                new List<Parametro>()
+                {
+                    new Parametro("tabela", "tabela"),
+                    new Parametro("campo", "campo"),
+                    new Parametro("condicao", "condicao"),
+                    new Parametro("valor", "'02.01.03'")
+                });
+
             _dados.Add("C15N0027", tabela7);
 
             _dao = new TabelaDAO(_dados);
@@ -76,7 +84,7 @@ namespace AnalisadorContabil.Testes
 
             Assert.AreEqual(formula.GetValor().Objeto(), 15.00);
         }
-        
+
         [Test]
         public void Deve_criar_um_componente_com_dois_parametros()
         {
@@ -100,7 +108,7 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deve_criar_um_componente_sql()
         {
-            IDictionary<String,object> resultadoDoComponente = new Dictionary<String, object>();
+            IDictionary<String, object> resultadoDoComponente = new Dictionary<String, object>();
             resultadoDoComponente.Add("C15N0027", 23456.78);
 
             ComponenteFactory factory = new ComponenteFactory(_dao);
