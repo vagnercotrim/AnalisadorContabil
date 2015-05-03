@@ -36,6 +36,9 @@ namespace AnalisadorContabil.Testes
             Tabela tabela5 = new Tabela("C15N0015", null, "formula", "dictionary", new Parametro("formula", "[C15N0010] + [C15N0014]"));
             _dados.Add("C15N0015", tabela5);
 
+            Tabela tabela6 = new Tabela("C15N0016", null, "formula", "dictionary", new Parametro("formula", "[C15N0010] + [C15N0013]"));
+            _dados.Add("C15N0016", tabela6);
+
             _dao = new TabelaDAO(_dados);
         }
 
@@ -77,6 +80,16 @@ namespace AnalisadorContabil.Testes
             IComponente formula = factory.Cria("C15N0015");
 
             Assert.AreEqual(formula.GetValor().Objeto(), 100.00);
+        }
+
+        [Test]
+        public void Deve_criar_um_componente_com_dois_parametros_outra_formula()
+        {
+            ComponenteFactory factory = new ComponenteFactory(_dao);
+
+            IComponente formula = factory.Cria("C15N0016");
+
+            Assert.AreEqual(formula.GetValor().Objeto(), 90.00);
         }
     }
 }
