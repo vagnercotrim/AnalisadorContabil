@@ -21,11 +21,11 @@ namespace AnalisadorContabil.Testes
         {
             _dados = new Dictionary<String, Tabela>();
 
-            Tabela tabela1 = new Tabela("C15-0010", null, "formula", "dictionary", new Parametro("formula", "(25 * 3)"));
-            _dados.Add("C15-0010", tabela1);
+            Tabela tabela1 = new Tabela("C15N0010", null, "formula", "dictionary", new Parametro("formula", "(25 * 3)"));
+            _dados.Add("C15N0010", tabela1);
 
-            Tabela tabela2 = new Tabela("C15-0011", null, "formula", "dictionary", new Parametro("formula", "[C15-010] / 15"));
-            _dados.Add("C15-0011", tabela2);
+            Tabela tabela2 = new Tabela("C15N0011", null, "formula", "dictionary", new Parametro("formula", "[C15N0010] / 15"));
+            _dados.Add("C15N0011", tabela2);
 
             _dao = new TabelaDAO(_dados);
         }
@@ -35,7 +35,7 @@ namespace AnalisadorContabil.Testes
         {
             ComponenteFactory factory = new ComponenteFactory(_dao);
 
-            IComponente formula = factory.Cria("C15-0010");
+            IComponente formula = factory.Cria("C15N0010");
 
             Assert.AreEqual(formula.GetValor().Objeto(), 75.00);
         }
@@ -45,7 +45,7 @@ namespace AnalisadorContabil.Testes
         {
             ComponenteFactory factory = new ComponenteFactory(_dao);
 
-            IComponente formula = factory.Cria("C15-0011");
+            IComponente formula = factory.Cria("C15N0011");
 
             Assert.AreEqual(formula.GetValor().Objeto(), 5.00);
         }

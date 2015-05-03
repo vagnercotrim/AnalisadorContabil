@@ -3,6 +3,7 @@ using AnalisadorContabil.Dominio;
 using AnalisadorContabil.FonteDeDados;
 using System;
 using System.Collections.Generic;
+using AnalisadorContabil.Valor;
 
 namespace AnalisadorContabil.Factory
 {
@@ -31,6 +32,8 @@ namespace AnalisadorContabil.Factory
 
             IList<Parametro> tabelaParametros = tabela.ParametrosToList();
 
+            IDictionary<String, object> variaveis = new Dictionary<string, object>();
+
             foreach (var tabelaParametro in tabelaParametros)
             {
                 if (tabelaParametro.ContemParametro())
@@ -40,23 +43,27 @@ namespace AnalisadorContabil.Factory
                     foreach (var parametro in parametros)
                     {
                         Tabela tabelaString = Dados(parametro);
-                        
-                        String codigoTabela = tabelaString.Codigo;
+
+                        IComponente componente2 = Cria(tabelaString.Codigo);
+
+                        IValor valor = componente2.GetValor();
+
+                        variaveis.Add(parametro, valor.Objeto());
                     }
                 }
             }
 
             if (tabela.Tipo == "formula")
-                componente = FormulaFactory(tabela);
+                componente = FormulaFactory(tabela, variaveis);
 
             return componente;
         }
 
-        private IComponente FormulaFactory(Tabela tabela)
+        private IComponente FormulaFactory(Tabela tabela, IDictionary<String, object> variaveis)
         {
             String formula = tabela.Get("formula").ToString();
 
-            return new Formula(tabela.Codigo, formula);
+            return new Formula(tabela.Codigo, formula, variaveis);
         }
 
         public Tabela Dados(String codigo)

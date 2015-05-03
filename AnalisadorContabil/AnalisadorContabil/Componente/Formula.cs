@@ -9,12 +9,14 @@ namespace AnalisadorContabil.Componente
     {
         private readonly String _id;
         private readonly String _formula;
+        private readonly IDictionary<string, object> _variaveis;
         private Expression _expression;
 
-        public Formula(String id, String formula)
+        public Formula(String id, String formula, IDictionary<String, object> variaveis = null)
         {
             _id = id;
             _formula = formula;
+            _variaveis = variaveis;
         }
 
         public String Id()
@@ -44,6 +46,10 @@ namespace AnalisadorContabil.Componente
         private object Calcular()
         {
             _expression = new Expression(_formula);
+
+            if (_variaveis != null)
+                foreach (KeyValuePair<string, object> keyValuePair in _variaveis)
+                    _expression.Parameters[keyValuePair.Key] = keyValuePair.Value;
 
             if (_formula.Contains("["))
                 _expression.Parameters["C14-017"] = new Formula("C14-017", "2.00 + 3.00").GetValor().Objeto();

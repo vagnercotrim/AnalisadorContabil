@@ -63,5 +63,6 @@ namespace AnalisadorContabil.Dominio
         {
             return JsonConvert.DeserializeObject<List<Parametro>>(parametros);
         }
+
     }
 }

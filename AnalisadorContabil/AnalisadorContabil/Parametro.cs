@@ -18,9 +18,9 @@ namespace AnalisadorContabil
 
         public static IList<String> FromString(String formula)
         {
-            MatchCollection matchCollection = Regex.Matches(formula, "\\[w+\\]");
+            MatchCollection matchCollection = Regex.Matches(formula, "(\\[(\\w+)\\])+");
 
-            return (from object match in matchCollection select match.ToString()).ToList();
+            return (from object match in matchCollection select match.ToString().Replace("[","").Replace("]","")).ToList();
         }
 
         public bool ContemParametro()
