@@ -53,7 +53,6 @@
     <Compile Include="Factory\SqlFactory.cs" />
     <Compile Include="FonteDeDados\DictionaryFonteDeDados.cs" />
     <Compile Include="Componente\Formula.cs" />
-    <Compile Include="Factory\FormulaFactory.cs" />
     <Compile Include="Componente\IComponente.cs" />
     <Compile Include="FonteDeDados\IFonteDeDados.cs" />
     <Compile Include="Componente\NumeroDecimal.cs" />
