@@ -49,8 +49,10 @@ namespace AnalisadorContabil.Testes
                     new Parametro("condicao", "condicao"),
                     new Parametro("valor", "'02.01.03'")
                 });
-
             _dados.Add("C15N0027", tabela7);
+
+            Tabela tabela8 = new Tabela("C15N0028", null, "formula", "dictionary", new Parametro("formula", "[C15N0027] - 23000"));
+            _dados.Add("C15N0028", tabela8);
 
             _dao = new TabelaDAO(_dados);
         }
@@ -119,6 +121,22 @@ namespace AnalisadorContabil.Testes
             IValor valor = formula.GetValor();
 
             Assert.AreEqual(valor.Objeto(), 23456.78);
+        }
+
+        [Test]
+        public void Deve_criar_um_componente_formula_que_usa_componete_sql()
+        {
+            IDictionary<String, object> resultadoDoComponente = new Dictionary<String, object>();
+            resultadoDoComponente.Add("C15N0027", 23456.78M);
+
+            ComponenteFactory factory = new ComponenteFactory(_dao);
+            factory.AdicionaFonte("dictionary", new DictionaryFonteDeDados(resultadoDoComponente));
+
+            IComponente formula = factory.Cria("C15N0028");
+
+            IValor valor = formula.GetValor();
+
+            Assert.AreEqual(valor.Objeto(), 456.78);
         }
 
     }
