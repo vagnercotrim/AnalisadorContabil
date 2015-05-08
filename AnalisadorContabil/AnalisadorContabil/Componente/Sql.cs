@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using AnalisadorContabil.Factory;
 using AnalisadorContabil.FonteDeDados;
 using AnalisadorContabil.Valor;
 using System;
@@ -27,20 +28,8 @@ namespace AnalisadorContabil.Componente
         public IValor GetValor()
         {
             object resultado = Consulta();
-            
-            if (resultado is int)
-                return new ValorDecimal(resultado);
 
-            if (resultado is double)
-                return new ValorDouble(resultado);
-
-            if (resultado is decimal)
-                return new ValorDecimal(resultado);
-
-            if (resultado is bool)
-                return new ValorBooleano(resultado);
-
-            return null;
+            return ValorFactory.Cria(resultado);
         }
 
         public IComponente AdicionaFonte(IFonteDeDados fonte)
