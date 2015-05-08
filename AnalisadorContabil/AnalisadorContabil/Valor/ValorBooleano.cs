@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AnalisadorContabil.Valor
 {
     public class ValorBooleano : IValor
     {
-        private bool _valor;
+        private readonly bool _valor;
 
         public ValorBooleano(object valor)
         {

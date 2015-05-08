@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AnalisadorContabil.Valor;
+﻿using AnalisadorContabil.Valor;
 
 namespace AnalisadorContabil.Factory
 {
