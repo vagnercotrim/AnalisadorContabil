@@ -1,9 +1,8 @@
-using System;
-using System.Collections.Generic;
 using AnalisadorContabil.Factory;
-using AnalisadorContabil.FonteDeDados;
 using AnalisadorContabil.Valor;
 using NCalc;
+using System;
+using System.Collections.Generic;
 
 namespace AnalisadorContabil.Componente
 {
@@ -13,7 +12,6 @@ namespace AnalisadorContabil.Componente
         private readonly String _formula;
         private readonly IDictionary<string, object> _variaveis;
         private Expression _expression;
-        private IFonteDeDados _fonteDeDados;
 
         public Formula(String id, String formula, IDictionary<String, object> variaveis = null)
         {
@@ -32,13 +30,6 @@ namespace AnalisadorContabil.Componente
             object resultado = Calcular();
 
             return ValorFactory.Cria(resultado);
-        }
-
-        public IComponente AdicionaFonte(IFonteDeDados fonte)
-        {
-            _fonteDeDados = fonte;
-
-            return this;
         }
 
         private object Calcular()

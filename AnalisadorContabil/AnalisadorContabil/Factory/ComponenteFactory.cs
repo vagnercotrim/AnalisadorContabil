@@ -1,9 +1,9 @@
 ﻿using AnalisadorContabil.Componente;
 using AnalisadorContabil.Dominio;
 using AnalisadorContabil.FonteDeDados;
+using AnalisadorContabil.Valor;
 using System;
 using System.Collections.Generic;
-using AnalisadorContabil.Valor;
 
 namespace AnalisadorContabil.Factory
 {
@@ -69,8 +69,8 @@ namespace AnalisadorContabil.Factory
             {
                 IFonteDeDados fonte;
                 _fontes.TryGetValue(tabela.Fonte, out fonte);
-                
-                return SqlFactory(tabela, variaveis).AdicionaFonte(fonte);
+
+                return SqlFactory(tabela, variaveis, fonte);
             }
 
             return null;
@@ -83,7 +83,7 @@ namespace AnalisadorContabil.Factory
             return new Formula(tabela.Codigo, formula, variaveis);
         }
 
-        private IComponente SqlFactory(Tabela tabela, IDictionary<String, object> variaveis)
+        private IComponente SqlFactory(Tabela tabela, IDictionary<String, object> variaveis, IFonteDeDados fonte)
         {
             String sql;
 
@@ -101,7 +101,7 @@ namespace AnalisadorContabil.Factory
                 sql = tabela.Get("sql").ToString();
             }
 
-            return new Sql(tabela.Codigo, sql, variaveis);
+            return new Sql(tabela.Codigo, sql, variaveis, fonte);
         }
 
         private Tabela Dados(String codigo)

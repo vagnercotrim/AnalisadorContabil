@@ -1,6 +1,5 @@
-﻿using System;
-using AnalisadorContabil.FonteDeDados;
-using AnalisadorContabil.Valor;
+﻿using AnalisadorContabil.Valor;
+using System;
 
 namespace AnalisadorContabil.Componente
 {
@@ -9,7 +8,5 @@ namespace AnalisadorContabil.Componente
         String Id();
         
         IValor GetValor();
-        
-        IComponente AdicionaFonte(IFonteDeDados fonte);
     }
 }
