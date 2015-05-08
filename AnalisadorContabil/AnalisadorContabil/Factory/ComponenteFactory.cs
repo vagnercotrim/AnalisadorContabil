@@ -22,16 +22,10 @@ namespace AnalisadorContabil.Factory
             _fontes.Add(nome, fonte);
         }
 
-        public IComponente Cria(String codigo)
+        private IDictionary<String, object> ResolveParametros(IEnumerable<Parametro> tabelaParametros)
         {
-            Tabela tabela = Dados(codigo);
-
-            IComponente componente = null;
-
-            IList<Parametro> tabelaParametros = tabela.ParametrosToList();
-
-            IDictionary<String, object> variaveis = new Dictionary<string, object>();
-
+            IDictionary<String, object> variaveis = new Dictionary<String, object>();
+            
             foreach (var tabelaParametro in tabelaParametros)
             {
                 if (tabelaParametro.ContemParametro())
@@ -40,28 +34,46 @@ namespace AnalisadorContabil.Factory
 
                     foreach (var parametro in parametros)
                     {
-                        Tabela tabelaString = Dados(parametro);
-
-                        IComponente componente2 = Cria(tabelaString.Codigo);
-
-                        IValor valor = componente2.GetValor();
+                        IValor valor = ResolveComponente(parametro);
 
                         variaveis.Add(parametro, valor.Objeto());
                     }
                 }
             }
 
+            return variaveis;
+        }
+
+        private IValor ResolveComponente(string parametro)
+        {
+            Tabela tabelaString = Dados(parametro);
+
+            IComponente componente2 = Cria(tabelaString.Codigo);
+
+            IValor valor = componente2.GetValor();
+            return valor;
+        }
+
+        public IComponente Cria(String codigo)
+        {
+            Tabela tabela = Dados(codigo);
+
+            IList<Parametro> tabelaParametros = tabela.ParametrosToList();
+
+            IDictionary<String, object> variaveis = ResolveParametros(tabelaParametros);
+
             if (tabela.Tipo == "formula")
-                componente = FormulaFactory(tabela, variaveis);
+                return FormulaFactory(tabela, variaveis);
 
             if (tabela.Tipo == "sql")
             {
                 IFonteDeDados fonte;
                 _fontes.TryGetValue(tabela.Fonte, out fonte);
-
-                componente = SqlFactory(tabela, variaveis).AdicionaFonte(fonte);
+                
+                return SqlFactory(tabela, variaveis).AdicionaFonte(fonte);
             }
-            return componente;
+
+            return null;
         }
 
         private IComponente FormulaFactory(Tabela tabela, IDictionary<String, object> variaveis)
@@ -92,7 +104,7 @@ namespace AnalisadorContabil.Factory
             return new Sql(tabela.Codigo, sql, variaveis);
         }
 
-        public Tabela Dados(String codigo)
+        private Tabela Dados(String codigo)
         {
             return _tabelaDao.Get(codigo);
         }
