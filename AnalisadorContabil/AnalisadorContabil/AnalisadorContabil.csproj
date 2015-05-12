@@ -62,6 +62,7 @@
     <Compile Include="Valor\ValorBooleano.cs" />
     <Compile Include="Valor\ValorDecimal.cs" />
     <Compile Include="Valor\ValorDouble.cs" />
+    <Compile Include="Valor\ValorNulo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

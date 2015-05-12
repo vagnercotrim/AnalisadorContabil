@@ -19,7 +19,7 @@ namespace AnalisadorContabil.Factory
             if (valor is bool)
                 return new ValorBooleano(valor);
 
-            return null;
+            return new ValorNulo();
         }
 
     }
