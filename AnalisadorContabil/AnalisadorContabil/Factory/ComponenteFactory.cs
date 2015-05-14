@@ -70,31 +70,10 @@ namespace AnalisadorContabil.Factory
                 IFonteDeDados fonte;
                 _fontes.TryGetValue(tabela.Fonte, out fonte);
 
-                return SqlFactory(tabela, variaveis, fonte);
+                return SqlFactory.Cria(tabela, variaveis, fonte);
             }
 
             return null;
-        }
-
-        private IComponente SqlFactory(Tabela tabela, IDictionary<String, object> variaveis, IFonteDeDados fonte)
-        {
-            String sql;
-
-            if (tabela.Get("sql") == null)
-            {
-                String nomecampo = tabela.Get("campo").ToString();
-                String nometabela = tabela.Get("tabela").ToString();
-                String campocondicao = tabela.Get("condicao").ToString();
-                String campovalor = tabela.Get("valor").ToString();
-
-                sql = String.Format("select {0} from {1} where {2} = {3}", nomecampo, nometabela, campocondicao, campovalor);
-            }
-            else
-            {
-                sql = tabela.Get("sql").ToString();
-            }
-
-            return new Sql(tabela.Codigo, sql, variaveis, fonte);
         }
 
         private Tabela Dados(String codigo)
