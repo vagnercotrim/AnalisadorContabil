@@ -63,7 +63,7 @@ namespace AnalisadorContabil.Factory
             IDictionary<String, object> variaveis = ResolveParametros(tabelaParametros);
 
             if (tabela.Tipo == "formula")
-                return FormulaFactory(tabela, variaveis);
+                return FormulaFactory.Cria(tabela, variaveis);
 
             if (tabela.Tipo == "sql")
             {
@@ -74,13 +74,6 @@ namespace AnalisadorContabil.Factory
             }
 
             return null;
-        }
-
-        private IComponente FormulaFactory(Tabela tabela, IDictionary<String, object> variaveis)
-        {
-            String formula = tabela.Get("formula").ToString();
-
-            return new Formula(tabela.Codigo, formula, variaveis);
         }
 
         private IComponente SqlFactory(Tabela tabela, IDictionary<String, object> variaveis, IFonteDeDados fonte)
