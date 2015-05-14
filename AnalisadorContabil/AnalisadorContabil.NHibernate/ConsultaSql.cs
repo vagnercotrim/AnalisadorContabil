@@ -1,7 +1,7 @@
-﻿using NHibernate;
-using System;
+﻿using System;
+using NHibernate;
 
-namespace AnalisadorContabil.Testes.Integracao
+namespace AnalisadorContabil.NHibernate
 {
     public class ConsultaSql
     {

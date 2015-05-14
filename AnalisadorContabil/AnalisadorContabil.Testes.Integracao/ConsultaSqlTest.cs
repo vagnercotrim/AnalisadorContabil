@@ -1,4 +1,5 @@
-﻿using AnalisadorContabil.Testes.Integracao.DAO;
+﻿using AnalisadorContabil.NHibernate;
+using AnalisadorContabil.Testes.Integracao.DAO;
 using AnalisadorContabil.Testes.Integracao.Models;
 using NUnit.Framework;
 using System;
