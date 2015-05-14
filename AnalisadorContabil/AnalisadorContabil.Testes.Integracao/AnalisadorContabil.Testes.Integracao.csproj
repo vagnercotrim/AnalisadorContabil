@@ -79,6 +79,7 @@
     <Compile Include="Models\Conta.cs" />
     <Compile Include="Models\ContaMap\ContaMap.cs" />
     <Compile Include="InsereDadosNoBanco.cs" />
+    <Compile Include="NHibernateFonteDeDadosTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -88,6 +89,10 @@
     <ProjectReference Include="..\AnalisadorContabil.NHibernate\AnalisadorContabil.NHibernate.csproj">
       <Project>{DAF2164D-5738-424A-8EB4-EB14A513402E}</Project>
       <Name>AnalisadorContabil.NHibernate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AnalisadorContabil\AnalisadorContabil.csproj">
+      <Project>{D8EEDD32-E8B9-46BD-8319-D946560BD736}</Project>
+      <Name>AnalisadorContabil</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

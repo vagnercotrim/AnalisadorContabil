@@ -33,7 +33,7 @@ namespace AnalisadorContabil.Componente
 
         private object Consulta()
         {
-            return _fonteDeDados.GetDados(_id);
+            return _fonteDeDados.GetDados(_sql);
         }
     }
 }
