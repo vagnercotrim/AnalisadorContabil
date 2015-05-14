@@ -72,6 +72,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DAO\ContaDAO.cs" />
+    <Compile Include="DAO\GenericDAO.cs" />
     <Compile Include="InMemoryDatabaseTest.cs" />
     <Compile Include="Models\Conta.cs" />
     <Compile Include="Models\ContaMap\ContaMap.cs" />
