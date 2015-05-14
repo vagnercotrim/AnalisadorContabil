@@ -1,4 +1,6 @@
-﻿using NHibernate;
+﻿using System.Linq;
+using NHibernate;
+using NHibernate.Linq;
 
 namespace AnalisadorContabil.Testes.Integracao.DAO
 {
@@ -15,6 +17,11 @@ namespace AnalisadorContabil.Testes.Integracao.DAO
         public void Save(T t)
         {
             _session.Save(t);
+        }
+
+        public IQueryable<T> GetAll()
+        {
+            return _session.Query<T>();
         }
     }
 }

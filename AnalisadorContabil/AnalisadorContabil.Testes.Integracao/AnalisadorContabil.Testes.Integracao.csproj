@@ -72,12 +72,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DAO\ContaDAO.cs" />
-    <Compile Include="DAO\GenericDAO.cs" />
+    <Compile Include="ConsultaSql.cs" />
+    <Compile Include="ConsultaSqlTest.cs" />
+    <Compile Include="DAO\ContaDao.cs" />
+    <Compile Include="DAO\GenericDao.cs" />
     <Compile Include="InMemoryDatabaseTest.cs" />
     <Compile Include="Models\Conta.cs" />
     <Compile Include="Models\ContaMap\ContaMap.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="InsereDadosNoBanco.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
