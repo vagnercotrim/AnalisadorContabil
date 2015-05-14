@@ -22,7 +22,7 @@ namespace AnalisadorContabil.Testes.Integracao
         {
             _dados = new Dictionary<String, Tabela>();
 
-            Tabela tabela1 = new Tabela("C15N0010", null, "sql", "sqlite", new Parametro("sql", "SELECT ValorReceita FROM Conta WHERE Numero = '01.02.03.01'"));
+            Tabela tabela1 = new Tabela("C15N0010", "Retorna o valor da receita da empresa em um no periodo x do ano y.", "sql", "sqlite", new Parametro("sql", "SELECT ValorReceita FROM Conta WHERE Numero = '01.02.03.01'"));
             _dados.Add("C15N0010", tabela1);
 
             _tabelaDao = new TabelaDAO(_dados);
@@ -41,14 +41,14 @@ namespace AnalisadorContabil.Testes.Integracao
         [Test]
         public void Deve_criar_um_componente_formula_que_usa_componete_sql()
         {
-            ConsultaSql consulta = new ConsultaSql(Session);
+            ConsultaSql consultaSql = new ConsultaSql(Session);
 
             ComponenteFactory factory = new ComponenteFactory(_tabelaDao);
-            factory.AdicionaFonte("sqlite", new NHibernateFonteDeDados(consulta));
+            factory.AdicionaFonte("sqlite", new NHibernateFonteDeDados(consultaSql));
 
-            IComponente formula = factory.Cria("C15N0010");
+            IComponente consulta = factory.Cria("C15N0010");
 
-            IValor valor = formula.GetValor();
+            IValor valor = consulta.GetValor();
 
             Assert.AreEqual(valor.Objeto(), 111.11M);
         }
