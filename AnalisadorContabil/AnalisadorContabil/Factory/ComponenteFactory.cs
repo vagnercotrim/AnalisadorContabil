@@ -46,7 +46,7 @@ namespace AnalisadorContabil.Factory
 
         private IValor ResolveComponente(string parametro)
         {
-            Tabela tabelaString = Dados(parametro);
+            Tabela tabelaString = _tabelaDao.Get(parametro);
 
             IComponente componente2 = Cria(tabelaString.Codigo);
 
@@ -56,7 +56,7 @@ namespace AnalisadorContabil.Factory
 
         public IComponente Cria(String codigo)
         {
-            Tabela tabela = Dados(codigo);
+            Tabela tabela = _tabelaDao.Get(codigo);
 
             IList<Parametro> tabelaParametros = tabela.ParametrosToList();
 
@@ -74,11 +74,6 @@ namespace AnalisadorContabil.Factory
             }
 
             return null;
-        }
-
-        private Tabela Dados(String codigo)
-        {
-            return _tabelaDao.Get(codigo);
         }
     }
 }
