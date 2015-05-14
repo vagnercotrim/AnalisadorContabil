@@ -14,7 +14,7 @@ namespace AnalisadorContabil.NHibernate
 
         public object GetDados(String sql)
         {
-            return _consulta.Retorno(sql);
+            return _consulta.UniqueResult(sql);
         }
     }
 }

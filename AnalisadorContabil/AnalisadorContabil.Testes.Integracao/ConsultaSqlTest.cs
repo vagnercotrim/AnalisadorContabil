@@ -29,7 +29,7 @@ namespace AnalisadorContabil.Testes.Integracao
         {
             ConsultaSql consulta = new ConsultaSql(Session);
 
-            Decimal valor = (decimal)consulta.Retorno("SELECT ValorReceita FROM Conta WHERE Numero = '01.02.03.01'"); 
+            Decimal valor = (decimal)consulta.UniqueResult("SELECT ValorReceita FROM Conta WHERE Numero = '01.02.03.01'"); 
 
             Assert.AreEqual(valor, 111.11M);
         }
@@ -39,7 +39,7 @@ namespace AnalisadorContabil.Testes.Integracao
         {
             ConsultaSql consulta = new ConsultaSql(Session);
 
-            Decimal valor = (decimal)consulta.Retorno("SELECT ValorDespesa FROM Conta WHERE Numero = '01.02.03.01'");
+            Decimal valor = (decimal)consulta.UniqueResult("SELECT ValorDespesa FROM Conta WHERE Numero = '01.02.03.01'");
 
             Assert.AreEqual(valor, 111.00M);
         }

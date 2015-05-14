@@ -11,8 +11,8 @@ namespace AnalisadorContabil.NHibernate
         {
             _session = session;
         }
-
-        public object Retorno(String sql)
+        
+        public object UniqueResult(String sql)
         {
             return _session.CreateSQLQuery(sql).UniqueResult();
         }
