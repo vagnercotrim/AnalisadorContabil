@@ -72,6 +72,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="InMemoryDatabaseTest.cs" />
+    <Compile Include="Models\Conta.cs" />
+    <Compile Include="Models\ContaMap\ContaMap.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

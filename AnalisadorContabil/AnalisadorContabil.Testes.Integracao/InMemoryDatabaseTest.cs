@@ -1,4 +1,10 @@
-﻿using NUnit.Framework;
+﻿using AnalisadorContabil.Testes.Integracao.Models.ContaMap;
+using FluentNHibernate.Cfg;
+using FluentNHibernate.Cfg.Db;
+using NHibernate;
+using NHibernate.Cfg;
+using NHibernate.Tool.hbm2ddl;
+using NUnit.Framework;
 using System;
 
 namespace AnalisadorContabil.Testes.Integracao
@@ -30,7 +36,7 @@ namespace AnalisadorContabil.Testes.Integracao
         {
             return Fluently.Configure()
                            .Database(SQLiteConfiguration.Standard.InMemory().ShowSql())
-                           .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ImovelMap>())
+                           .Mappings(m => m.FluentMappings.AddFromAssemblyOf<ContaMap>())
                            .ExposeConfiguration(cfg => _configuration = cfg)
                            .BuildSessionFactory();
         }
