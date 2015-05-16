@@ -106,38 +106,5 @@ namespace AnalisadorContabil.Testes
 
             Assert.AreEqual(formula.GetValor().Objeto(), 90.00);
         }
-
-        [Test]
-        public void Deve_criar_um_componente_sql()
-        {
-            IDictionary<String, object> resultadoDoComponente = new Dictionary<String, object>();
-            resultadoDoComponente.Add("C15N0027", 23456.78);
-
-            ComponenteFactory factory = new ComponenteFactory(_dao);
-            factory.AdicionaFonte("dictionary", new DictionaryFonteDeDados(resultadoDoComponente));
-
-            IComponente formula = factory.Cria("C15N0027");
-
-            IValor valor = formula.GetValor();
-
-            Assert.AreEqual(valor.Objeto(), 23456.78);
-        }
-
-        [Test]
-        public void Deve_criar_um_componente_formula_que_usa_componete_sql()
-        {
-            IDictionary<String, object> resultadoDoComponente = new Dictionary<String, object>();
-            resultadoDoComponente.Add("C15N0027", 23456.78M);
-
-            ComponenteFactory factory = new ComponenteFactory(_dao);
-            factory.AdicionaFonte("dictionary", new DictionaryFonteDeDados(resultadoDoComponente));
-
-            IComponente formula = factory.Cria("C15N0028");
-
-            IValor valor = formula.GetValor();
-
-            Assert.AreEqual(valor.Objeto(), 456.78);
-        }
-
     }
 }
