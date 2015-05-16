@@ -2,7 +2,6 @@
 using AnalisadorContabil.Dominio;
 using AnalisadorContabil.Factory;
 using AnalisadorContabil.Testes.Loader;
-using AnalisadorContabil.Testes.Mock;
 using NUnit.Framework;
 
 namespace AnalisadorContabil.Testes

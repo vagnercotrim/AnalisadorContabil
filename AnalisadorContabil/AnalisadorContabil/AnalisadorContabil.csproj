@@ -65,6 +65,7 @@
     <Compile Include="Valor\ValorDecimal.cs" />
     <Compile Include="Valor\ValorDouble.cs" />
     <Compile Include="Valor\ValorNulo.cs" />
+    <Compile Include="Valor\ValorTexto.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

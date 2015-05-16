@@ -6,7 +6,7 @@ namespace AnalisadorContabil.Testes.Loader
 {
     public class ContaLoader
     {
-        private ContaDao _contaDao;
+        private readonly ContaDao _contaDao;
         
         public ContaLoader(ISession session)
         {

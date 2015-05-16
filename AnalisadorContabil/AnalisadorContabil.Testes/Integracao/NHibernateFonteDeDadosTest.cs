@@ -2,8 +2,6 @@
 using AnalisadorContabil.Dominio;
 using AnalisadorContabil.Factory;
 using AnalisadorContabil.NHibernate;
-using AnalisadorContabil.Testes.Integracao.DAO;
-using AnalisadorContabil.Testes.Integracao.Models;
 using AnalisadorContabil.Testes.Loader;
 using AnalisadorContabil.Testes.Mock;
 using AnalisadorContabil.Valor;

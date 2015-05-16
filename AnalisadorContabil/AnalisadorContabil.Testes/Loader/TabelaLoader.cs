@@ -8,7 +8,7 @@ namespace AnalisadorContabil.Testes.Loader
     public class TabelaLoader
     {
         private readonly IDictionary<String, Tabela> _dados;
-
+        
         public TabelaLoader()
         {
             _dados = new Dictionary<String, Tabela>
