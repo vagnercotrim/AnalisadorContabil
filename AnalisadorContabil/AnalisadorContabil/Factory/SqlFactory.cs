@@ -9,7 +9,7 @@ namespace AnalisadorContabil.Factory
     public class SqlFactory
     {
 
-        public static IComponente Cria(Tabela tabela, IDictionary<String, object> variaveis, IFonteDeDados fonte)
+        public static IComponente Cria(Tabela tabela, IDictionary<String, object> variaveisSistema, IFonteDeDados fonte)
         {
             String sql;
 
@@ -27,7 +27,9 @@ namespace AnalisadorContabil.Factory
                 sql = tabela.Get("sql").ToString();
             }
 
-            return new Sql(tabela.Codigo, sql, variaveis, fonte);
+            sql = VariaveisSistema.AtribuiValorVariaveis(sql, variaveisSistema);
+
+            return new Sql(tabela.Codigo, sql, variaveisSistema, fonte);
         }
     }
 }

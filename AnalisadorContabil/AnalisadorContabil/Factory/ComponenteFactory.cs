@@ -11,10 +11,16 @@ namespace AnalisadorContabil.Factory
     {
         private readonly ITabelaDao _tabelaDao;
         private readonly IDictionary<String, IFonteDeDados> _fontes = new Dictionary<String, IFonteDeDados>();
+        private readonly IDictionary<String, object> _variaveisSistema = new Dictionary<String, object>();
 
         public ComponenteFactory(ITabelaDao tabelaDao)
         {
             _tabelaDao = tabelaDao;
+        }
+
+        public void AdicionaVariavelSistema(String nome, object valor)
+        {
+            _variaveisSistema.Add(nome, valor);
         }
 
         public void AdicionaFonte(String nome, IFonteDeDados fonte)
@@ -70,7 +76,7 @@ namespace AnalisadorContabil.Factory
                 IFonteDeDados fonte;
                 _fontes.TryGetValue(tabela.Fonte, out fonte);
 
-                return SqlFactory.Cria(tabela, variaveis, fonte);
+                return SqlFactory.Cria(tabela, _variaveisSistema, fonte);
             }
 
             return null;

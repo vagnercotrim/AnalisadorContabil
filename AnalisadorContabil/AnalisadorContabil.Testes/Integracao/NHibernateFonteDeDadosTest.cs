@@ -23,8 +23,8 @@ namespace AnalisadorContabil.Testes.Integracao
         {
             _dados = new Dictionary<String, Tabela>
             {
-                { "C15N0010", new Tabela("C15N0010", "Retorna o valor da receita da empresa em um no periodo x do ano y.", "sql", "sqlite", new Parametro("sql", "SELECT ValorReceita FROM Conta WHERE Numero = '01.02.03.01'"))},
-                { "C15N0011", new Tabela("C15N0011", "Retorna o valor da despesa da empresa em um no periodo x do ano y.", "sql", "sqlite", new Parametro("sql", "SELECT ValorDespesa FROM Conta WHERE Numero = '01.02.03.01'"))},
+                { "C15N0010", new Tabela("C15N0010", "Retorna o valor da receita da empresa em um no periodo x do ano y.", "sql", "sqlite", new Parametro("sql", "SELECT ValorReceita FROM Conta WHERE Numero = '01.02.03.01' and Empresa = {empresa} and Ano = {ano} and Periodo = {periodo}"))},
+                { "C15N0011", new Tabela("C15N0011", "Retorna o valor da despesa da empresa em um no periodo x do ano y.", "sql", "sqlite", new Parametro("sql", "SELECT ValorDespesa FROM Conta WHERE Numero = '01.02.03.01' and Empresa = {empresa} and Ano = {ano} and Periodo = {periodo}"))},
                 { "C15N0020", new Tabela("C15N0020", "Retorna a diferença da receita e despeda.", "formula", "", new Parametro("formula", "[C15N0010] - [C15N0011]"))},
                 { "C15N0021", new Tabela("C15N0021", "Verifica se deu lucro ou prejuízo.", "formula", "", new Parametro("formula", "[C15N0020] > 0 ? 'lucro' : 'prejuizo'"))},
                 { "C15N0022", new Tabela("C15N0022", "Valor de receita em porcentagem de acordo com a maete de 150,00", "formula", "", new Parametro("formula", "porcentagem([C15N0010], 150.00)"))}
@@ -39,6 +39,9 @@ namespace AnalisadorContabil.Testes.Integracao
             _factory = new ComponenteFactory(_tabelaDao);
             _factory.AdicionaFonte("sqlite", new NHibernateFonteDeDados(_consultaSql));
 
+            _factory.AdicionaVariavelSistema("empresa", 1);
+            _factory.AdicionaVariavelSistema("ano", 2015);
+            _factory.AdicionaVariavelSistema("periodo", 1);
         }
 
         [Test]
