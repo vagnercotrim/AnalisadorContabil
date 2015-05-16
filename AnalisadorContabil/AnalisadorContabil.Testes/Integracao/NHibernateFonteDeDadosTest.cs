@@ -82,6 +82,7 @@ namespace AnalisadorContabil.Testes.Integracao
             IValor valor = formula.GetValor();
 
             Assert.AreEqual(valor.Objeto(), "lucro");
+            Assert.AreEqual(valor.Exibir(), "lucro");
         }
 
         [Test]
