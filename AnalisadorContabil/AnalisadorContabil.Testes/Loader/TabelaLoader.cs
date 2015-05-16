@@ -23,9 +23,9 @@ namespace AnalisadorContabil.Testes.Loader
             };
         }
 
-        public TabelaDAO CriaTabelaDaoMock()
+        public TabelaDao CriaTabelaDaoMock()
         {
-            return new TabelaDAO(_dados);
+            return new TabelaDao(_dados);
         }
     }
 }

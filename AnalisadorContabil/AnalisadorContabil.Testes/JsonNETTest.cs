@@ -22,7 +22,7 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deserializa_um_parametro_com_string()
         {
-            String json = "{\"Nome\":\"formula\",\"Valor\":\"(2 + 3) * 5\"}";
+            const string json = "{\"Nome\":\"formula\",\"Valor\":\"(2 + 3) * 5\"}";
 
             Parametro parametro = JsonConvert.DeserializeObject<Parametro>(json);
 
@@ -46,7 +46,7 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deserializa_dois_parametro_com_string()
         {
-            String json = "[{\"Nome\":\"resultado\",\"Valor\":23.23},{\"Nome\":\"tiporetorno\",\"Valor\":\"decimal\"}]";
+            const string json = "[{\"Nome\":\"resultado\",\"Valor\":23.23},{\"Nome\":\"tiporetorno\",\"Valor\":\"decimal\"}]";
 
             IList<Parametro> parametros = JsonConvert.DeserializeObject<List<Parametro>>(json);
 

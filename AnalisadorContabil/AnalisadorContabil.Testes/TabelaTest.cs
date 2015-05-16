@@ -11,7 +11,7 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Cria_objeto_da_classe_tabela_com_4_parametros()
         {
-            String json = "[{\"Nome\":\"tabela\",\"Valor\":\"gastos\"},{\"Nome\":\"selecione\",\"Valor\":\"valor1\"},{\"Nome\":\"campocondicao\",\"Valor\":\"conta\"},{\"Nome\":\"valorcondicao\",\"Valor\":\"01.02.03.04\"}]";
+            const string json = "[{\"Nome\":\"tabela\",\"Valor\":\"gastos\"},{\"Nome\":\"selecione\",\"Valor\":\"valor1\"},{\"Nome\":\"campocondicao\",\"Valor\":\"conta\"},{\"Nome\":\"valorcondicao\",\"Valor\":\"01.02.03.04\"}]";
 
             Tabela tabela1 = new Tabela("C15N0029", "Componente C15N0029", "sql", "dictionary", json);
 

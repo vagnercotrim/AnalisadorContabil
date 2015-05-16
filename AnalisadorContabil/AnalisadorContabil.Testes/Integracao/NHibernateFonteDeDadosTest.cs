@@ -14,7 +14,7 @@ namespace AnalisadorContabil.Testes.Integracao
     public class NHibernateFonteDeDadosTest : InMemoryDatabaseTest
     {
         private IDictionary<String, Tabela> _dados;
-        private TabelaDAO _tabelaDao;
+        private TabelaDao _tabelaDao;
         private ContaDao _contaDao;
 
         [SetUp]
@@ -25,7 +25,7 @@ namespace AnalisadorContabil.Testes.Integracao
             Tabela tabela1 = new Tabela("C15N0010", "Retorna o valor da receita da empresa em um no periodo x do ano y.", "sql", "sqlite", new Parametro("sql", "SELECT ValorReceita FROM Conta WHERE Numero = '01.02.03.01'"));
             _dados.Add("C15N0010", tabela1);
 
-            _tabelaDao = new TabelaDAO(_dados);
+            _tabelaDao = new TabelaDao(_dados);
 
             _contaDao = new ContaDao(Session);
 

@@ -1,6 +1,4 @@
-﻿using System;
-using AnalisadorContabil.Componente;
-using AnalisadorContabil.Valor;
+﻿using AnalisadorContabil.Componente;
 using NUnit.Framework;
 
 namespace AnalisadorContabil.Testes

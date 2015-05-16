@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using AnalisadorContabil.Testes.Integracao.Models;
+﻿using AnalisadorContabil.Testes.Integracao.Models;
 using NHibernate;
+using System.Collections.Generic;
 
 namespace AnalisadorContabil.Testes.Integracao.DAO
 {

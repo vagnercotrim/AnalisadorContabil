@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AnalisadorContabil.Dominio;
+﻿using AnalisadorContabil.Dominio;
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
 
 namespace AnalisadorContabil.Testes
 {
@@ -14,7 +11,7 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deve_retornar_dois_parametros_de_uma_formula()
         {
-            String formula = "[C14245] * 27 / 100";
+            const string formula = "[C14245] * 27 / 100";
 
             IList<String> parametros = Parametro.FromString(formula);
 

@@ -1,19 +1,15 @@
 ﻿using AnalisadorContabil.Componente;
 using AnalisadorContabil.Dominio;
 using AnalisadorContabil.Factory;
-using AnalisadorContabil.FonteDeDados;
 using AnalisadorContabil.Testes.Loader;
-using AnalisadorContabil.Valor;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
 
 namespace AnalisadorContabil.Testes
 {
     [TestFixture]
     public class ComponenteFactoryTest
     {
-        private TabelaDAO _dao;
+        private TabelaDao _dao;
 
         [SetUp]
         public void SetUp()
