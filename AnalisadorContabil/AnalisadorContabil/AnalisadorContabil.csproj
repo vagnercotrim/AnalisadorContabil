@@ -49,7 +49,6 @@
   <ItemGroup>
     <Compile Include="Componente\Sql.cs" />
     <Compile Include="Dominio\ITabelaDao.cs" />
-    <Compile Include="Dominio\TabelaDao.cs" />
     <Compile Include="Factory\ComponenteFactory.cs" />
     <Compile Include="Factory\FormulaFactory.cs" />
     <Compile Include="Factory\SqlFactory.cs" />

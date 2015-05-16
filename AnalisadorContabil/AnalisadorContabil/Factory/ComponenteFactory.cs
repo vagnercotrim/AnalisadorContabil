@@ -9,10 +9,10 @@ namespace AnalisadorContabil.Factory
 {
     public class ComponenteFactory
     {
-        private readonly TabelaDao _tabelaDao;
+        private readonly ITabelaDao _tabelaDao;
         private readonly IDictionary<String, IFonteDeDados> _fontes = new Dictionary<String, IFonteDeDados>();
 
-        public ComponenteFactory(TabelaDao tabelaDao)
+        public ComponenteFactory(ITabelaDao tabelaDao)
         {
             _tabelaDao = tabelaDao;
         }
