@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AnalisadorContabil.Dominio
 {
-    public class TabelaDao
+    public class TabelaDao : ITabelaDao
     {
         private readonly IDictionary<string, Tabela> _dados;
 
