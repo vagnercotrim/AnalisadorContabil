@@ -9,11 +9,21 @@ namespace AnalisadorContabil.NCalc
         {
             if (name == "porcentagem")
             {
-                decimal param1 = Decimal.Parse(functionArgs.Parameters[0].Evaluate().ToString());
-                decimal param2 = Decimal.Parse(functionArgs.Parameters[1].Evaluate().ToString());
+                decimal param1 = ConvertoToDecimal(functionArgs.Parameters[0]);
+                decimal param2 = ConvertoToDecimal(functionArgs.Parameters[1]);
 
-                functionArgs.Result = param1 * 100 / param2;
+                functionArgs.Result = Porcentagem(param1, param2);
             }
+        }
+
+        private static decimal ConvertoToDecimal(Expression expression)
+        {
+            return Decimal.Parse(expression.Evaluate().ToString());
+        }
+
+        private static decimal Porcentagem(decimal calculo, decimal total)
+        {
+            return calculo * 100 / total;
         }
     }
 }
