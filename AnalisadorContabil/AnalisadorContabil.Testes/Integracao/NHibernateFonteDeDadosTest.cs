@@ -26,7 +26,8 @@ namespace AnalisadorContabil.Testes.Integracao
                 { "C15N0010", new Tabela("C15N0010", "Retorna o valor da receita da empresa em um no periodo x do ano y.", "sql", "sqlite", new Parametro("sql", "SELECT ValorReceita FROM Conta WHERE Numero = '01.02.03.01'"))},
                 { "C15N0011", new Tabela("C15N0011", "Retorna o valor da despesa da empresa em um no periodo x do ano y.", "sql", "sqlite", new Parametro("sql", "SELECT ValorDespesa FROM Conta WHERE Numero = '01.02.03.01'"))},
                 { "C15N0020", new Tabela("C15N0020", "Retorna a diferença da receita e despeda.", "formula", "", new Parametro("formula", "[C15N0010] - [C15N0011]"))},
-                { "C15N0021", new Tabela("C15N0021", "Verifica se deu lucro ou prejuízo.", "formula", "", new Parametro("formula", "[C15N0020] > 0 ? 'lucro' : 'prejuizo'"))}
+                { "C15N0021", new Tabela("C15N0021", "Verifica se deu lucro ou prejuízo.", "formula", "", new Parametro("formula", "[C15N0020] > 0 ? 'lucro' : 'prejuizo'"))},
+                { "C15N0022", new Tabela("C15N0022", "Valor de receita em porcentagem de acordo com a maete de 150,00", "formula", "", new Parametro("formula", "porcentagem([C15N0010], 150.00)"))}
             };
 
             _tabelaDao = new TabelaDaoMock(_dados);
@@ -78,6 +79,16 @@ namespace AnalisadorContabil.Testes.Integracao
             IValor valor = formula.GetValor();
 
             Assert.AreEqual(valor.Objeto(), "lucro");
+        }
+
+        [Test]
+        public void Deve_processar_o_componente_formula_C15N0022_com_funcao_porcentagem()
+        {
+            IComponente formula = _factory.Cria("C15N0022");
+
+            IValor valor = formula.GetValor();
+
+            Assert.AreEqual(Math.Round((decimal)valor.Objeto(),2), 74.07M);
         }
     }
 }

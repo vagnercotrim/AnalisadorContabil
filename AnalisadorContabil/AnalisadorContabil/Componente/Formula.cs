@@ -1,4 +1,5 @@
 using AnalisadorContabil.Factory;
+using AnalisadorContabil.NCalc;
 using AnalisadorContabil.Valor;
 using NCalc;
 using System;
@@ -33,6 +34,7 @@ namespace AnalisadorContabil.Componente
         private object Calcular()
         {
             _expression = new Expression(_formula);
+            _expression.EvaluateFunction += NCalcExtension.Functions;
 
             if (_variaveis != null)
                 foreach (KeyValuePair<string, object> keyValuePair in _variaveis)
