@@ -86,6 +86,7 @@
     <Compile Include="Integracao\Models\ContaMap\ContaMap.cs" />
     <Compile Include="Integracao\NHibernateFonteDeDadosTest.cs" />
     <Compile Include="JsonNETTest.cs" />
+    <Compile Include="Loader\ContaLoader.cs" />
     <Compile Include="Loader\TabelaLoader.cs" />
     <Compile Include="Mock\TabelaDaoMock.cs" />
     <Compile Include="ParametroTest.cs" />
