@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalisadorContabil", "Anali
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalisadorContabil.Testes", "AnalisadorContabil.Testes\AnalisadorContabil.Testes.csproj", "{46C63A27-063D-4197-86D0-21B52CFAC64F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalisadorContabil.Testes.Integracao", "AnalisadorContabil.Testes.Integracao\AnalisadorContabil.Testes.Integracao.csproj", "{8476C5A8-B94C-4439-9C66-C5EB059BE5E5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalisadorContabil.NHibernate", "AnalisadorContabil.NHibernate\AnalisadorContabil.NHibernate.csproj", "{DAF2164D-5738-424A-8EB4-EB14A513402E}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{46C63A27-063D-4197-86D0-21B52CFAC64F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46C63A27-063D-4197-86D0-21B52CFAC64F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46C63A27-063D-4197-86D0-21B52CFAC64F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8476C5A8-B94C-4439-9C66-C5EB059BE5E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8476C5A8-B94C-4439-9C66-C5EB059BE5E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8476C5A8-B94C-4439-9C66-C5EB059BE5E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8476C5A8-B94C-4439-9C66-C5EB059BE5E5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DAF2164D-5738-424A-8EB4-EB14A513402E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DAF2164D-5738-424A-8EB4-EB14A513402E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAF2164D-5738-424A-8EB4-EB14A513402E}.Release|Any CPU.ActiveCfg = Release|Any CPU
