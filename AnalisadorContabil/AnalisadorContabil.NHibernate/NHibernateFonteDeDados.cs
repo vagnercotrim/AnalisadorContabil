@@ -5,9 +5,9 @@ namespace AnalisadorContabil.NHibernate
 {
     public class NHibernateFonteDeDados : IFonteDeDados
     {
-        private readonly ConsultaSql _consulta;
-        
-        public NHibernateFonteDeDados(ConsultaSql consulta)
+        private readonly IConsultaSql _consulta;
+
+        public NHibernateFonteDeDados(IConsultaSql consulta)
         {
             _consulta = consulta;
         }

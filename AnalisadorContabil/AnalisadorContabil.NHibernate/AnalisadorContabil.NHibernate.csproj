@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsultaSql.cs" />
+    <Compile Include="IConsultaSql.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NHibernateFonteDeDados.cs" />
   </ItemGroup>

@@ -3,7 +3,7 @@ using NHibernate;
 
 namespace AnalisadorContabil.NHibernate
 {
-    public class ConsultaSql
+    public class ConsultaSql : IConsultaSql
     {
         private readonly ISession _session;
 

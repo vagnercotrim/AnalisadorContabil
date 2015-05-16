@@ -15,7 +15,7 @@ namespace AnalisadorContabil.Testes.Integracao
     {
         private IDictionary<String, Tabela> _dados;
         private ITabelaDao _tabelaDao;
-        private ConsultaSql _consultaSql;
+        private IConsultaSql _consultaSql;
         private ComponenteFactory _factory;
 
         [SetUp]

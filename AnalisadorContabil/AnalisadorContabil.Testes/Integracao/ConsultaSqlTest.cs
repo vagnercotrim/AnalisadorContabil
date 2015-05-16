@@ -9,6 +9,7 @@ namespace AnalisadorContabil.Testes.Integracao
     public class ConsultaSqlTest : InMemoryDatabaseTest
     {
         private ContaDao _dao;
+        private IConsultaSql _consulta;
 
         [SetUp]
         public void SetUp()
@@ -27,9 +28,9 @@ namespace AnalisadorContabil.Testes.Integracao
         [Test]
         public void Deve_retornar_valor_da_coluna_valorreceita_consulta_sql()
         {
-            ConsultaSql consulta = new ConsultaSql(Session);
+            _consulta = new ConsultaSql(Session);
 
-            Decimal valor = (decimal)consulta.UniqueResult("SELECT ValorReceita FROM Conta WHERE Numero = '01.02.03.01'"); 
+            Decimal valor = (decimal)_consulta.UniqueResult("SELECT ValorReceita FROM Conta WHERE Numero = '01.02.03.01'"); 
 
             Assert.AreEqual(valor, 111.11M);
         }
@@ -37,9 +38,9 @@ namespace AnalisadorContabil.Testes.Integracao
         [Test]
         public void Deve_retornar_valor_da_coluna_valordespesa_consulta_sql()
         {
-            ConsultaSql consulta = new ConsultaSql(Session);
+            _consulta = new ConsultaSql(Session);
 
-            Decimal valor = (decimal)consulta.UniqueResult("SELECT ValorDespesa FROM Conta WHERE Numero = '01.02.03.01'");
+            Decimal valor = (decimal)_consulta.UniqueResult("SELECT ValorDespesa FROM Conta WHERE Numero = '01.02.03.01'");
 
             Assert.AreEqual(valor, 111.00M);
         }
