@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="ComponenteFactoryTest.cs" />
     <Compile Include="JsonNETTest.cs" />
+    <Compile Include="Loader\TabelaLoader.cs" />
     <Compile Include="ParametroTest.cs" />
     <Compile Include="SqlTest.cs" />
     <Compile Include="FormulaTest.cs" />
