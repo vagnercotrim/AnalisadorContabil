@@ -2,6 +2,7 @@
 using AnalisadorContabil.Dominio;
 using AnalisadorContabil.Factory;
 using AnalisadorContabil.Testes.Loader;
+using AnalisadorContabil.Testes.Mock;
 using NUnit.Framework;
 
 namespace AnalisadorContabil.Testes
@@ -9,7 +10,7 @@ namespace AnalisadorContabil.Testes
     [TestFixture]
     public class ComponenteFactoryTest
     {
-        private TabelaDao _dao;
+        private ITabelaDao _dao;
 
         [SetUp]
         public void SetUp()

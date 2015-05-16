@@ -1,6 +1,7 @@
 ﻿using AnalisadorContabil.Dominio;
 using System;
 using System.Collections.Generic;
+using AnalisadorContabil.Testes.Mock;
 
 namespace AnalisadorContabil.Testes.Loader
 {
@@ -23,9 +24,9 @@ namespace AnalisadorContabil.Testes.Loader
             };
         }
 
-        public TabelaDao CriaTabelaDaoMock()
+        public ITabelaDao CriaTabelaDaoMock()
         {
-            return new TabelaDao(_dados);
+            return new TabelaDaoMock(_dados);
         }
     }
 }

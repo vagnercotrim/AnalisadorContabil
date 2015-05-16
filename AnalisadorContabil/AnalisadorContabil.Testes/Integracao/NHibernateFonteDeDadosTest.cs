@@ -4,6 +4,7 @@ using AnalisadorContabil.Factory;
 using AnalisadorContabil.NHibernate;
 using AnalisadorContabil.Testes.Integracao.DAO;
 using AnalisadorContabil.Testes.Integracao.Models;
+using AnalisadorContabil.Testes.Mock;
 using AnalisadorContabil.Valor;
 using NUnit.Framework;
 using System;
@@ -14,7 +15,7 @@ namespace AnalisadorContabil.Testes.Integracao
     public class NHibernateFonteDeDadosTest : InMemoryDatabaseTest
     {
         private IDictionary<String, Tabela> _dados;
-        private TabelaDao _tabelaDao;
+        private ITabelaDao _tabelaDao;
         private ContaDao _contaDao;
 
         [SetUp]
@@ -25,7 +26,7 @@ namespace AnalisadorContabil.Testes.Integracao
             Tabela tabela1 = new Tabela("C15N0010", "Retorna o valor da receita da empresa em um no periodo x do ano y.", "sql", "sqlite", new Parametro("sql", "SELECT ValorReceita FROM Conta WHERE Numero = '01.02.03.01'"));
             _dados.Add("C15N0010", tabela1);
 
-            _tabelaDao = new TabelaDao(_dados);
+            _tabelaDao = new TabelaDaoMock(_dados);
 
             _contaDao = new ContaDao(Session);
 
