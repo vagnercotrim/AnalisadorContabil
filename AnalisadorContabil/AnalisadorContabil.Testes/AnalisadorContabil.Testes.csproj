@@ -104,6 +104,10 @@
       <Project>{DAF2164D-5738-424A-8EB4-EB14A513402E}</Project>
       <Name>AnalisadorContabil.NHibernate</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AnalisadorContabil.Rest\AnalisadorContabil.Rest.csproj">
+      <Project>{9E953A0E-515E-4350-B1CB-E433F65CF557}</Project>
+      <Name>AnalisadorContabil.Rest</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AnalisadorContabil\AnalisadorContabil.csproj">
       <Project>{D8EEDD32-E8B9-46BD-8319-D946560BD736}</Project>
       <Name>AnalisadorContabil</Name>
