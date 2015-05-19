@@ -65,6 +65,7 @@
     <Compile Include="Dominio\Tabela.cs" />
     <Compile Include="Valor\IValor.cs" />
     <Compile Include="Valor\ValorBooleano.cs" />
+    <Compile Include="Valor\ValorData.cs" />
     <Compile Include="Valor\ValorDecimal.cs" />
     <Compile Include="Valor\ValorDouble.cs" />
     <Compile Include="Valor\ValorNulo.cs" />

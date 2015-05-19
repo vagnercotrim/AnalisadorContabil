@@ -1,4 +1,5 @@
-﻿using AnalisadorContabil.Valor;
+﻿using System;
+using AnalisadorContabil.Valor;
 
 namespace AnalisadorContabil.Factory
 {
@@ -21,6 +22,9 @@ namespace AnalisadorContabil.Factory
 
             if (valor is string)
                 return new ValorTexto(valor);
+
+            if (valor is DateTime)
+                return new ValorData(valor);
 
             return new ValorNulo();
         }
