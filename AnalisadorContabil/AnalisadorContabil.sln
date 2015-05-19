@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalisadorContabil.Testes",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalisadorContabil.NHibernate", "AnalisadorContabil.NHibernate\AnalisadorContabil.NHibernate.csproj", "{DAF2164D-5738-424A-8EB4-EB14A513402E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalisadorContabil.Rest", "AnalisadorContabil.Rest\AnalisadorContabil.Rest.csproj", "{9E953A0E-515E-4350-B1CB-E433F65CF557}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DAF2164D-5738-424A-8EB4-EB14A513402E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAF2164D-5738-424A-8EB4-EB14A513402E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAF2164D-5738-424A-8EB4-EB14A513402E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E953A0E-515E-4350-B1CB-E433F65CF557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E953A0E-515E-4350-B1CB-E433F65CF557}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E953A0E-515E-4350-B1CB-E433F65CF557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E953A0E-515E-4350-B1CB-E433F65CF557}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
