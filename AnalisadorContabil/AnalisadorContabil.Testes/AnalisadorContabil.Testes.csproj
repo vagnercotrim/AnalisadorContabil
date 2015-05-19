@@ -90,6 +90,7 @@
     <Compile Include="Loader\TabelaLoader.cs" />
     <Compile Include="Mock\TabelaDaoMock.cs" />
     <Compile Include="ParametroTest.cs" />
+    <Compile Include="RestTest.cs" />
     <Compile Include="SqlTest.cs" />
     <Compile Include="FormulaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

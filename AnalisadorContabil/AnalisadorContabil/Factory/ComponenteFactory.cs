@@ -79,6 +79,14 @@ namespace AnalisadorContabil.Factory
                 return SqlFactory.Cria(tabela, _variaveisSistema, fonte);
             }
 
+            if (tabela.Tipo == "rest")
+            {
+                IFonteDeDados fonte;
+                _fontes.TryGetValue(tabela.Fonte, out fonte);
+
+                return RestFactory.Cria(tabela, _variaveisSistema, fonte);
+            }
+
             return null;
         }
     }
