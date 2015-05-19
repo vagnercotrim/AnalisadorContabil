@@ -3,17 +3,14 @@ using AnalisadorContabil.Dominio;
 using AnalisadorContabil.Factory;
 using AnalisadorContabil.NHibernate;
 using AnalisadorContabil.Testes.Loader;
-using AnalisadorContabil.Testes.Mock;
 using AnalisadorContabil.Valor;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 
 namespace AnalisadorContabil.Testes.Integracao
 {
     public class NHibernateFonteDeDadosTest : InMemoryDatabaseTest
     {
-        private IDictionary<String, Tabela> _dados;
         private ITabelaDao _tabelaDao;
         private IConsultaSql _consultaSql;
         private ComponenteFactory _factory;
@@ -21,16 +18,7 @@ namespace AnalisadorContabil.Testes.Integracao
         [SetUp]
         public void SetUp()
         {
-            _dados = new Dictionary<String, Tabela>
-            {
-                { "C15N0010", new Tabela("C15N0010", "Retorna o valor da receita da empresa em um no periodo x do ano y.", "sql", "sqlite", new Parametro("sql", "SELECT ValorReceita FROM Conta WHERE Numero = '01.02.03.01' and Empresa = {empresa} and Ano = {ano} and Periodo = {periodo}"))},
-                { "C15N0011", new Tabela("C15N0011", "Retorna o valor da despesa da empresa em um no periodo x do ano y.", "sql", "sqlite", new Parametro("sql", "SELECT ValorDespesa FROM Conta WHERE Numero = '01.02.03.01' and Empresa = {empresa} and Ano = {ano} and Periodo = {periodo}"))},
-                { "C15N0020", new Tabela("C15N0020", "Retorna a diferença da receita e despeda.", "formula", "", new Parametro("formula", "[C15N0010] - [C15N0011]"))},
-                { "C15N0021", new Tabela("C15N0021", "Verifica se deu lucro ou prejuízo.", "formula", "", new Parametro("formula", "[C15N0020] > 0 ? 'lucro' : 'prejuizo'"))},
-                { "C15N0022", new Tabela("C15N0022", "Valor de receita em porcentagem de acordo com a maete de 150,00", "formula", "", new Parametro("formula", "porcentagem([C15N0010], 150.00)"))}
-            };
-
-            _tabelaDao = new TabelaDaoMock(_dados);
+            _tabelaDao = new TabelaLoader().CriaTabelaDaoMock();
 
             ContaLoader contaLoader =  new ContaLoader(Session);
             contaLoader.CriaContas();
@@ -47,7 +35,7 @@ namespace AnalisadorContabil.Testes.Integracao
         [Test]
         public void Deve_processar_o_componente_C15N0010_e_retornar_o_valor_111_11()
         {
-            IComponente consulta = _factory.Cria("C15N0010");
+            IComponente consulta = _factory.Cria("C15N0050");
 
             IValor valor = consulta.GetValor();
 
@@ -57,7 +45,7 @@ namespace AnalisadorContabil.Testes.Integracao
         [Test]
         public void Deve_processar_o_componente_C15N0010_e_retornar_o_valor_111_00()
         {
-            IComponente consulta = _factory.Cria("C15N0011");
+            IComponente consulta = _factory.Cria("C15N0051");
 
             IValor valor = consulta.GetValor();
 
@@ -67,7 +55,7 @@ namespace AnalisadorContabil.Testes.Integracao
         [Test]
         public void Deve_processar_o_componente_formula_C15N0020_e_retornar_o_valor_0_11()
         {
-            IComponente formula = _factory.Cria("C15N0020");
+            IComponente formula = _factory.Cria("C15N0060");
 
             IValor valor = formula.GetValor();
 
@@ -77,7 +65,7 @@ namespace AnalisadorContabil.Testes.Integracao
         [Test]
         public void Deve_processar_o_componente_formula_C15N0021_e_retornar_o_valor_lucro()
         {
-            IComponente formula = _factory.Cria("C15N0021");
+            IComponente formula = _factory.Cria("C15N0061");
 
             IValor valor = formula.GetValor();
 
@@ -88,7 +76,7 @@ namespace AnalisadorContabil.Testes.Integracao
         [Test]
         public void Deve_processar_o_componente_formula_C15N0022_com_funcao_porcentagem()
         {
-            IComponente formula = _factory.Cria("C15N0022");
+            IComponente formula = _factory.Cria("C15N0062");
 
             IValor valor = formula.GetValor();
 

@@ -13,7 +13,11 @@ namespace AnalisadorContabil.Testes.Loader
         {
             _dados = new Dictionary<String, Tabela>
             {
-                { "C15N0050", new Tabela("C15N0050", "Retorna o valor da receita da empresa em um no periodo x do ano y.", "sql", "sqlite", new Parametro("sql", "SELECT ValorReceita FROM Conta WHERE Numero = '01.02.03.01' and Empresa = {empresa} and Ano = {ano} and Periodo = {periodo}"))},
+                { "C15N0050", new Tabela("C15N0050", null, "sql", "sqlite", new Parametro("sql", "SELECT ValorReceita FROM Conta WHERE Numero = '01.02.03.01' and Empresa = {empresa} and Ano = {ano} and Periodo = {periodo}"))},
+                { "C15N0051", new Tabela("C15N0051", null, "sql", "sqlite", new Parametro("sql", "SELECT ValorDespesa FROM Conta WHERE Numero = '01.02.03.01' and Empresa = {empresa} and Ano = {ano} and Periodo = {periodo}"))},
+                { "C15N0060", new Tabela("C15N0060", null, "formula", "", new Parametro("formula", "[C15N0050] - [C15N0051]"))},
+                { "C15N0061", new Tabela("C15N0061", null, "formula", "", new Parametro("formula", "[C15N0060] > 0 ? 'lucro' : 'prejuizo'"))},
+                { "C15N0062", new Tabela("C15N0062", null, "formula", "", new Parametro("formula", "porcentagem([C15N0050], 150.00)"))},
                 { "C15N0101", new Tabela("C15N0101", null, "rest",    "api",        new Parametro("recurso", "api/values/1")) },
                 { "C15N0102", new Tabela("C15N0102", null, "rest",    "api",        new Parametro("recurso", "api/data")) },
                 { "C15N0103", new Tabela("C15N0103", null, "rest",    "api",        new Parametro("recurso", "api/meta")) },
