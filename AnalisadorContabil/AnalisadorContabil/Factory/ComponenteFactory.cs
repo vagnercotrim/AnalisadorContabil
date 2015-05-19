@@ -31,7 +31,7 @@ namespace AnalisadorContabil.Factory
         private IDictionary<String, object> ResolveParametros(IEnumerable<Parametro> tabelaParametros)
         {
             IDictionary<String, object> variaveis = new Dictionary<String, object>();
-            
+
             foreach (var tabelaParametro in tabelaParametros)
             {
                 if (tabelaParametro.ContemParametro())
@@ -72,22 +72,20 @@ namespace AnalisadorContabil.Factory
                 return FormulaFactory.Cria(tabela, variaveisComponente);
 
             if (tabela.Tipo == "sql")
-            {
-                IFonteDeDados fonte;
-                _fontes.TryGetValue(tabela.Fonte, out fonte);
-
-                return SqlFactory.Cria(tabela, _variaveisSistema, fonte);
-            }
+                return SqlFactory.Cria(tabela, _variaveisSistema, Fonte(tabela));
 
             if (tabela.Tipo == "rest")
-            {
-                IFonteDeDados fonte;
-                _fontes.TryGetValue(tabela.Fonte, out fonte);
-
-                return RestFactory.Cria(tabela, _variaveisSistema, fonte);
-            }
+                return RestFactory.Cria(tabela, _variaveisSistema, Fonte(tabela));
 
             return null;
+        }
+
+        private IFonteDeDados Fonte(Tabela tabela)
+        {
+            IFonteDeDados fonte;
+            _fontes.TryGetValue(tabela.Fonte, out fonte);
+
+            return fonte;
         }
     }
 }
