@@ -66,10 +66,10 @@ namespace AnalisadorContabil.Factory
 
             IList<Parametro> tabelaParametros = tabela.ParametrosToList();
 
-            IDictionary<String, object> variaveis = ResolveParametros(tabelaParametros);
+            IDictionary<String, object> variaveisComponente = ResolveParametros(tabelaParametros);
 
             if (tabela.Tipo == "formula")
-                return FormulaFactory.Cria(tabela, variaveis);
+                return FormulaFactory.Cria(tabela, variaveisComponente);
 
             if (tabela.Tipo == "sql")
             {
