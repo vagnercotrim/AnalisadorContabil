@@ -82,5 +82,22 @@ namespace AnalisadorContabil.Testes.Integracao
 
             Assert.AreEqual(Math.Round((decimal)valor.Objeto(),2), 74.07M);
         }
+
+        [Test]
+        public void Deve_processar_o_componente_formula_C15N0052_e_retornar_nulo()
+        {
+            IComponente formula = _factory.Cria("C15N0052");
+
+            IValor valor = formula.GetValor();
+
+            Assert.AreEqual(valor.Objeto(), null);
+        }
+
+        [Test]
+        [ExpectedException(typeof(NullReferenceException))]
+        public void Deve_retornar_uma_exception_tentanto_criar_um_componente_que_nao_existe()
+        {
+            IComponente formula = _factory.Cria("C00N9999");
+        }
     }
 }

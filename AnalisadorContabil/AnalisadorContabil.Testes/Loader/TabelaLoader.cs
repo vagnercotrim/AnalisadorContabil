@@ -15,6 +15,7 @@ namespace AnalisadorContabil.Testes.Loader
             {
                 { "C15N0050", new Tabela("C15N0050", null, "sql", "sqlite", new Parametro("sql", "SELECT ValorReceita FROM Conta WHERE Numero = '01.02.03.01' and Empresa = {empresa} and Ano = {ano} and Periodo = {periodo}"))},
                 { "C15N0051", new Tabela("C15N0051", null, "sql", "sqlite", new Parametro("sql", "SELECT ValorDespesa FROM Conta WHERE Numero = '01.02.03.01' and Empresa = {empresa} and Ano = {ano} and Periodo = {periodo}"))},
+                { "C15N0052", new Tabela("C15N0052", null, "sql", "sqlite", new Parametro("sql", "SELECT ValorDespesa FROM Conta WHERE Numero = '99.99.99.99' and Empresa = {empresa} and Ano = {ano} and Periodo = {periodo}"))},
                 { "C15N0060", new Tabela("C15N0060", null, "formula", "", new Parametro("formula", "[C15N0050] - [C15N0051]"))},
                 { "C15N0061", new Tabela("C15N0061", null, "formula", "", new Parametro("formula", "[C15N0060] > 0 ? 'lucro' : 'prejuizo'"))},
                 { "C15N0062", new Tabela("C15N0062", null, "formula", "", new Parametro("formula", "porcentagem([C15N0050], 150.00)"))},
