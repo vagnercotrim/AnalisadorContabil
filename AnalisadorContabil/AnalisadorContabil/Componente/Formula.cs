@@ -10,15 +10,19 @@ namespace AnalisadorContabil.Componente
     public class Formula : IComponente
     {
         private readonly String _id;
-        private readonly String _formula;
-        private readonly IDictionary<string, object> _variaveis;
         private Expression _expression;
 
-        public Formula(String id, String formula, IDictionary<String, object> variaveis = null)
+        public Formula(String id, String formula, IEnumerable<KeyValuePair<string, object>> variaveis)
         {
             _id = id;
-            _formula = formula;
-            _variaveis = variaveis;
+            SetExpression(formula);
+            SetVariaveis(variaveis);
+        }
+
+        private void SetExpression(string formula)
+        {
+            _expression = new Expression(formula);
+            _expression.EvaluateFunction += NCalcExtension.Functions;
         }
 
         public String Id()
@@ -33,14 +37,15 @@ namespace AnalisadorContabil.Componente
 
         private object Calcular()
         {
-            _expression = new Expression(_formula);
-            _expression.EvaluateFunction += NCalcExtension.Functions;
-
-            if (_variaveis != null)
-                foreach (KeyValuePair<string, object> keyValuePair in _variaveis)
-                    _expression.Parameters[keyValuePair.Key] = keyValuePair.Value;
 
             return _expression.Evaluate();
+        }
+
+        private void SetVariaveis(IEnumerable<KeyValuePair<string, object>> variaveis)
+        {
+            if (variaveis != null)
+                foreach (KeyValuePair<string, object> keyValuePair in variaveis)
+                    _expression.Parameters[keyValuePair.Key] = keyValuePair.Value;
         }
     }
 }
