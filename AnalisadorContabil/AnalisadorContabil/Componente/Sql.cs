@@ -2,14 +2,13 @@
 using AnalisadorContabil.FonteDeDados;
 using AnalisadorContabil.Valor;
 using System;
-using System.Collections.Generic;
 
 namespace AnalisadorContabil.Componente
 {
     public class Sql : IComponente
     {
         private readonly String _id;
-        private readonly string _sql;
+        private readonly String _sql;
         private readonly IFonteDeDados _fonteDeDados;
         
         public Sql(String id, String sql, IFonteDeDados fonteDeDados)
