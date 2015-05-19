@@ -66,5 +66,20 @@ namespace AnalisadorContabil.Testes
                 Assert.AreEqual(valor.Objeto(), new DateTime(2015, 5, 15));
             }
         }
+
+        [Test]
+        public void Deve_retorna_a_receita_da_empresa_e_verificar_se_atingiu_a_meta()
+        {
+            const string baseAddress = "http://localhost:9000/";
+
+            using (WebApp.Start<Startup>(baseAddress))
+            {
+                IComponente consulta = _factory.Cria("C15N0029");
+
+                IValor valor = consulta.GetValor();
+
+                Assert.AreEqual(valor.Objeto(), false);
+            }
+        }
     }
 }
