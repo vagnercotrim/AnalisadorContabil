@@ -1,13 +1,15 @@
-﻿using System;
-using AnalisadorContabil.Componente;
+﻿using AnalisadorContabil.Componente;
 using AnalisadorContabil.Dominio;
 using AnalisadorContabil.Factory;
 using AnalisadorContabil.NHibernate;
 using AnalisadorContabil.Rest;
+using AnalisadorContabil.Testes.ApiRest;
 using AnalisadorContabil.Testes.Integracao;
 using AnalisadorContabil.Testes.Loader;
 using AnalisadorContabil.Valor;
+using Microsoft.Owin.Hosting;
 using NUnit.Framework;
+using System;
 
 namespace AnalisadorContabil.Testes
 {
@@ -28,7 +30,7 @@ namespace AnalisadorContabil.Testes
             _consultaSql = new ConsultaSql(Session);
             _factory = new ComponenteFactory(_tabelaDao);
             _factory.AdicionaFonte("sqlite", new NHibernateFonteDeDados(_consultaSql));
-            _factory.AdicionaFonte("api", new RestSharpFonteDeDados("api.teste.com.br"));
+            _factory.AdicionaFonte("api", new RestSharpFonteDeDados("http://localhost:9000/"));
 
             _factory.AdicionaVariavelSistema("empresa", 1);
             _factory.AdicionaVariavelSistema("ano", 2015);
@@ -36,13 +38,33 @@ namespace AnalisadorContabil.Testes
         }
 
         [Test]
-        public void Deve_criar_um_componente_do_tipo_rest()
+        public void Deve_consultar_uma_api_de_testes_e_retornar_value()
         {
-            IComponente consulta = _factory.Cria("C15N0101");
+            const string baseAddress = "http://localhost:9000/";
 
-            IValor valor = consulta.GetValor();
+            using (WebApp.Start<Startup>(baseAddress))
+            {
+                IComponente consulta = _factory.Cria("C15N0101");
 
-            Assert.AreEqual(valor.Objeto(), new DateTime(2015, 5, 15));
+                IValor valor = consulta.GetValor();
+
+                Assert.AreEqual(valor.Objeto(), "value");
+            }
+        }
+
+        [Test]
+        public void Deve_consultar_uma_api_de_testes_e_retornar_uma_data()
+        {
+            const string baseAddress = "http://localhost:9000/";
+
+            using (WebApp.Start<Startup>(baseAddress))
+            {
+                IComponente consulta = _factory.Cria("C15N0102");
+
+                IValor valor = consulta.GetValor();
+
+                Assert.AreEqual(valor.Objeto(), new DateTime(2015, 5, 15));
+            }
         }
     }
 }
