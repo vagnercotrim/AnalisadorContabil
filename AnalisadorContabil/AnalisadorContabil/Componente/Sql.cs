@@ -10,14 +10,12 @@ namespace AnalisadorContabil.Componente
     {
         private readonly String _id;
         private readonly string _sql;
-        private readonly IDictionary<string, object> _variaveis;
         private readonly IFonteDeDados _fonteDeDados;
-
-        public Sql(String id, String sql, IDictionary<String, object> variaveis, IFonteDeDados fonteDeDados)
+        
+        public Sql(String id, String sql, IFonteDeDados fonteDeDados)
         {
             _id = id;
             _sql = sql;
-            _variaveis = variaveis;
             _fonteDeDados = fonteDeDados;
         }
 

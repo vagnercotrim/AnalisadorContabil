@@ -29,7 +29,7 @@ namespace AnalisadorContabil.Factory
 
             sql = VariaveisSistema.AtribuiValorVariaveis(sql, variaveisSistema);
 
-            return new Sql(tabela.Codigo, sql, variaveisSistema, fonte);
+            return new Sql(tabela.Codigo, sql, fonte);
         }
     }
 }
