@@ -15,24 +15,10 @@ namespace AnalisadorContabil.Dominio
         public String Retorno { get; set; }
 
         public Tabela(String codigo, String descricao, String tipo, String fonte, String retorno, Parametro parametros)
-        {
-            Codigo = codigo;
-            Descricao = descricao;
-            Tipo = tipo;
-            Fonte = fonte;
-            Retorno = retorno;
-            Parametros = JsonConvert.SerializeObject(new List<Parametro> { parametros });
-        }
+            : this(codigo, descricao, tipo, fonte, retorno, new List<Parametro> { parametros }) { }
 
         public Tabela(String codigo, String descricao, String tipo, String fonte, String retorno, IList<Parametro> parametros)
-        {
-            Codigo = codigo;
-            Descricao = descricao;
-            Tipo = tipo;
-            Fonte = fonte;
-            Retorno = retorno;
-            Parametros = JsonConvert.SerializeObject(parametros);
-        }
+            : this(codigo, descricao, tipo, fonte, retorno, JsonConvert.SerializeObject(parametros)) { }
 
         public Tabela(String codigo, String descricao, String tipo, String fonte, String retorno, String parametros)
         {
