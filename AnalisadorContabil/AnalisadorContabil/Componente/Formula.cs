@@ -12,7 +12,7 @@ namespace AnalisadorContabil.Componente
         private readonly String _id;
         private Expression _expression;
 
-        public Formula(String id, String formula, IEnumerable<KeyValuePair<string, object>> variaveis)
+        public Formula(String id, String formula, IEnumerable<KeyValuePair<string, IValor>> variaveis)
         {
             _id = id;
             SetExpression(formula);
@@ -41,11 +41,11 @@ namespace AnalisadorContabil.Componente
             return _expression.Evaluate();
         }
 
-        private void SetVariaveis(IEnumerable<KeyValuePair<string, object>> variaveis)
+        private void SetVariaveis(IEnumerable<KeyValuePair<string, IValor>> variaveis)
         {
             if (variaveis != null)
-                foreach (KeyValuePair<string, object> keyValuePair in variaveis)
-                    _expression.Parameters[keyValuePair.Key] = keyValuePair.Value;
+                foreach (KeyValuePair<string, IValor> keyValuePair in variaveis)
+                    _expression.Parameters[keyValuePair.Key] = keyValuePair.Value.Objeto();
         }
     }
 }

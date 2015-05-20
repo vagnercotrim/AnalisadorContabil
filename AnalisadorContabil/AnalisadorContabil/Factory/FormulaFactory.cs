@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using AnalisadorContabil.Componente;
 using AnalisadorContabil.Dominio;
+using AnalisadorContabil.Valor;
 
 namespace AnalisadorContabil.Factory
 {
     public class FormulaFactory
     {
-        public static IComponente Cria(Tabela tabela, IDictionary<String, object> variaveis)
+        public static IComponente Cria(Tabela tabela, IDictionary<String, IValor> variaveis)
         {
             String formula = tabela.Get("formula").ToString();
 

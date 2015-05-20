@@ -28,9 +28,9 @@ namespace AnalisadorContabil.Factory
             _fontes.Add(nome, fonte);
         }
 
-        private IDictionary<String, object> ResolveParametros(IEnumerable<Parametro> tabelaParametros)
+        private IDictionary<String, IValor> ResolveParametros(IEnumerable<Parametro> tabelaParametros)
         {
-            IDictionary<String, object> variaveis = new Dictionary<String, object>();
+            IDictionary<String, IValor> variaveis = new Dictionary<String, IValor>();
 
             foreach (var tabelaParametro in tabelaParametros)
             {
@@ -42,7 +42,7 @@ namespace AnalisadorContabil.Factory
                     {
                         IValor valor = ResolveComponente(parametro);
 
-                        variaveis.Add(parametro, valor.Objeto());
+                        variaveis.Add(parametro, valor);
                     }
                 }
             }
@@ -66,7 +66,7 @@ namespace AnalisadorContabil.Factory
 
             IList<Parametro> tabelaParametros = tabela.ParametrosToList();
 
-            IDictionary<String, object> variaveisComponente = ResolveParametros(tabelaParametros);
+            IDictionary<String, IValor> variaveisComponente = ResolveParametros(tabelaParametros);
 
             if (tabela.Tipo == "formula")
                 return FormulaFactory.Cria(tabela, variaveisComponente);
