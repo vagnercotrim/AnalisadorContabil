@@ -4,24 +4,11 @@ namespace AnalisadorContabil.Valor
 {
     public class ValorDouble : IValor
     {
-      private Double? _valor;
+        private Double? _valor;
 
         public ValorDouble(object valor)
         {
-            try
-            {
-                Double valorDecimal = Double.Parse(valor.ToString());
-                _valor = valorDecimal;
-            }
-            catch (Exception)
-            {
-                _valor = null;
-            }
-        }
-
-        public ValorDouble(Double valor)
-        {
-            _valor = valor;
+            _valor = Double.Parse(valor.ToString());
         }
 
         public object Objeto()

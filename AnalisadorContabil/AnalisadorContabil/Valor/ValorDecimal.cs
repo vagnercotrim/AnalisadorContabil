@@ -8,20 +8,7 @@ namespace AnalisadorContabil.Valor
 
         public ValorDecimal(object valor)
         {
-            try
-            {
-                Decimal valorDecimal = Decimal.Parse(valor.ToString());
-                _valor = valorDecimal;
-            }
-            catch (Exception)
-            {
-                _valor = null;
-            }
-        }
-
-        public ValorDecimal(Decimal valor)
-        {
-            _valor = valor;
+            _valor = Decimal.Parse(valor.ToString());
         }
 
         public object Objeto()

@@ -8,15 +8,7 @@ namespace AnalisadorContabil.Valor
 
         public ValorData(object valor)
         {
-            try
-            {
-                DateTime valorDecimal = DateTime.Parse(valor.ToString());
-                _valor = valorDecimal;
-            }
-            catch (Exception)
-            {
-                _valor = null;
-            }
+            _valor = DateTime.Parse(valor.ToString());
         }
 
         public object Objeto()

@@ -8,20 +8,7 @@ namespace AnalisadorContabil.Valor
 
         public ValorBooleano(object valor)
         {
-            try
-            {
-                Boolean valorDecimal = Boolean.Parse(valor.ToString());
-                _valor = valorDecimal;
-            }
-            catch (Exception)
-            {
-                _valor = false;
-            }
-        }
-
-        public ValorBooleano(bool valor)
-        {
-            _valor = valor;
+            _valor = Boolean.Parse(valor.ToString());
         }
 
         public object Objeto()

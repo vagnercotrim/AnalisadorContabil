@@ -8,7 +8,7 @@ namespace AnalisadorContabil.Valor
 
         public ValorTexto(object valor)
         {
-                _valor = valor.ToString();
+            _valor = valor.ToString();
         }
 
         public object Objeto()
