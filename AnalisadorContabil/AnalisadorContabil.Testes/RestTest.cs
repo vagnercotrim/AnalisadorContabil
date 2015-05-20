@@ -18,6 +18,7 @@ namespace AnalisadorContabil.Testes
         private ITabelaDao _tabelaDao;
         private IConsultaSql _consultaSql;
         private ComponenteFactory _factory;
+        const string BaseAddress = "http://localhost:9000/";
 
         [SetUp]
         public void SetUp()
@@ -40,9 +41,7 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deve_consultar_uma_api_de_testes_e_retornar_value()
         {
-            const string baseAddress = "http://localhost:9000/";
-
-            using (WebApp.Start<Startup>(baseAddress))
+            using (WebApp.Start<Startup>(BaseAddress))
             {
                 IComponente consulta = _factory.Cria("C15N0101");
 
@@ -55,9 +54,7 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deve_consultar_uma_api_de_testes_e_retornar_uma_data()
         {
-            const string baseAddress = "http://localhost:9000/";
-
-            using (WebApp.Start<Startup>(baseAddress))
+            using (WebApp.Start<Startup>(BaseAddress))
             {
                 IComponente consulta = _factory.Cria("C15N0102");
 
@@ -70,9 +67,7 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deve_retorna_a_receita_da_empresa_e_verificar_se_atingiu_a_meta()
         {
-            const string baseAddress = "http://localhost:9000/";
-
-            using (WebApp.Start<Startup>(baseAddress))
+            using (WebApp.Start<Startup>(BaseAddress))
             {
                 IComponente consulta = _factory.Cria("C15N0029");
 
