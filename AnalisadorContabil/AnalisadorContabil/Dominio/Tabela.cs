@@ -7,32 +7,37 @@ namespace AnalisadorContabil.Dominio
 {
     public class Tabela
     {
+        private readonly string _retorno;
         public String Codigo { get; set; }
         public String Descricao { get; set; }
         public String Parametros { get; set; }
         public String Tipo { get; set; }
         public String Fonte { get; set; }
+        public String Retorno { get; set; }
 
-        public Tabela(String codigo, String descricao, String tipo, String fonte, Parametro parametros)
+        public Tabela(String codigo, String descricao, String tipo, String fonte, String retorno, Parametro parametros)
         {
             Codigo = codigo;
             Descricao = descricao;
             Tipo = tipo;
             Fonte = fonte;
+            Retorno = retorno;
             Parametros = JsonConvert.SerializeObject(new List<Parametro> { parametros });
         }
 
-        public Tabela(String codigo, String descricao, String tipo, String fonte, IList<Parametro> parametros)
+        public Tabela(String codigo, String descricao, String tipo, String fonte, String retorno, IList<Parametro> parametros)
         {
             Codigo = codigo;
             Descricao = descricao;
             Tipo = tipo;
             Fonte = fonte;
+            Retorno = retorno;
             Parametros = JsonConvert.SerializeObject(parametros);
         }
 
-        public Tabela(String codigo, String descricao, String tipo, String fonte, String parametros)
+        public Tabela(String codigo, String descricao, String tipo, String fonte, String retorno, String parametros)
         {
+            _retorno = retorno;
             Codigo = codigo;
             Descricao = descricao;
             Tipo = tipo;
