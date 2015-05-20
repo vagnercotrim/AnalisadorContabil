@@ -13,7 +13,7 @@ namespace AnalisadorContabil.Factory
 
             recurso = VariaveisSistema.AtribuiValorVariaveis(recurso, variaveisSistema);
 
-            return new Rest(tabela.Codigo, recurso, fonte);
+            return new Rest(tabela.Codigo, recurso, tabela.Retorno, fonte);
         }
     }
 }

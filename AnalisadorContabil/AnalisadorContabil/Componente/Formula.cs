@@ -10,11 +10,13 @@ namespace AnalisadorContabil.Componente
     public class Formula : IComponente
     {
         private readonly String _id;
+        private readonly string _retorno;
         private Expression _expression;
 
-        public Formula(String id, String formula, IEnumerable<KeyValuePair<string, IValor>> variaveis)
+        public Formula(String id, String formula, String retorno, IEnumerable<KeyValuePair<string, IValor>> variaveis)
         {
             _id = id;
+            _retorno = retorno;
             SetExpression(formula);
             SetVariaveis(variaveis);
         }

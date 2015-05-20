@@ -9,12 +9,14 @@ namespace AnalisadorContabil.Componente
     {
         private readonly String _id;
         private readonly string _recurso;
+        private readonly string _retorno;
         private readonly IFonteDeDados _fonteDeDados;
 
-        public Rest(String id, String recurso, IFonteDeDados fonteDeDados)
+        public Rest(String id, String recurso, String retorno, IFonteDeDados fonteDeDados)
         {
             _id = id;
             _recurso = recurso;
+            _retorno = retorno;
             _fonteDeDados = fonteDeDados;
         }
 

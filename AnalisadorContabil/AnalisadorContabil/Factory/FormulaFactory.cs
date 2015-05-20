@@ -12,7 +12,7 @@ namespace AnalisadorContabil.Factory
         {
             String formula = tabela.Get("formula").ToString();
 
-            return new Formula(tabela.Codigo, formula, variaveis);
+            return new Formula(tabela.Codigo, formula, tabela.Retorno, variaveis);
         }
     }
 }
