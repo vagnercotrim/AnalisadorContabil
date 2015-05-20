@@ -7,7 +7,6 @@ namespace AnalisadorContabil.Dominio
 {
     public class Tabela
     {
-        private readonly string _retorno;
         public String Codigo { get; set; }
         public String Descricao { get; set; }
         public String Parametros { get; set; }
@@ -37,11 +36,11 @@ namespace AnalisadorContabil.Dominio
 
         public Tabela(String codigo, String descricao, String tipo, String fonte, String retorno, String parametros)
         {
-            _retorno = retorno;
             Codigo = codigo;
             Descricao = descricao;
             Tipo = tipo;
             Fonte = fonte;
+            Retorno = retorno;
             Parametros = parametros;
         }
 
