@@ -8,8 +8,7 @@ namespace AnalisadorContabil.Testes.ApiRest
     [TestFixture]
     public class ApiRestTest
     {
-
-        [Test]
+        [Test, Ignore]
         public void CarregaApi()
         {
             const string baseAddress = "http://localhost:9000/";

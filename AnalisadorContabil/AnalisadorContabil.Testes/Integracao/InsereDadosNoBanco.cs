@@ -16,7 +16,7 @@ namespace AnalisadorContabil.Testes.Integracao
             _dao = new ContaDao(Session);
         }
 
-        [Test]
+        [Test, Ignore]
         public void Salva_uma_conta_no_banco()
         {
             Conta conta = new Conta { Numero = "01.02.03.04.05.06.07.08", ValorReceita = 12345.56M, ValorDespesa = 2457.58M, Empresa = 1, Ano = 2015, Periodo = 1};
