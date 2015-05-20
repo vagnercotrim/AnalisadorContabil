@@ -29,7 +29,13 @@ namespace AnalisadorContabil.Testes.Integracao
         [TearDown]
         public void Dispose()
         {
-            Session.Dispose();
+            Dispose(true);
+        }
+
+        private void Dispose(bool disposing)
+        {
+            if (disposing)
+                Session.Dispose();
         }
 
         private static ISessionFactory CreateSessionFactory()
