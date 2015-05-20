@@ -34,7 +34,7 @@ namespace AnalisadorContabil.Componente
 
         public IValor GetValor()
         {
-            return ValorFactory.Cria(Calcular());
+            return ValorFactory.Cria(Calcular(), _retorno);
         }
 
         private object Calcular()

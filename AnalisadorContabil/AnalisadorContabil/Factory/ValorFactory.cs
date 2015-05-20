@@ -6,7 +6,7 @@ namespace AnalisadorContabil.Factory
     public class ValorFactory
     {
 
-        public static IValor Cria(object valor)
+        public static IValor Cria(object valor, String retorno)
         {
             if (valor is int)
                 return new ValorDecimal(valor);

@@ -27,7 +27,7 @@ namespace AnalisadorContabil.Componente
 
         public IValor GetValor()
         {
-            return ValorFactory.Cria(Consulta());
+            return ValorFactory.Cria(Consulta(), _retorno);
         }
 
         private object Consulta()
