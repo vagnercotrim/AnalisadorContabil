@@ -1,25 +1,12 @@
 ﻿using AnalisadorContabil.Dominio;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 
 namespace AnalisadorContabil.Testes
 {
     [TestFixture]
     public class TabelaTest
     {
-        [Test]
-        public void Cria_objeto_da_classe_tabela_com_4_parametros()
-        {
-            const string json = "[{\"Nome\":\"tabela\",\"Valor\":\"gastos\"},{\"Nome\":\"selecione\",\"Valor\":\"valor1\"},{\"Nome\":\"campocondicao\",\"Valor\":\"conta\"},{\"Nome\":\"valorcondicao\",\"Valor\":\"01.02.03.04\"}]";
-
-            Tabela tabela1 = new Tabela("C15N0029", "Componente C15N0029", "sql", "dictionary", "numerico", json);
-
-            IList<Parametro> parametros = tabela1.ParametrosToList();
-
-            Assert.AreEqual(parametros.Count, 4);
-        }
-
         [Test]
         public void Cria_um_parametro_com_decimal()
         {
