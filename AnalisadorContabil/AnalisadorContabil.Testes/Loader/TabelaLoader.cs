@@ -28,7 +28,6 @@ namespace AnalisadorContabil.Testes.Loader
                 { "C15N0014", new Tabela("C15N0014", null, "formula",   null,         "numerico",     new Parametro("formula", "5 * 5")) },
                 { "C15N0015", new Tabela("C15N0015", null, "formula",   null,         "numerico",     new Parametro("formula", "[C15N0010] + [C15N0014]")) },
                 { "C15N0016", new Tabela("C15N0016", null, "formula",   null,         "numerico",     new Parametro("formula", "[C15N0010] + [C15N0013]")) },
-                { "C15N0027", new Tabela("C15N0027", null, "sql",       null,         "numerico",     new List<Parametro> { new Parametro("tabela", "tabela"), new Parametro("campo", "campo"), new Parametro("condicao", "condicao"), new Parametro("valor", "'02.01.03'") }) },
                 { "C15N0028", new Tabela("C15N0028", null, "formula",   null,         "numerico",     new Parametro("formula", "[C15N0027] - 23000")) },
                 { "C15N0029", new Tabela("C15N0029", null, "formula",   null,         "booleano",     new Parametro("formula", "[C15N0050] > [C15N0103]")) },
                 { "C15N0030", new Tabela("C15N0030", null, "formula", null,           "booleano",     new Parametro("formula", "nulo([C15N0052])")) },
