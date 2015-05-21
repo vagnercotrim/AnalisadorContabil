@@ -18,7 +18,7 @@ namespace AnalisadorContabil.Dominio
 
         public static IList<String> FromString(String formula)
         {
-            MatchCollection matchCollection = Regex.Matches(formula, "(\\[(\\w+)\\])+");
+            MatchCollection matchCollection = Regex.Matches(formula, @"(\[([a-zA-Z0-9_-]+)\])+");
 
             return (from object match in matchCollection select match.ToString().Replace("[","").Replace("]","")).ToList();
         }

@@ -17,5 +17,15 @@ namespace AnalisadorContabil.Testes
 
             Assert.That(parametros, Has.Member("C14245"));
         }
+
+        [Test]
+        public void Verifica_a_expressao_eegular()
+        {
+            const string formula = "[C1_15-1234] + [C1015-1234] + [C1_1501234] + [C101501234]";
+
+            IList<String> parametros = Parametro.FromString(formula);
+
+            Assert.AreEqual(parametros.Count, 4);
+        }
     }
 }
