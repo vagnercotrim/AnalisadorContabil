@@ -53,5 +53,21 @@ namespace AnalisadorContabil.Testes
             Assert.AreEqual(parametros.Count, 2);
         }
 
+        [Test]
+        public void Deve_converter_um_obeto_da_classe_tabela_em_json()
+        {
+            Tabela tabela = new Tabela("C15N0027", null, "sql", null, "numerico",
+                new List<Parametro>
+                {
+                    new Parametro("tabela", "tabela"),
+                    new Parametro("campo", "campo"),
+                    new Parametro("condicao", "condicao"),
+                    new Parametro("valor", "'02.01.03'")
+                });
+
+            String json = JsonConvert.SerializeObject(tabela);
+
+            Assert.That(json.Length, Is.GreaterThan(50));
+        }
     }
 }
