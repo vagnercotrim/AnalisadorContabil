@@ -25,11 +25,10 @@ namespace AnalisadorContabil.Dominio
 
         private static IEnumerable<string> FromString(String formula)
         {
-            MatchCollection matchCollection = Regex.Matches(formula, "(\\{(\\w+)\\})+");
+            MatchCollection matchCollection = Regex.Matches(formula, @"(\{([a-zA-Z]\w+)\})+");
 
             return (from object match in matchCollection select match.ToString()).ToList();
         }
-
 
         private static String SemChaves(String texto)
         {
