@@ -14,6 +14,11 @@ namespace AnalisadorContabil.NCalc
 
                 functionArgs.Result = Porcentagem(param1, param2);
             }
+
+            if (name == "nulo")
+            {
+                functionArgs.Result = functionArgs.Parameters[0].Evaluate() == null;
+            }
         }
 
         private static decimal ConvertoToDecimal(Expression expression)

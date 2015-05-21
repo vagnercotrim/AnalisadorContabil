@@ -84,6 +84,26 @@ namespace AnalisadorContabil.Testes.Integracao
         }
 
         [Test]
+        public void Deve_processar_o_componente_formula_C15N0030_com_funcao_nulo_e_retornar_true()
+        {
+            IComponente formula = _factory.Cria("C15N0030");
+
+            IValor valor = formula.GetValor();
+
+            Assert.AreEqual(valor.Objeto(), true);
+        }
+        
+        [Test]
+        public void Deve_processar_o_componente_formula_C15N0030_com_funcao_nulo_e_retornar_false()
+        {
+            IComponente formula = _factory.Cria("C15N0031");
+
+            IValor valor = formula.GetValor();
+
+            Assert.AreEqual(valor.Objeto(), false);
+        }
+
+        [Test]
         public void Deve_processar_o_componente_formula_C15N0052_e_retornar_nulo()
         {
             IComponente formula = _factory.Cria("C15N0052");
