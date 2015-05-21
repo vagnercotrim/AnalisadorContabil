@@ -64,7 +64,7 @@ namespace AnalisadorContabil.Factory
         {
             Tabela tabela = _tabelaDao.Get(codigo);
 
-            IList<Parametro> tabelaParametros = tabela.ParametrosToList();
+            IList<Parametro> tabelaParametros = tabela.Parametros;
 
             IDictionary<String, IValor> variaveisComponente = ResolveParametros(tabelaParametros);
 

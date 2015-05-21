@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,7 +8,7 @@ namespace AnalisadorContabil.Dominio
     {
         public String Codigo { get; set; }
         public String Descricao { get; set; }
-        public String Parametros { get; set; }
+        public IList<Parametro> Parametros { get; set; }
         public String Tipo { get; set; }
         public String Fonte { get; set; }
         public String Retorno { get; set; }
@@ -18,9 +17,6 @@ namespace AnalisadorContabil.Dominio
             : this(codigo, descricao, tipo, fonte, retorno, new List<Parametro> { parametros }) { }
 
         public Tabela(String codigo, String descricao, String tipo, String fonte, String retorno, IList<Parametro> parametros)
-            : this(codigo, descricao, tipo, fonte, retorno, JsonConvert.SerializeObject(parametros)) { }
-
-        public Tabela(String codigo, String descricao, String tipo, String fonte, String retorno, String parametros)
         {
             Codigo = codigo;
             Descricao = descricao;
@@ -34,25 +30,12 @@ namespace AnalisadorContabil.Dominio
         {
             try
             {
-                object value = ParametrosToList(Parametros).First(p => p.Nome.Equals(key)).Valor;
-
-                return value;
+                return Parametros.First(p => p.Nome.Equals(key)).Valor;
             }
             catch (Exception)
             {
                 return null;
             }
         }
-
-        public IList<Parametro> ParametrosToList()
-        {
-            return ParametrosToList(Parametros);
-        }
-
-        private IList<Parametro> ParametrosToList(String parametros)
-        {
-            return JsonConvert.DeserializeObject<List<Parametro>>(parametros);
-        }
-
     }
 }
