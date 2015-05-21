@@ -14,13 +14,13 @@ namespace AnalisadorContabil.Testes.Integracao
         {
             ContaLoader contaLoader = new ContaLoader(Session);
             contaLoader.CriaContas();
+
+            _consulta = new ConsultaSql(Session);
         }
 
         [Test]
         public void Deve_retornar_valor_da_coluna_valorreceita_consulta_sql()
         {
-            _consulta = new ConsultaSql(Session);
-
             Decimal valor = (decimal)_consulta.UniqueResult("SELECT ValorReceita FROM Conta WHERE Numero = '01.02.03.02'"); 
 
             Assert.AreEqual(valor, 222.22M);
@@ -29,8 +29,6 @@ namespace AnalisadorContabil.Testes.Integracao
         [Test]
         public void Deve_retornar_valor_da_coluna_valordespesa_consulta_sql()
         {
-            _consulta = new ConsultaSql(Session);
-
             Decimal valor = (decimal)_consulta.UniqueResult("SELECT ValorDespesa FROM Conta WHERE Numero = '01.02.03.02'");
 
             Assert.AreEqual(valor, 222.00M);
