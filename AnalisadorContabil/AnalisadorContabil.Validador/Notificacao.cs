@@ -6,5 +6,11 @@ namespace AnalisadorContabil.Validador
     {
         public String Texto { get; set; }
         public Tipo Tipo { get; set; }
+
+        public Notificacao(String texto, Tipo tipo)
+        {
+            Texto = texto;
+            Tipo = tipo;
+        }
     }
 }
