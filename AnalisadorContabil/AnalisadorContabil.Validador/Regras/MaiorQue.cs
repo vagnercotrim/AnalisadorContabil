@@ -7,7 +7,7 @@ namespace AnalisadorContabil.Validador.Regras
     {
         private readonly decimal _valor;
         private readonly decimal _limite;
-        private IList<Notificacao> _notificacoes;
+        private readonly IList<Notificacao> _notificacoes;
 
         public MaiorQue(decimal valor, decimal limite)
         {
@@ -18,7 +18,7 @@ namespace AnalisadorContabil.Validador.Regras
 
         public void Validar()
         {
-            if (_valor > _limite)
+            if (!(_valor > _limite))
                 _notificacoes.Add(new Notificacao(String.Format("O valor {0} não é maior que {1}.", _valor, _limite), Tipo.Alerta));
         }
 

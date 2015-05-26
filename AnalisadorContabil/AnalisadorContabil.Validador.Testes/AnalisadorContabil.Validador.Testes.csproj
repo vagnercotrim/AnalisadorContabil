@@ -54,10 +54,17 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="MaiorQueTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnalisadorContabil.Validador\AnalisadorContabil.Validador.csproj">
+      <Project>{81377B39-5BE5-4A8D-8AC4-8BFA57A9D731}</Project>
+      <Name>AnalisadorContabil.Validador</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
