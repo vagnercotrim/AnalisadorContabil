@@ -18,5 +18,15 @@ namespace AnalisadorContabil.Validador.Testes
             Assert.IsTrue(regra.Notificacoes().Where(n => n.Tipo == Tipo.Alerta).ToList().Count == 1);
         }
 
+        [Test]
+        public void Verifica_se_o_valor_120_e_maior_que_100_e_nao_retornar_nenhuma_notifacao()
+        {
+            IRegraValidacao regra = new MaiorQue(120, 100);
+
+            regra.Validar();
+
+            Assert.IsTrue(regra.Notificacoes().Count == 0);
+        }
+
     }
 }
