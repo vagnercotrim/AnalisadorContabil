@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalisadorContabil.Rest", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalisadorContabil.Validador", "AnalisadorContabil.Validador\AnalisadorContabil.Validador.csproj", "{81377B39-5BE5-4A8D-8AC4-8BFA57A9D731}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalisadorContabil.Validador.Testes", "AnalisadorContabil.Validador.Testes\AnalisadorContabil.Validador.Testes.csproj", "{EF76E97E-5208-4049-A44F-E34469FC174C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{81377B39-5BE5-4A8D-8AC4-8BFA57A9D731}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81377B39-5BE5-4A8D-8AC4-8BFA57A9D731}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81377B39-5BE5-4A8D-8AC4-8BFA57A9D731}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF76E97E-5208-4049-A44F-E34469FC174C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF76E97E-5208-4049-A44F-E34469FC174C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF76E97E-5208-4049-A44F-E34469FC174C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF76E97E-5208-4049-A44F-E34469FC174C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
