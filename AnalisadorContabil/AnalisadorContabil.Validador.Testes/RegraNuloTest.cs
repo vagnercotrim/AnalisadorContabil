@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using AnalisadorContabil.Validador.Regras;
 using NUnit.Framework;
 
