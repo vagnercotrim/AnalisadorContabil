@@ -23,7 +23,7 @@ namespace AnalisadorContabil.Validador
                 _notificacoes.Add(notificacao);
         }
 
-        public bool Valido
+        public bool EValido
         {
             get { return !_notificacoes.Any(); }
         }
