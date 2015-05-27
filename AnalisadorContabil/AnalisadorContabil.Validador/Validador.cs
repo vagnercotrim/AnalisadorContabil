@@ -5,35 +5,21 @@ namespace AnalisadorContabil.Validador
     public class Validador
     {
         private readonly IList<IRegraValidacao> _regras;
-        private readonly IList<Notificacao> _notifcacoes; 
 
-        public Validador()
+        public Validador(IList<IRegraValidacao> regras)
         {
-            _regras = new List<IRegraValidacao>();
-            _notifcacoes = new List<Notificacao>();
+            _regras = regras;
         }
 
-        public void Validar()
+        public IEnumerable<Notificacao> Validar()
         {
             foreach (var regra in _regras)
             {
                 regra.Validar();
 
                 foreach (var notificacao in regra.Notificacoes())
-                {
-                    _notifcacoes.Add(notificacao);
-                }
+                    yield return notificacao;
             }
-        }
-
-        public void AdicionaRegra(IRegraValidacao regra)
-        {
-            _regras.Add(regra);
-        }
-
-        public IList<Notificacao> Notificacoes()
-        {
-            return _notifcacoes;
         }
     }
 }
