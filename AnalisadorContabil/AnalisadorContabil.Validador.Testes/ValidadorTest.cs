@@ -20,9 +20,9 @@ namespace AnalisadorContabil.Validador.Testes
 
             Validador validador = new Validador(regras);
 
-            IEnumerable<Notificacao> notificacoes = validador.Validar();
+            Resultado resultado = validador.Validar();
 
-            Assert.IsTrue(notificacoes.Count() == 2);
+            Assert.IsTrue(resultado.Notificacoes.Count() == 2);
         }
 
         [Test]
@@ -38,9 +38,9 @@ namespace AnalisadorContabil.Validador.Testes
 
             Validador validador = new Validador(regras);
 
-            IEnumerable<Notificacao> notificacoes = validador.Validar();
+            Resultado resultado = validador.Validar();
 
-            Assert.IsTrue(notificacoes.Count() == 2);
+            Assert.IsTrue(resultado.Notificacoes.Count() == 2);
         }
     }
 }
