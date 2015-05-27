@@ -44,6 +44,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Regras\Igual.cs" />
     <Compile Include="Regras\MaiorQue.cs" />
+    <Compile Include="Regras\RegraNulo.cs" />
     <Compile Include="Tipo.cs" />
     <Compile Include="Validador.cs" />
   </ItemGroup>
