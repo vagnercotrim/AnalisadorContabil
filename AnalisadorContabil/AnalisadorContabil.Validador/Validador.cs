@@ -22,10 +22,5 @@ namespace AnalisadorContabil.Validador
 
             return _resultado;
         }
-
-        public bool EValido
-        {
-            get { return _regras.Count == 0; }
-        }
     }
 }
