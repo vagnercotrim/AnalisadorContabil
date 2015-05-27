@@ -14,10 +14,14 @@ namespace AnalisadorContabil.Validador.Regras
             _limite = limite;
         }
 
-        public IEnumerable<Notificacao> Validar()
+        public IList<Notificacao> Validar()
         {
+            IList<Notificacao> notificacoes = new List<Notificacao>();
+
             if (!(_valor > _limite))
-                 yield return new Notificacao(String.Format("O valor {0} não é maior que {1}.", _valor, _limite), Tipo.Alerta);
+                 notificacoes.Add(new Notificacao(String.Format("O valor {0} não é maior que {1}.", _valor, _limite), Tipo.Alerta));
+
+            return notificacoes;
         }
     }
 }

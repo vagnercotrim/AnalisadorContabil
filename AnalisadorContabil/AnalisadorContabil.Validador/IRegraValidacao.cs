@@ -4,6 +4,6 @@ namespace AnalisadorContabil.Validador
 {
     public interface IRegraValidacao
     {
-        IEnumerable<Notificacao> Validar();
+        IList<Notificacao> Validar();
     }
 }
