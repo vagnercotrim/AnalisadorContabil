@@ -1,4 +1,5 @@
-﻿using AnalisadorContabil.Validador.Regras;
+﻿using System;
+using AnalisadorContabil.Validador.Regras;
 using NUnit.Framework;
 using System.Linq;
 using System.Collections.Generic;
@@ -15,6 +16,24 @@ namespace AnalisadorContabil.Validador.Testes
             {
                 new MaiorQue(75, 100) ,
                 new Igual(75, 100)
+            };
+
+            Validador validador = new Validador(regras);
+
+            IEnumerable<Notificacao> notificacoes = validador.Validar();
+
+            Assert.IsTrue(notificacoes.Count() == 2);
+        }
+
+        [Test]
+        [ExpectedException(typeof(Exception))]
+        public void Deve_passar_uma_lista_com_3_regras_e_gerar_uma_exception()
+        {
+            IList<IRegraValidacao> regras = new List<IRegraValidacao>
+            {
+                new MaiorQue(75, 100),
+                new Igual(75, 100),
+                new RegraNulo()
             };
 
             Validador validador = new Validador(regras);
