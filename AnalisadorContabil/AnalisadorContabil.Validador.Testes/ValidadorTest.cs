@@ -14,7 +14,7 @@ namespace AnalisadorContabil.Validador.Testes
         {
             IList<IRegraValidacao> regras = new List<IRegraValidacao>
             {
-                new MaiorQue(75, 100) ,
+                new MaiorQue(75, 100),
                 new Igual(75, 100)
             };
 

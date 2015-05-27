@@ -65,7 +65,7 @@ namespace AnalisadorContabil.Testes
         [ExpectedException(typeof(NullReferenceException))]
         public void Deve_retornar_uma_exception_tentanto_criar_um_componente_que_nao_existe()
         {
-            IComponente formula = _factory.Cria("C00N9999");
+            _factory.Cria("C00N9999");
         }
     }
 }
