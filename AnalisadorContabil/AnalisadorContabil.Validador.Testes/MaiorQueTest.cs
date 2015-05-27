@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using AnalisadorContabil.Validador.Regras;
 using NUnit.Framework;
 
@@ -13,9 +14,9 @@ namespace AnalisadorContabil.Validador.Testes
         {
             IRegraValidacao regra = new MaiorQue(75, 100);
 
-            regra.Validar();
+            IEnumerable<Notificacao> notificacoes = regra.Validar();
 
-            Assert.IsTrue(regra.Notificacoes().Where(n => n.Tipo == Tipo.Alerta).ToList().Count == 1);
+            Assert.IsTrue(notificacoes.Where(n => n.Tipo == Tipo.Alerta).ToList().Count == 1);
         }
 
         [Test]
@@ -23,9 +24,9 @@ namespace AnalisadorContabil.Validador.Testes
         {
             IRegraValidacao regra = new MaiorQue(120, 100);
 
-            regra.Validar();
+            IEnumerable<Notificacao> notificacoes = regra.Validar();
 
-            Assert.IsTrue(regra.Notificacoes().Count == 0);
+            Assert.IsTrue(!notificacoes.Any());
         }
 
     }

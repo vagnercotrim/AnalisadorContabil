@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace AnalisadorContabil.Validador
 {
@@ -13,13 +14,7 @@ namespace AnalisadorContabil.Validador
 
         public IEnumerable<Notificacao> Validar()
         {
-            foreach (var regra in _regras)
-            {
-                regra.Validar();
-
-                foreach (var notificacao in regra.Notificacoes())
-                    yield return notificacao;
-            }
+            return _regras.SelectMany(regra => regra.Validar());
         }
     }
 }
