@@ -24,7 +24,7 @@ namespace AnalisadorContabil.Testes
         [SetUp]
         public void SetUp()
         {
-            _tabelaDao = new TabelaDaoMock(new TabelaLoader().Dados);
+            _tabelaDao = new TabelaDaoMock();
 
             ContaLoader contaLoader = new ContaLoader(Session);
             contaLoader.CriaContas();

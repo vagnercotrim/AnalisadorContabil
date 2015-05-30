@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using AnalisadorContabil.Dominio;
+using AnalisadorContabil.Testes.Loader;
 
 namespace AnalisadorContabil.Testes.Mock
 {
@@ -12,6 +13,8 @@ namespace AnalisadorContabil.Testes.Mock
         {
             _dados = dados;
         }
+
+        public TabelaDaoMock() : this(new TabelaLoader().Dados) { }
 
         public Tabela Get(String codigo)
         {

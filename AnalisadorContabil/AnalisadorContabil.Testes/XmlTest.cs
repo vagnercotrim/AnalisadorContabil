@@ -1,7 +1,6 @@
 ﻿using AnalisadorContabil.Componente;
 using AnalisadorContabil.Dominio;
 using AnalisadorContabil.Factory;
-using AnalisadorContabil.Testes.Loader;
 using AnalisadorContabil.Testes.Mock;
 using AnalisadorContabil.Valor;
 using AnalisadorContabil.Xml;
@@ -18,7 +17,7 @@ namespace AnalisadorContabil.Testes
         [SetUp]
         public void SetUp()
         {
-            _tabelaDao = new TabelaDaoMock(new TabelaLoader().Dados);
+            _tabelaDao = new TabelaDaoMock();
 
             _factory = new ComponenteFactory(_tabelaDao);
             _factory.AdicionaFonte("xml", new XmlFonteDeDados(@"c:\remessacontabil\2015"));

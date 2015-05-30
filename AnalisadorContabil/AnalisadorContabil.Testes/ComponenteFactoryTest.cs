@@ -1,7 +1,6 @@
 ﻿using AnalisadorContabil.Componente;
 using AnalisadorContabil.Dominio;
 using AnalisadorContabil.Factory;
-using AnalisadorContabil.Testes.Loader;
 using AnalisadorContabil.Testes.Mock;
 using NUnit.Framework;
 using System;
@@ -17,7 +16,7 @@ namespace AnalisadorContabil.Testes
         [SetUp]
         public void SetUp()
         {
-            _dao = new TabelaDaoMock(new TabelaLoader().Dados);
+            _dao = new TabelaDaoMock();
 
             _factory = new ComponenteFactory(_dao);
         }
