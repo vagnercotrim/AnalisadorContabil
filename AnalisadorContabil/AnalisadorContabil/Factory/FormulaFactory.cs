@@ -10,9 +10,7 @@ namespace AnalisadorContabil.Factory
     {
         public static IComponente Cria(Tabela tabela, IDictionary<String, IValor> variaveis)
         {
-            String formula = tabela.Get("formula").ToString();
-
-            return new Formula(tabela.Codigo, formula, tabela.Retorno, variaveis);
+            return new Formula(tabela, variaveis);
         }
     }
 }

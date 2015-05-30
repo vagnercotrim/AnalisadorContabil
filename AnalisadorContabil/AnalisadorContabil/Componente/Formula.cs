@@ -1,3 +1,4 @@
+using AnalisadorContabil.Dominio;
 using AnalisadorContabil.Factory;
 using AnalisadorContabil.NCalc;
 using AnalisadorContabil.Valor;
@@ -12,12 +13,12 @@ namespace AnalisadorContabil.Componente
         private readonly String _id;
         private readonly string _retorno;
         private Expression _expression;
-
-        public Formula(String id, String formula, String retorno, IEnumerable<KeyValuePair<string, IValor>> variaveis)
+        
+        public Formula(Tabela tabela, IEnumerable<KeyValuePair<string, IValor>> variaveis)
         {
-            _id = id;
-            _retorno = retorno;
-            SetExpression(formula);
+            _id = tabela.Codigo;
+            _retorno = tabela.Retorno;
+            SetExpression(tabela.Get("formula").ToString());
             SetVariaveis(variaveis);
         }
 
