@@ -1,4 +1,5 @@
 ﻿using AnalisadorContabil.Componente;
+using AnalisadorContabil.Dominio;
 using NUnit.Framework;
 
 namespace AnalisadorContabil.Testes
@@ -8,7 +9,9 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deve_criar_um_componente_numerodecimal_com_valor_23()
         {
-            IComponente componente = new Sql("C14N006", "select valor from tabela where condicao = ''", "numerico", null, null);
+            Tabela tabela = new Tabela("C14N006", null, "sql", null, "monetario", new Parametro("sql", "select valor from tabela where condicao = ''"));
+
+            IComponente componente = new Sql(tabela, null, null);
 
             Assert.That(componente.Id(), Is.EqualTo("C14N006"));
         }

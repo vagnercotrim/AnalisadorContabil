@@ -11,9 +11,7 @@ namespace AnalisadorContabil.Factory
 
         public static IComponente Cria(Tabela tabela, IDictionary<String, object> variaveisSistema, IFonteDeDados fonte)
         {
-            String sql = tabela.Get("sql").ToString();
-
-            return new Sql(tabela.Codigo, sql, tabela.Retorno, variaveisSistema, fonte);
+            return new Sql(tabela, variaveisSistema, fonte);
         }
     }
 }

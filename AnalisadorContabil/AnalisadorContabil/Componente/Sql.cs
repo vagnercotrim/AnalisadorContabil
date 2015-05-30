@@ -9,27 +9,25 @@ namespace AnalisadorContabil.Componente
 {
     public class Sql : IComponente
     {
-        private readonly String _id;
+        private readonly Tabela _tabela;
         private readonly String _sql;
-        private readonly string _retorno;
         private readonly IFonteDeDados _fonteDeDados;
 
-        public Sql(String id, String sql, String retorno, IDictionary<String, object> variaveisSistema, IFonteDeDados fonteDeDados)
+        public Sql(Tabela tabela, IDictionary<String, object> variaveisSistema, IFonteDeDados fonteDeDados)
         {
-            _id = id;
-            _sql = VariaveisSistema.AtribuiValorVariaveis(sql, variaveisSistema);
-            _retorno = retorno;
+            _tabela = tabela;
+            _sql = VariaveisSistema.AtribuiValorVariaveis(tabela.Get("sql").ToString(), variaveisSistema);
             _fonteDeDados = fonteDeDados;
         }
 
         public String Id()
         {
-            return _id;
+            return _tabela.Codigo;
         }
 
         public IValor GetValor()
         {
-            return ValorFactory.Cria(Consulta(), _retorno);
+            return ValorFactory.Cria(Consulta(), _tabela.Retorno);
         }
 
         private object Consulta()
