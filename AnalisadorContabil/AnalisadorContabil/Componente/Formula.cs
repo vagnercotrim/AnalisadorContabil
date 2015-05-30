@@ -10,14 +10,12 @@ namespace AnalisadorContabil.Componente
 {
     public class Formula : IComponente
     {
-        private readonly String _id;
-        private readonly string _retorno;
+        private readonly Tabela _tabela;
         private Expression _expression;
         
         public Formula(Tabela tabela, IEnumerable<KeyValuePair<string, IValor>> variaveis)
         {
-            _id = tabela.Codigo;
-            _retorno = tabela.Retorno;
+            _tabela = tabela;
             SetExpression(tabela.Get("formula").ToString());
             SetVariaveis(variaveis);
         }
@@ -30,12 +28,12 @@ namespace AnalisadorContabil.Componente
 
         public String Id()
         {
-            return _id;
+            return _tabela.Codigo;
         }
 
         public IValor GetValor()
         {
-            return ValorFactory.Cria(Calcular(), _retorno);
+            return ValorFactory.Cria(Calcular(), _tabela.Retorno);
         }
 
         private object Calcular()
