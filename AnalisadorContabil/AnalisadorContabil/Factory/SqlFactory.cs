@@ -13,9 +13,7 @@ namespace AnalisadorContabil.Factory
         {
             String sql = tabela.Get("sql").ToString();
 
-            sql = VariaveisSistema.AtribuiValorVariaveis(sql, variaveisSistema);
-
-            return new Sql(tabela.Codigo, sql, tabela.Retorno, fonte);
+            return new Sql(tabela.Codigo, sql, tabela.Retorno, variaveisSistema, fonte);
         }
     }
 }

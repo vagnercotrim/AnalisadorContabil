@@ -1,4 +1,6 @@
-﻿using AnalisadorContabil.Factory;
+﻿using System.Collections.Generic;
+using AnalisadorContabil.Dominio;
+using AnalisadorContabil.Factory;
 using AnalisadorContabil.FonteDeDados;
 using AnalisadorContabil.Valor;
 using System;
@@ -11,11 +13,11 @@ namespace AnalisadorContabil.Componente
         private readonly String _sql;
         private readonly string _retorno;
         private readonly IFonteDeDados _fonteDeDados;
-        
-        public Sql(String id, String sql, String retorno, IFonteDeDados fonteDeDados)
+
+        public Sql(String id, String sql, String retorno, IDictionary<String, object> variaveisSistema, IFonteDeDados fonteDeDados)
         {
             _id = id;
-            _sql = sql;
+            _sql = VariaveisSistema.AtribuiValorVariaveis(sql, variaveisSistema);
             _retorno = retorno;
             _fonteDeDados = fonteDeDados;
         }

@@ -8,7 +8,7 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deve_criar_um_componente_numerodecimal_com_valor_23()
         {
-            IComponente componente = new Sql("C14N006", "select valor from tabela where condicao = ''", "numerico", null);
+            IComponente componente = new Sql("C14N006", "select valor from tabela where condicao = ''", "numerico", null, null);
 
             Assert.That(componente.Id(), Is.EqualTo("C14N006"));
         }
