@@ -129,6 +129,7 @@
     <Compile Include="FormulaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TabelaTest.cs" />
+    <Compile Include="XmlTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -141,6 +142,10 @@
     <ProjectReference Include="..\AnalisadorContabil.Rest\AnalisadorContabil.Rest.csproj">
       <Project>{9E953A0E-515E-4350-B1CB-E433F65CF557}</Project>
       <Name>AnalisadorContabil.Rest</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AnalisadorContabil.Xml\AnalisadorContabil.Xml.csproj">
+      <Project>{D9476B32-CACB-4AAA-865D-63C4ACF21676}</Project>
+      <Name>AnalisadorContabil.Xml</Name>
     </ProjectReference>
     <ProjectReference Include="..\AnalisadorContabil\AnalisadorContabil.csproj">
       <Project>{D8EEDD32-E8B9-46BD-8319-D946560BD736}</Project>

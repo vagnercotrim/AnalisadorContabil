@@ -76,6 +76,9 @@ namespace AnalisadorContabil.Factory
 
             if (tabela.Tipo == "rest")
                 return RestFactory.Cria(tabela, _variaveisSistema, Fonte(tabela));
+            
+            if (tabela.Tipo == "xml")
+                return XmlFactory.Cria(tabela, _variaveisSistema, Fonte(tabela));
 
             return null;
         }
