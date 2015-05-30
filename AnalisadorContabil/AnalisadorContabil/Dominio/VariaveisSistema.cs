@@ -7,9 +7,9 @@ namespace AnalisadorContabil.Dominio
 {
     public class VariaveisSistema
     {
-        public static String AtribuiValorVariaveis(String sql, IDictionary<String, object> variaveisSistema)
+        public static String AtribuiValorVariaveis(String texto, IDictionary<String, object> variaveisSistema)
         {
-            IEnumerable<string> variaveisList = FromString(sql);
+            IEnumerable<string> variaveisList = FromString(texto);
 
             foreach (var variable in variaveisList)
             {
@@ -17,10 +17,10 @@ namespace AnalisadorContabil.Dominio
                 variaveisSistema.TryGetValue(SemChaves(variable), out valor);
 
                 if (valor != null) 
-                    sql = sql.Replace(variable, valor.ToString());
+                    texto = texto.Replace(variable, valor.ToString());
             }
 
-            return sql;
+            return texto;
         }
 
         private static IEnumerable<string> FromString(String formula)
