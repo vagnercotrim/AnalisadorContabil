@@ -17,7 +17,7 @@ namespace AnalisadorContabil.Componente
         public Rest(String id, String recurso, String retorno, IDictionary<string, object> variaveisSistema, IFonteDeDados fonteDeDados)
         {
             _id = id;
-            _recurso = VariaveisSistema.AtribuiValorVariaveis(recurso, variaveisSistema); ;
+            _recurso = VariaveisSistema.AtribuiValorVariaveis(recurso, variaveisSistema);
             _retorno = retorno;
             _fonteDeDados = fonteDeDados;
         }
