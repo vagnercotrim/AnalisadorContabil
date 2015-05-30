@@ -1,35 +1,33 @@
-﻿using System.Collections.Generic;
-using AnalisadorContabil.Dominio;
+﻿using AnalisadorContabil.Dominio;
 using AnalisadorContabil.Factory;
 using AnalisadorContabil.FonteDeDados;
 using AnalisadorContabil.Valor;
-using System;
+using System.Collections.Generic;
 
 namespace AnalisadorContabil.Componente
 {
     public class Rest : IComponente
     {
-        private readonly String _id;
         private readonly string _recurso;
-        private readonly string _retorno;
+        private readonly Tabela _tabela;
         private readonly IFonteDeDados _fonteDeDados;
 
-        public Rest(String id, String recurso, String retorno, IDictionary<string, object> variaveisSistema, IFonteDeDados fonteDeDados)
+        public Rest(Tabela tabela, IDictionary<string, object> variaveisSistema, IFonteDeDados fonteDeDados)
         {
-            _id = id;
-            _recurso = VariaveisSistema.AtribuiValorVariaveis(recurso, variaveisSistema);
-            _retorno = retorno;
+            _tabela = tabela;
+
+            _recurso = VariaveisSistema.AtribuiValorVariaveis(tabela.Get("recurso").ToString(), variaveisSistema);
             _fonteDeDados = fonteDeDados;
         }
 
         public string Id()
         {
-            return _id;
+            return _tabela.Codigo;
         }
 
         public IValor GetValor()
         {
-            return ValorFactory.Cria(Consulta(), _retorno);
+            return ValorFactory.Cria(Consulta(), _tabela.Retorno);
         }
 
         private object Consulta()

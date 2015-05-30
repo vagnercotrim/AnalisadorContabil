@@ -10,9 +10,7 @@ namespace AnalisadorContabil.Factory
     {
         public static Rest Cria(Tabela tabela, IDictionary<string, object> variaveisSistema, IFonteDeDados fonte)
         {
-            String recurso = tabela.Get("recurso").ToString();
-
-            return new Rest(tabela.Codigo, recurso, tabela.Retorno, variaveisSistema, fonte);
+            return new Rest(tabela, variaveisSistema, fonte);
         }
     }
 }
