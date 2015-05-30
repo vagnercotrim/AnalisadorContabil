@@ -1,4 +1,6 @@
-﻿using AnalisadorContabil.Factory;
+﻿using System.Collections.Generic;
+using AnalisadorContabil.Dominio;
+using AnalisadorContabil.Factory;
 using AnalisadorContabil.FonteDeDados;
 using AnalisadorContabil.Valor;
 using System;
@@ -12,10 +14,10 @@ namespace AnalisadorContabil.Componente
         private readonly string _retorno;
         private readonly IFonteDeDados _fonteDeDados;
 
-        public Rest(String id, String recurso, String retorno, IFonteDeDados fonteDeDados)
+        public Rest(String id, String recurso, String retorno, IDictionary<string, object> variaveisSistema, IFonteDeDados fonteDeDados)
         {
             _id = id;
-            _recurso = recurso;
+            _recurso = VariaveisSistema.AtribuiValorVariaveis(recurso, variaveisSistema); ;
             _retorno = retorno;
             _fonteDeDados = fonteDeDados;
         }

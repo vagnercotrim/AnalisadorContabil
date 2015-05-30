@@ -11,9 +11,7 @@ namespace AnalisadorContabil.Factory
         {
             String recurso = tabela.Get("recurso").ToString();
 
-            recurso = VariaveisSistema.AtribuiValorVariaveis(recurso, variaveisSistema);
-
-            return new Rest(tabela.Codigo, recurso, tabela.Retorno, fonte);
+            return new Rest(tabela.Codigo, recurso, tabela.Retorno, variaveisSistema, fonte);
         }
     }
 }
