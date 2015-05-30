@@ -6,6 +6,7 @@ using AnalisadorContabil.Rest;
 using AnalisadorContabil.Testes.ApiRest;
 using AnalisadorContabil.Testes.Integracao;
 using AnalisadorContabil.Testes.Loader;
+using AnalisadorContabil.Testes.Mock;
 using AnalisadorContabil.Valor;
 using Microsoft.Owin.Hosting;
 using NUnit.Framework;
@@ -23,7 +24,7 @@ namespace AnalisadorContabil.Testes
         [SetUp]
         public void SetUp()
         {
-            _tabelaDao = new TabelaLoader().CriaTabelaDaoMock();
+            _tabelaDao = new TabelaDaoMock(new TabelaLoader().Dados);
 
             ContaLoader contaLoader = new ContaLoader(Session);
             contaLoader.CriaContas();

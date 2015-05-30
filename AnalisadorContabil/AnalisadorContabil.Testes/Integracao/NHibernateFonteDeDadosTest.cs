@@ -3,6 +3,7 @@ using AnalisadorContabil.Dominio;
 using AnalisadorContabil.Factory;
 using AnalisadorContabil.NHibernate;
 using AnalisadorContabil.Testes.Loader;
+using AnalisadorContabil.Testes.Mock;
 using AnalisadorContabil.Valor;
 using NUnit.Framework;
 using System;
@@ -18,7 +19,7 @@ namespace AnalisadorContabil.Testes.Integracao
         [SetUp]
         public void SetUp()
         {
-            _tabelaDao = new TabelaLoader().CriaTabelaDaoMock();
+            _tabelaDao = new TabelaDaoMock(new TabelaLoader().Dados);
 
             ContaLoader contaLoader =  new ContaLoader(Session);
             contaLoader.CriaContas();
