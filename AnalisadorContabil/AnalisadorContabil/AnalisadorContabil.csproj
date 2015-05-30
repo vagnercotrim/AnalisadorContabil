@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Componente\Rest.cs" />
     <Compile Include="Componente\Sql.cs" />
+    <Compile Include="Componente\Xml.cs" />
     <Compile Include="Dominio\ITabelaDao.cs" />
     <Compile Include="Dominio\VariaveisSistema.cs" />
     <Compile Include="Factory\ComponenteFactory.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Factory\ValorFactory.cs" />
     <Compile Include="Componente\Formula.cs" />
     <Compile Include="Componente\IComponente.cs" />
+    <Compile Include="Factory\XmlFactory.cs" />
     <Compile Include="FonteDeDados\IFonteDeDados.cs" />
     <Compile Include="Dominio\Parametro.cs" />
     <Compile Include="NCalc\NCalcExtension.cs" />
