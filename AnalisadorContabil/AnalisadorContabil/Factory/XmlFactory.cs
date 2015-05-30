@@ -10,10 +10,7 @@ namespace AnalisadorContabil.Factory
     {
         public static IComponente Cria(Tabela tabela, IDictionary<String, object> variaveisSistema, IFonteDeDados fonte)
         {
-            String arquivo = tabela.Get("arquivo").ToString();
-            String consulta = tabela.Get("consulta").ToString();
-
-            return new Xml(tabela.Codigo, arquivo, consulta, tabela.Retorno, fonte);
+            return new Xml(tabela, fonte);
         }
     }
 }
