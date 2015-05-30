@@ -17,7 +17,9 @@ namespace AnalisadorContabil.Validador
         {
             foreach (IRegraValidacao regra in _regras)
             {
-                _resultado.AdicionaNotificacao(regra.Validar());
+                IList<Notificacao> notificacoes = regra.Validar();
+
+                _resultado.AdicionaNotificacao(notificacoes);
             }
 
             return _resultado;
