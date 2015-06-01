@@ -32,7 +32,7 @@ namespace AnalisadorContabil.Testes.Loader
                 { "C15N0030", new Tabela("C15N0030", null, "formula",   null,         "booleano",     new Parametro("formula", "nulo([C15N0052])")) },
                 { "C15N0031", new Tabela("C15N0031", null, "formula",   null,         "booleano",     new Parametro("formula", "nulo([C15N0050])")) },
 
-                { "C15N0041", new Tabela("C15N0041", null, "xml",       "xml",        "decimal",      new List<Parametro>{ new Parametro("arquivo", "resumodomes.xml"), new Parametro("consulta", "gostocomenergia")})}
+                { "C15N0041", new Tabela("C15N0041", null, "xml",       "xml",        "decimal",      new List<Parametro>{ new Parametro("arquivo", "resumodomes.xml"), new Parametro("consulta", "sum( /departamento/registro[ descricao='Energia' ]/valor )")})}
             };
         }
 

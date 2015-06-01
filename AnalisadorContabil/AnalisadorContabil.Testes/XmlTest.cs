@@ -5,6 +5,7 @@ using AnalisadorContabil.Testes.Mock;
 using AnalisadorContabil.Valor;
 using AnalisadorContabil.Xml;
 using NUnit.Framework;
+using System;
 
 namespace AnalisadorContabil.Testes
 {
@@ -17,10 +18,12 @@ namespace AnalisadorContabil.Testes
         [SetUp]
         public void SetUp()
         {
+            String caminhoArquivo = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+
             _tabelaDao = new TabelaDaoMock();
 
             _factory = new ComponenteFactory(_tabelaDao);
-            _factory.AdicionaFonte("xml", new XmlFonteDeDados(@"c:\remessacontabil\2015"));
+            _factory.AdicionaFonte("xml", new XmlFonteDeDados(caminhoArquivo));
 
             _factory.AdicionaVariavelSistema("empresa", 1);
             _factory.AdicionaVariavelSistema("ano", 2015);
@@ -28,13 +31,13 @@ namespace AnalisadorContabil.Testes
         }
 
         [Test]
-        public void Deve_processar_um_componente_xml_e_retornar_um_valor_decimal()
+        public void Deve_processar_um_componente_xml_e_retornar_o_valor_25000_25()
         {
             IComponente consulta = _factory.Cria("C15N0041");
 
             IValor valor = consulta.GetValor();
 
-            Assert.AreEqual(valor.Objeto(), 12345.67M);
+            Assert.AreEqual(valor.Objeto(), 2500.25M);
         }
 
     }

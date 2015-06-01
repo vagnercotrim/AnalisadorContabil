@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" standalone="yes"?>
+<departamento>
+  <registro>
+    <empresa>1</empresa>
+    <periodo>1</periodo>
+    <descricao>Energia</descricao>
+    <valor>2500.25</valor>
+  </registro>
+  <registro>
+    <empresa>1</empresa>
+    <periodo>1</periodo>
+    <descricao>Correios</descricao>
+    <valor>250.50</valor>
+  </registro>
+</departamento>
