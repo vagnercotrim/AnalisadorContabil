@@ -16,7 +16,7 @@ namespace AnalisadorContabil.Dominio
             Valor = valor;
         }
 
-        public static IList<String> FromString(String formula)
+        public static IList<String> ReferenciasComponente(String formula)
         {
             MatchCollection matchCollection = Regex.Matches(formula, @"(\[([a-zA-Z0-9_-]+)\])+");
 
@@ -25,7 +25,7 @@ namespace AnalisadorContabil.Dominio
 
         public bool PossuiReferenciaComponente()
         {
-            return FromString(Valor.ToString()).Count > 0;
+            return ReferenciasComponente(Valor.ToString()).Count > 0;
         }
     }
 }
