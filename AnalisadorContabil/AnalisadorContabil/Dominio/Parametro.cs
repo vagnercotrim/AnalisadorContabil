@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 
 namespace AnalisadorContabil.Dominio
 {
@@ -16,16 +15,9 @@ namespace AnalisadorContabil.Dominio
             Valor = valor;
         }
 
-        public static IList<String> ReferenciasComponente(String formula)
-        {
-            MatchCollection matchCollection = Regex.Matches(formula, @"(\[([a-zA-Z0-9_-]+)\])+");
-
-            return (from object match in matchCollection select match.ToString().Replace("[","").Replace("]","")).ToList();
-        }
-
         public bool PossuiReferenciaComponente()
         {
-            return ReferenciasComponente(Valor.ToString()).Count > 0;
+            return RegexHelper.ReferenciasComponente(Valor.ToString()).Count > 0;
         }
     }
 }

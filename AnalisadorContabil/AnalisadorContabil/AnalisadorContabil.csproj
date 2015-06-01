@@ -61,6 +61,7 @@
     <Compile Include="NCalc\NCalcExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dominio\Tabela.cs" />
+    <Compile Include="RegexHelper.cs" />
     <Compile Include="Valor\IValor.cs" />
     <Compile Include="Valor\ValorBooleano.cs" />
     <Compile Include="Valor\ValorData.cs" />

@@ -13,7 +13,7 @@ namespace AnalisadorContabil.Testes
         {
             const string formula = "[C14245] * 27 / 100";
 
-            IList<String> parametros = Parametro.ReferenciasComponente(formula);
+            IList<String> parametros = RegexHelper.ReferenciasComponente(formula);
 
             Assert.That(parametros, Has.Member("C14245"));
         }
@@ -23,7 +23,7 @@ namespace AnalisadorContabil.Testes
         {
             const string formula = "[C1_15-1234] + [C1015-1234] + [C1_1501234] + [C101501234]";
 
-            IList<String> parametros = Parametro.ReferenciasComponente(formula);
+            IList<String> parametros = RegexHelper.ReferenciasComponente(formula);
 
             Assert.AreEqual(parametros.Count, 4);
         }
