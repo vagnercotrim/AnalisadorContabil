@@ -34,7 +34,7 @@ namespace AnalisadorContabil.Factory
 
             foreach (var tabelaParametro in tabelaParametros)
             {
-                if (tabelaParametro.ReferenciaComponente())
+                if (tabelaParametro.PossuiReferenciaComponente())
                 {
                     IList<String> parametros = Parametro.FromString(tabelaParametro.Valor.ToString());
 
