@@ -23,7 +23,7 @@ namespace AnalisadorContabil.Dominio
             return (from object match in matchCollection select match.ToString().Replace("[","").Replace("]","")).ToList();
         }
 
-        public bool ContemParametro()
+        public bool ReferenciaComponente()
         {
             return FromString(Valor.ToString()).Count > 0;
         }
