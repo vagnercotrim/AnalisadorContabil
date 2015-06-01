@@ -23,9 +23,9 @@ namespace AnalisadorContabil.Dominio
             return texto;
         }
 
-        private static IEnumerable<string> FromString(String formula)
+        private static IEnumerable<string> FromString(String texto)
         {
-            MatchCollection matchCollection = Regex.Matches(formula, @"(\{([a-zA-Z]\w+)\})+");
+            MatchCollection matchCollection = Regex.Matches(texto, @"(\{([a-zA-Z]\w+)\})+");
 
             return (from object match in matchCollection select match.ToString()).ToList();
         }
