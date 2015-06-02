@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnonymousObject.cs" />
     <Compile Include="Componente\Rest.cs" />
     <Compile Include="Componente\Sql.cs" />
     <Compile Include="Componente\Xml.cs" />

@@ -34,7 +34,7 @@ namespace AnalisadorContabil.Componente
 
         private object Consulta()
         {
-            return _fonteDeDados.GetDados(_consulta);
+            return _fonteDeDados.GetDados(new { arquivo = _arquivo, consulta = _consulta });
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AnalisadorContabil.FonteDeDados;
 using System.Xml;
 using System.Xml.XPath;
@@ -17,11 +18,13 @@ namespace AnalisadorContabil.Xml
 
         public object GetDados(object consulta)
         {
-            _doc.Load(_pasta + @"\resumodomes.xml");
+            IDictionary<string, object> dictionary = AnonymousObject.ToDictionary(consulta);
+            
+            _doc.Load(_pasta + @"\"+ dictionary["arquivo"]);
 
             XPathNavigator nav = _doc.CreateNavigator();
 
-            return nav.Evaluate(consulta.ToString());
+            return nav.Evaluate(dictionary["consulta"].ToString());
         }
     }
 }
