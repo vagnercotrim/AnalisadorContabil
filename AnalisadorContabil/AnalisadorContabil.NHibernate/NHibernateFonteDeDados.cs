@@ -12,9 +12,9 @@ namespace AnalisadorContabil.NHibernate
             _consulta = consulta;
         }
 
-        public object GetDados(String sql)
+        public object GetDados(object sql)
         {
-            return _consulta.UniqueResult(sql);
+            return _consulta.UniqueResult(sql.ToString());
         }
     }
 }

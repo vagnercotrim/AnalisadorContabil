@@ -15,13 +15,13 @@ namespace AnalisadorContabil.Xml
             _pasta = pasta;
         }
 
-        public object GetDados(string consulta)
+        public object GetDados(object consulta)
         {
             doc.Load(_pasta + @"\resumodomes.xml");
 
             XPathNavigator nav = doc.CreateNavigator();
 
-            return nav.Evaluate(consulta);
+            return nav.Evaluate(consulta.ToString());
         }
     }
 }

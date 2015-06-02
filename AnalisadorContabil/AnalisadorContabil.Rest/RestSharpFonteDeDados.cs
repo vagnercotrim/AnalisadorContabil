@@ -14,9 +14,9 @@ namespace AnalisadorContabil.Rest
             _client = new RestClient(endereco);
         }
 
-        public object GetDados(string recurso)
+        public object GetDados(object recurso)
         {
-            IRestRequest request = Get(recurso);
+            IRestRequest request = Get(recurso.ToString());
 
             IRestResponse response = _client.Execute(request);
 
