@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AnalisadorContabil.FonteDeDados
+﻿namespace AnalisadorContabil.FonteDeDados
 {
     public interface IFonteDeDados
     {

@@ -8,7 +8,7 @@ namespace AnalisadorContabil.Xml
     public class XmlFonteDeDados : IFonteDeDados
     {
         private readonly string _pasta;
-        private XmlDocument doc = new XmlDocument();
+        private readonly XmlDocument _doc = new XmlDocument();
 
         public XmlFonteDeDados(String pasta)
         {
@@ -17,9 +17,9 @@ namespace AnalisadorContabil.Xml
 
         public object GetDados(object consulta)
         {
-            doc.Load(_pasta + @"\resumodomes.xml");
+            _doc.Load(_pasta + @"\resumodomes.xml");
 
-            XPathNavigator nav = doc.CreateNavigator();
+            XPathNavigator nav = _doc.CreateNavigator();
 
             return nav.Evaluate(consulta.ToString());
         }

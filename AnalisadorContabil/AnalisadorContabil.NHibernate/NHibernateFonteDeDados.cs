@@ -1,5 +1,4 @@
 ﻿using AnalisadorContabil.FonteDeDados;
-using System;
 
 namespace AnalisadorContabil.NHibernate
 {
