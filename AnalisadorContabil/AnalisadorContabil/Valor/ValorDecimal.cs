@@ -18,7 +18,7 @@ namespace AnalisadorContabil.Valor
 
         public String Exibir()
         {
-            return _valor == null ? "" : _valor.Value.ToString("n2");
+            return _valor == null ? "" : string.Format("{0:0.00}", _valor);
         }
     }
 }
