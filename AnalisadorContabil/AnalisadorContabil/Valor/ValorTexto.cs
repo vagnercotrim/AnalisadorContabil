@@ -18,7 +18,7 @@ namespace AnalisadorContabil.Valor
 
         public String Exibir()
         {
-            return _valor ?? "";
+            return _valor;
         }
     }
 }
