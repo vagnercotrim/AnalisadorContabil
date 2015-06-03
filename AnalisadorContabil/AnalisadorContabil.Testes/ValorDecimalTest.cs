@@ -13,12 +13,6 @@ namespace AnalisadorContabil.Testes
     [TestFixture]
     public class ValorDecimalTest
     {
-
-        public ValorDecimalTest()
-        {
-            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-BR");
-        }
-
         [Test]
         public void Cria_objeto_valordecimal_com_formatacao_porcentagem()
         {
