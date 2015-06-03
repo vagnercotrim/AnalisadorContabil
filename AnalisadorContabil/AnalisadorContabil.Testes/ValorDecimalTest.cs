@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace AnalisadorContabil.Testes
@@ -12,6 +13,11 @@ namespace AnalisadorContabil.Testes
     [TestFixture]
     public class ValorDecimalTest
     {
+
+        public ValorDecimalTest()
+        {
+            Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-BR");
+        }
 
         [Test]
         public void Cria_objeto_valordecimal_com_formatacao_porcentagem()
