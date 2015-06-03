@@ -4,7 +4,7 @@ namespace AnalisadorContabil.Valor
 {
     public class ValorDecimal : IValor
     {
-        private Decimal? _valor;
+        private Decimal _valor;
         private String _formatador;
 
         public ValorDecimal(object valor, String formatador)
@@ -20,7 +20,7 @@ namespace AnalisadorContabil.Valor
 
         public String Exibir()
         {
-            return _valor == null ? "" : string.Format(_formatador, _valor);
+            return string.Format(_formatador, _valor);
         }
     }
 }
