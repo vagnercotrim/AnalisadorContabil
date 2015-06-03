@@ -50,6 +50,7 @@
     <Compile Include="Dominio\ITabelaDao.cs" />
     <Compile Include="Dominio\VariaveisSistema.cs" />
     <Compile Include="Factory\ComponenteFactory.cs" />
+    <Compile Include="NCalc\ExpressionFactory.cs" />
     <Compile Include="Factory\FormulaFactory.cs" />
     <Compile Include="Factory\RestFactory.cs" />
     <Compile Include="Factory\SqlFactory.cs" />

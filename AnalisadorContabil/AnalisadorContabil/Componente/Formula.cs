@@ -11,19 +11,13 @@ namespace AnalisadorContabil.Componente
     public class Formula : IComponente
     {
         private readonly Tabela _tabela;
-        private Expression _expression;
+        private readonly Expression _expression;
         
         public Formula(Tabela tabela, IEnumerable<KeyValuePair<string, IValor>> variaveis)
         {
             _tabela = tabela;
-            SetExpression(tabela.Get("formula").ToString());
+            _expression = ExpressionFactory.Create(tabela.Get("formula").ToString());
             SetVariaveis(variaveis);
-        }
-
-        private void SetExpression(string formula)
-        {
-            _expression = new Expression(formula);
-            _expression.EvaluateFunction += NCalcExtension.Functions;
         }
 
         public String Id()
