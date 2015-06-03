@@ -12,7 +12,7 @@ namespace AnalisadorContabil.Factory
                 return new ValorDecimal(valor, retorno);
 
             if (valor is double)
-                return new ValorDouble(valor);
+                return new ValorDouble(valor, retorno);
 
             if (valor is decimal)
                 return new ValorDecimal(valor, retorno);
