@@ -56,7 +56,7 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deve_converter_um_obeto_da_classe_tabela_em_json()
         {
-            Tabela tabela = new Tabela("C15N0027", null, "sql", null, "numerico",
+            Tabela tabela = new Tabela("C15N0027", null, "sql", null, "{0:0.00}",
                 new List<Parametro>
                 {
                     new Parametro("tabela", "tabela"),

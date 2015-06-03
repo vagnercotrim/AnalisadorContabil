@@ -9,13 +9,13 @@ namespace AnalisadorContabil.Factory
         public static IValor Cria(object valor, String retorno)
         {
             if (valor is int)
-                return new ValorDecimal(valor);
+                return new ValorDecimal(valor, retorno);
 
             if (valor is double)
                 return new ValorDouble(valor);
 
             if (valor is decimal)
-                return new ValorDecimal(valor);
+                return new ValorDecimal(valor, retorno);
 
             if (valor is bool)
                 return new ValorBooleano(valor);

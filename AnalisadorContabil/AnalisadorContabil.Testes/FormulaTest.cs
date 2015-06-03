@@ -11,7 +11,7 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Rerifica_o_ID_do_componente_formula()
         {
-            Tabela tabela = new Tabela("C14-006", null, "formula", null, "numerico", new Parametro("formula","25 * 3"));
+            Tabela tabela = new Tabela("C14-006", null, "formula", null, "{0:0.00}", new Parametro("formula", "25 * 3"));
 
             IComponente componente = new Formula(tabela, null);
 
@@ -21,7 +21,7 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deve_criar_um_componente_formula_e_retornar_75()
         {
-            Tabela tabela = new Tabela("C14-006", null, "formula", null, "numerico", new Parametro("formula", "25 * 3"));
+            Tabela tabela = new Tabela("C14-006", null, "formula", null, "{0:0.00}", new Parametro("formula", "25 * 3"));
 
             IComponente componente = new Formula(tabela, null);
 
@@ -45,7 +45,7 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deve_criar_um_componente_formula_com_operador_ternario_e_retornar_5()
         {
-            Tabela tabela = new Tabela("C14-006", null, "formula", null, "numerico", new Parametro("formula", "25 > 3 ? 5 : 6"));
+            Tabela tabela = new Tabela("C14-006", null, "formula", null, "{0:0.00}", new Parametro("formula", "25 > 3 ? 5 : 6"));
 
             IComponente componente = new Formula(tabela, null);
 
