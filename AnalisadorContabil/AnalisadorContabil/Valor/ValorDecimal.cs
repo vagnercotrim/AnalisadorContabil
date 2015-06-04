@@ -20,7 +20,7 @@ namespace AnalisadorContabil.Valor
 
         public String Exibir()
         {
-            return string.Format(_formatador, _valor);
+            return string.Format(new System.Globalization.CultureInfo("pt-BR"), _formatador, _valor);
         }
     }
 }
