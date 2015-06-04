@@ -4,7 +4,7 @@ namespace AnalisadorContabil.Valor
 {
     public class ValorDouble : IValor
     {
-        private Double? _valor;
+        private Double _valor;
         private String _formatador;
 
         public ValorDouble(object valor, String formatador)
@@ -20,7 +20,7 @@ namespace AnalisadorContabil.Valor
 
         public String Exibir()
         {
-            return _valor == null ? "" : string.Format(_formatador, _valor);
+            return string.Format(new System.Globalization.CultureInfo("pt-BR"), _formatador, _valor);
         }
     }
 }
