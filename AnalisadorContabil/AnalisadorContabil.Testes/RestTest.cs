@@ -77,5 +77,16 @@ namespace AnalisadorContabil.Testes
                 Assert.AreEqual(valor.Objeto(), false);
             }
         }
+
+        [Test]
+        public void Deve_processar_um_componente_rest_e_retornar_o_id()
+        {
+            using (WebApp.Start<Startup>(BaseAddress))
+            {
+                IComponente consulta = _factory.Cria("C15N0101");
+
+                Assert.AreEqual(consulta.Id(), "C15N0101");
+            }
+        }
     }
 }

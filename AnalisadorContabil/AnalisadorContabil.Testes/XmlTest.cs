@@ -40,5 +40,12 @@ namespace AnalisadorContabil.Testes
             Assert.AreEqual(valor.Objeto(), 2500.25M);
         }
 
+        [Test]
+        public void Deve_processar_um_componente_xml_e_retornar_o_id()
+        {
+            IComponente consulta = _factory.Cria("C15N0041");
+
+            Assert.AreEqual(consulta.Id(), "C15N0041");
+        }
     }
 }
