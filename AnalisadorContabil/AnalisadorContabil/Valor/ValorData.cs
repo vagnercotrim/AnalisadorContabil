@@ -4,10 +4,12 @@ namespace AnalisadorContabil.Valor
 {
     public class ValorData : IValor
     {
-        private DateTime? _valor;
+        private readonly string _formatador;
+        private readonly DateTime _valor;
 
-        public ValorData(object valor)
+        public ValorData(object valor, String formatador)
         {
+            _formatador = formatador;
             _valor = DateTime.Parse(valor.ToString());
         }
 
@@ -18,7 +20,7 @@ namespace AnalisadorContabil.Valor
 
         public String Exibir()
         {
-            return _valor == null ? "" : _valor.Value.ToShortDateString();
+            return string.Format(new System.Globalization.CultureInfo("pt-BR"), _formatador, _valor);
         }
     }
 }

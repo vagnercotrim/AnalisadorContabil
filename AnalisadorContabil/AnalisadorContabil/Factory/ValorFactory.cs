@@ -24,7 +24,7 @@ namespace AnalisadorContabil.Factory
                 return new ValorTexto(valor);
 
             if (valor is DateTime)
-                return new ValorData(valor);
+                return new ValorData(valor, retorno);
 
             return new ValorNulo();
         }
