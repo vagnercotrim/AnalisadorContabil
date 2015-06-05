@@ -4,8 +4,8 @@ namespace AnalisadorContabil.Valor
 {
     public class ValorDecimal : IValor
     {
-        private Decimal _valor;
-        private String _formatador;
+        private readonly Decimal _valor;
+        private readonly String _formatador;
 
         public ValorDecimal(object valor, String formatador)
         {

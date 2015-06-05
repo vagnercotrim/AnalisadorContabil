@@ -4,8 +4,8 @@ namespace AnalisadorContabil.Valor
 {
     public class ValorDouble : IValor
     {
-        private Double _valor;
-        private String _formatador;
+        private readonly Double _valor;
+        private readonly String _formatador;
 
         public ValorDouble(object valor, String formatador)
         {

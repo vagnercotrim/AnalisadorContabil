@@ -132,6 +132,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TabelaTest.cs" />
     <Compile Include="ValorDecimalTest.cs" />
+    <Compile Include="ValorDoubleTest.cs" />
     <Compile Include="XmlTest.cs" />
   </ItemGroup>
   <ItemGroup>

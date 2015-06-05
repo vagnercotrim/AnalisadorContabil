@@ -43,6 +43,18 @@ namespace AnalisadorContabil.Testes
         }
 
         [Test]
+        public void Deve_criar_um_componente_formula_com_operador_condicional_e_retornar_falso()
+        {
+            Tabela tabela = new Tabela("C14-006", null, "formula", null, "booleano", new Parametro("formula", "20 < 10"));
+
+            IComponente componente = new Formula(tabela, null);
+
+            var valor = componente.GetValor();
+
+            Assert.That(valor.Exibir(), Is.EqualTo("falso"));
+        }
+
+        [Test]
         public void Deve_criar_um_componente_formula_com_operador_ternario_e_retornar_5()
         {
             Tabela tabela = new Tabela("C14-006", null, "formula", null, "{0:0.00}", new Parametro("formula", "25 > 3 ? 5 : 6"));
