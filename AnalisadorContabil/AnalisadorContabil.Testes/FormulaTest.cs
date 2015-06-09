@@ -33,7 +33,7 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deve_criar_um_componente_formula_com_operador_condicional_e_retornar_verdadeiro()
         {
-            Tabela tabela = new Tabela("C14-006", null, "formula", null, "booleano", new Parametro("formula", "25 > 3"));
+            Tabela tabela = new Tabela("C14-006", null, "formula", null, "{0:verdadeiro;0;falso}", new Parametro("formula", "25 > 3"));
 
             IComponente componente = new Formula(tabela, null);
 
@@ -45,7 +45,7 @@ namespace AnalisadorContabil.Testes
         [Test]
         public void Deve_criar_um_componente_formula_com_operador_condicional_e_retornar_falso()
         {
-            Tabela tabela = new Tabela("C14-006", null, "formula", null, "booleano", new Parametro("formula", "20 < 10"));
+            Tabela tabela = new Tabela("C14-006", null, "formula", null, "{0:verdadeiro;0;falso}", new Parametro("formula", "20 < 10"));
 
             IComponente componente = new Formula(tabela, null);
 

@@ -18,7 +18,7 @@ namespace AnalisadorContabil.Factory
                 return new ValorDecimal(valor, retorno);
 
             if (valor is bool)
-                return new ValorBooleano(valor);
+                return new ValorBooleano(valor, retorno);
 
             if (valor is string)
                 return new ValorTexto(valor);

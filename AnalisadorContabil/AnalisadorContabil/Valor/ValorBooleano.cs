@@ -4,10 +4,12 @@ namespace AnalisadorContabil.Valor
 {
     public class ValorBooleano : IValor
     {
+        private readonly string _formatador;
         private readonly bool _valor;
 
-        public ValorBooleano(object valor)
+        public ValorBooleano(object valor, String formatador)
         {
+            _formatador = formatador;
             _valor = Boolean.Parse(valor.ToString());
         }
 
@@ -18,7 +20,7 @@ namespace AnalisadorContabil.Valor
 
         public String Exibir()
         {
-            return _valor ? "verdadeiro" : "falso";
+            return string.Format(_formatador, _valor.GetHashCode());
         }
     }
 }
